@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title> | Redclay&#39;s blog</title>
+    <title>P9 | Redclay&#39;s blog</title>
     <meta name="author" content="Redclay" />
     <meta name="description" content="An easy blog" />
     <meta name="keywords" content="" />
@@ -150,7 +150,7 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1></h1>
+        <h1>P9</h1>
     </div>
     <div class="info">
         <span class="date">
@@ -164,7 +164,23 @@
     </div>
     
     <div class="content" v-pre>
-        
+        <p>C语言中浮点数的定义：</p>
+<p>单精度浮点数：float,占4个字节</p>
+<p>双精度浮点数：double,占8个字节</p>
+<p>例如：</p>
+<p>float x&#x3D;1.732f；</p>
+<p>double y&#x3D;3.1415926；</p>
+<p>在IEEE标准中，浮点数是将特定长度的连续字节（4个字节或8个字节）的所有2进制位（32或64）分割为特定的三个区域。</p>
+<p>符号域：S，占1位，正0，负1.</p>
+<p>阶码域：E,占8位或11位，E&#x3D;e+127（float） or e+1023(double),指数e右正负即为符号数，但阶码为正是无符号数，所以把e加127或1023作为偏移，方便指数的比较。</p>
+<p>尾数域：M，占23位和52位因为整数部分的1是默认的可以不存储。</p>
+<p>公式</p>
+<p>精度实数的存储结构：</p>
+<p>例如：</p>
+<p>-99.75的float：1 10000101 10001111000000000000000</p>
+<p>double：1 10000000101 1000111100000000000000000000000000000000000000000000</p>
+<p>1.5625的二进制表示用x2取整的方法，第一次x2整数部分为1，小数部分是0.125，第二次x2的整数为0，小数为0.25，第三次的x2，整数是0，小数是0.5，第四次x2，整数是1，小数为0。所以1.5625的2进制是1.1001.</p>
+
     </div>
     
     
