@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | Redclay&#39;s blog</title>
+    <title>P15 | Redclay&#39;s blog</title>
     <meta name="author" content="Redclay" />
     <meta name="description" content="An easy blog" />
     <meta name="keywords" content="" />
@@ -31,6 +31,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -144,166 +148,45 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
+            <div class="article">
+    <div>
+        <h1>P15</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/18
+        </span>
         
-        <div class="timeline" data-title="helloworld">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/12</div>
-                <a href="/2023/10/12/hello-world/">
-                    <h3>Hello World</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="linux">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/12</div>
-                <a href="/2023/10/12/linux/">
-                    <h3>linux</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p6">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/12</div>
-                <a href="/2023/10/12/P6/">
-                    <h3>P6</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/16</div>
-                <a href="/2023/10/16/P4/">
-                    <h3></h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p7">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/16</div>
-                <a href="/2023/10/16/P7/">
-                    <h3>P7</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p8">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/16</div>
-                <a href="/2023/10/16/P8/">
-                    <h3>P8</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p9">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/16</div>
-                <a href="/2023/10/16/P9/">
-                    <h3>P9</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p12">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/18</div>
-                <a href="/2023/10/18/P12/">
-                    <h3>P12</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p13">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/18</div>
-                <a href="/2023/10/18/P13/">
-                    <h3>P13</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p15">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/18</div>
-                <a href="/2023/10/18/P15/">
-                    <h3>P15</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/18</div>
-                <a href="/2023/10/18/P16/">
-                    <h3></h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
         
     </div>
+    
+    <div class="content" v-pre>
+        <p>强制转换<br>格式（新类型）变量<br>丢失字节从高位开始丢失。<br>从小到大转换要用符号位填充，整数用0填充，负数用1填充。<br>自动（隐式）转换<br>1，若参与的运算量的类型不同，则先转换成同一类型，然后进行运算。<br>2，转换按数据长度的增加方向进行，以保证精度不降低。如int型和long型运算时，先把int量转成long型后在进行运算。<br>字节数不同的转换为高字节进行运算，<br>字节相同的如果一种有符号另一种没有符号，则转换为无符号类型。</p>
+<p>自动转换2</p>
+<p>进行算数运算（加减乘除取余及符号运算）时，不同类型数据必须转换成同一类型的数据才能运算，算数转换原则为：</p>
+<p>进行运算时，以表达式中最长的类型为主，将其他类型数据均转换成该类型，</p>
+<p>a，若运算数中有double型或float型，则其他类型的数据均转换成double类型进行运算。</p>
+<p>b，若运算中最长的类型为long型，则其他类型数均转换成long型数。</p>
+<p>c，若运算中最长型为int型，则char型也转换成int型进行运算。算数转换是在运算过程中自动完成的。</p>
+<p>d，函数调用中参数传递时，系统隐式地将实参转换为形参的类型后，赋给形参。char和short会被转换成int，float会被转换成double。</p>
+<p>f，printf函数会将char和short转换成int；float会被转换成double传递。</p>
+<p>g，函数有返回值时，系统将隐式地将返回表达式类型转换为返回值类型，赋值给调用函数。</p>
+<p>注意事项：<br><img src="/../images/P15/p15001.png" alt="1"><br><img src="/../images/P15/p15002.png" alt="2"></p>
+<p>作业：</p>
+<p>1<br><img src="/../images/P15/p15003.png" alt="3"><br><img src="/../images/P15/p15004.png" alt="4"></p>
+<p>从int转换为char时字节是减少的512的2进制是0000 0000 0000 0000 0000 0001 0000 0000变为16进制是0x00 00 01 00</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
             <footer id="footer">
@@ -334,6 +217,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

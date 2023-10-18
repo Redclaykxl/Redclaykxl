@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | Redclay&#39;s blog</title>
+    <title>P12 | Redclay&#39;s blog</title>
     <meta name="author" content="Redclay" />
     <meta name="description" content="An easy blog" />
     <meta name="keywords" content="" />
@@ -31,6 +31,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -144,166 +148,61 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
+            <div class="article">
+    <div>
+        <h1>P12</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/18
+        </span>
         
-        <div class="timeline" data-title="helloworld">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/12</div>
-                <a href="/2023/10/12/hello-world/">
-                    <h3>Hello World</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="linux">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/12</div>
-                <a href="/2023/10/12/linux/">
-                    <h3>linux</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p6">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/12</div>
-                <a href="/2023/10/12/P6/">
-                    <h3>P6</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/16</div>
-                <a href="/2023/10/16/P4/">
-                    <h3></h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p7">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/16</div>
-                <a href="/2023/10/16/P7/">
-                    <h3>P7</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p8">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/16</div>
-                <a href="/2023/10/16/P8/">
-                    <h3>P8</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p9">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/16</div>
-                <a href="/2023/10/16/P9/">
-                    <h3>P9</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p12">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/18</div>
-                <a href="/2023/10/18/P12/">
-                    <h3>P12</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p13">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/18</div>
-                <a href="/2023/10/18/P13/">
-                    <h3>P13</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="p15">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/18</div>
-                <a href="/2023/10/18/P15/">
-                    <h3>P15</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2023/10/18</div>
-                <a href="/2023/10/18/P16/">
-                    <h3></h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
         
     </div>
+    
+    <div class="content" v-pre>
+        <p>P12<br>字符类型：char（1）&#x2F;wchar_t（2或4）<br>整型：short（2）&#x2F;int（4）&#x2F;long(4或8)&#x2F;long long(8)&#x2F;_int64(8)<br>实数单精度：float（4）<br>实数双精度：double（8）<br>有符号和无符号：signed&#x2F;unsdigned,(signed)int&#x2F;unsigned int<br>布尔类型：bool，0&#x2F;1（true&#x2F;false）C99&lt;stdbool.h&gt;<br>typedef int bool<br>#define true 1<br>#define false 0</p>
+<p>字符编码有Ascll，utf系列，unicode。<br>·a·是ascll的L·a·是unicode的<br>NULL，0，’\0’都是一样的，都是值0<br>NULL<br>虽然值是0，但是它的含义不一样，或者说它的类型不一样。NULL是指针类型，不过它是空指针，即值为0<br>‘\0’<br>我们都知道\是转义符，用单引号包起来，再加转义，实际上就是0，只不过它表示的是字符<br>“0”<br>用双引号包裹的0是字符串</p>
+<p>#include &lt;stdio.h&gt;<br>#include &lt;math.h&gt;</p>
+<p>void main()<br>{<br>    float a &#x3D; 0;</p>
+<pre><code>if (fabs(a)&lt; 1e-6)
+&#123;
+    printf(&quot;a 等于 0\n&quot;);
+&#125;
+else
+&#123;
+    printf(&quot;a 不等于 0\n&quot;);
+&#125;
+
+return;
+</code></pre>
+<p>}</p>
+<p>#include &lt;stdio.h&gt;<br>#include &lt;math.h&gt;</p>
+<p>void main()<br>{<br>    double a &#x3D; 0;</p>
+<pre><code>if (fabs(a)&lt; 1e-15)
+&#123;
+    printf(&quot;a 等于 0\n&quot;);
+&#125;
+else
+&#123;
+    printf(&quot;a 不等于 0\n&quot;);
+&#125;
+
+return;
+</code></pre>
+<p>}</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
             <footer id="footer">
@@ -334,6 +233,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

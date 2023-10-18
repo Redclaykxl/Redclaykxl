@@ -167,6 +167,171 @@
         
 
 <div class="post">
+    <a href="/2023/10/18/P16/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/18
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/18/P16/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/18/P15/">
+        <h2 class="post-title">P15</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/18
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>强制转换<br>格式（新类型）变量<br>丢失字节从高位开始丢失。<br>从小到大转换要用符号位填充，整数用0填充，负数用1填充。<br>自动（隐式）转换<br>1，若参与的运算量的类型不同，则先转换成同一类型，然后进行运算。<br>2，转换按数据长度的增加方向进行，以保证精度不降低。如int型和long型运算时，先把int量转成long型后在进行运算。<br>字节数不同的转换为高字节进行运算，<br>字节相同的如果一种有符号另一种没有符号，则转换为无符号类型。</p>
+<p>自动转换2</p>
+<p>进行算数运算（加减乘除取余及符号运算）时，不同类型数据必须转换成同一类型的数据才能运算，算数转换原则为：</p>
+<p>进行运算时，以表达式中最长的类型为主，将其他类型数据均转换成该类型，</p>
+<p>a，若运算数中有double型或float型，则其他类型的数据均转换成double类型进行运算。</p>
+<p>b，若运算中最长的类型为long型，则其他类型数均转换成long型数。</p>
+<p>c，若运算中最长型为int型，则char型也转换成int型进行运算。算数转换是在运算过程中自动完成的。</p>
+<p>d，函数调用中参数传递时，系统隐式地将实参转换为形参的类型后，赋给形参。char和short会被转换成int，float会被转换成double。</p>
+<p>f，printf函数会将char和short转换成int；float会被转换成double传递。</p>
+<p>g，函数有返回值时，系统将隐式地将返回表达式类型转换为返回值类型，赋值给调用函数。</p>
+<p>注意事项：<br><img src="/../images/P15/p15001.png" alt="1"><br><img src="/../images/P15/p15002.png" alt="2"></p>
+<p>作业：</p>
+<p>1<br><img src="/../images/P15/p15003.png" alt="3"><br><img src="/../images/P15/p15004.png" alt="4"></p>
+<p>从int转换为char时字节是减少的512的2进制是0000 0000 0000 0000 0000 0001 0000 0000变为16进制是0x00 00 01 00</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/18/P15/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/18/P13/">
+        <h2 class="post-title">P13</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/18
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>P13<br>类型长度-sizeof（是一个操作符，在编译阶段就确定）<br>char[-128,127][0,255]<br>short[-32768,32767][0,65535]<br>int&#x2F;long[-2147483648,2147483647][0,4294967295]<br>float[-3.4<em>10^38,3.4</em>10^38]<br>double[-1.7<em>10^308,1.7</em>10^308]<br>无符号的int最小为0，最大为-1（2进制的位全是1）<br>有符号的int<br>int max &#x3D; 0x7fffffff除符号位全是1<br>int min &#x3D; 0x80000000除符号位全是0<br>在整数上溢出1是最小值，整数下溢出1是最大值。<br> (char)(-128*-1)&#x3D;-128<br>16位系统中，int有符号的取值范围是[-2<em>16&#x2F;2,2</em>16&#x2F;2-1]无符号是[0,65536]<br>所以当i&#x3D;65536是溢出1位则是-32768，i&#x3D;65535时为-32767.</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/18/P13/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/18/P12/">
+        <h2 class="post-title">P12</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/18
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>P12<br>字符类型：char（1）&#x2F;wchar_t（2或4）<br>整型：short（2）&#x2F;int（4）&#x2F;long(4或8)&#x2F;long long(8)&#x2F;_int64(8)<br>实数单精度：float（4）<br>实数双精度：double（8）<br>有符号和无符号：signed&#x2F;unsdigned,(signed)int&#x2F;unsigned int<br>布尔类型：bool，0&#x2F;1（true&#x2F;false）C99&lt;stdbool.h&gt;<br>typedef int bool<br>#define true 1<br>#define false 0</p>
+<p>字符编码有Ascll，utf系列，unicode。<br>·a·是ascll的L·a·是unicode的<br>NULL，0，’\0’都是一样的，都是值0<br>NULL<br>虽然值是0，但是它的含义不一样，或者说它的类型不一样。NULL是指针类型，不过它是空指针，即值为0<br>‘\0’<br>我们都知道\是转义符，用单引号包起来，再加转义，实际上就是0，只不过它表示的是字符<br>“0”<br>用双引号包裹的0是字符串</p>
+<p>#include &lt;stdio.h&gt;<br>#include &lt;math.h&gt;</p>
+<p>void main()<br>{<br>    float a &#x3D; 0;</p>
+<pre><code>if (fabs(a)&lt; 1e-6)
+&#123;
+    printf(&quot;a 等于 0\n&quot;);
+&#125;
+else
+&#123;
+    printf(&quot;a 不等于 0\n&quot;);
+&#125;
+
+return;
+</code></pre>
+<p>}</p>
+<p>#include &lt;stdio.h&gt;<br>#include &lt;math.h&gt;</p>
+<p>void main()<br>{<br>    double a &#x3D; 0;</p>
+<pre><code>if (fabs(a)&lt; 1e-15)
+&#123;
+    printf(&quot;a 等于 0\n&quot;);
+&#125;
+else
+&#123;
+    printf(&quot;a 不等于 0\n&quot;);
+&#125;
+
+return;
+</code></pre>
+<p>}</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/18/P12/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2023/10/16/P9/">
         <h2 class="post-title">P9</h2>
     </a>
@@ -514,56 +679,19 @@ int i=-1在内存中存在的形式是补码，因为1的int形式为00000001，
     <a href="/2023/10/12/linux/" class="go-post">阅读全文</a>
 </div>
 
-<div class="post">
-    <a href="/2023/10/12/hello-world/">
-        <h2 class="post-title">Hello World</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/12
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2023/10/12/hello-world/" class="go-post">阅读全文</a>
-</div>
-
 
         <div class="page-current">
     
     <span class="current">1</span>
     
+    <a class="page-num" href="/page/2">2</a>
     
     
+    
+    
+    <a class="page-num" href="/page/2/">
+        <i class="fa-solid fa-caret-right fa-fw"></i>
+    </a>
     
 </div>
 
