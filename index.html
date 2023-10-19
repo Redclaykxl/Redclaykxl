@@ -168,7 +168,7 @@
 
 <div class="post">
     <a href="/2023/10/19/P19/">
-        <h2 class="post-title"></h2>
+        <h2 class="post-title">P19</h2>
     </a>
     <div class="category-and-date">
         
@@ -184,7 +184,23 @@
     <div class="description">
         <div class="content" v-pre>
             
-            
+            <p>i++和++i的区别：</p>
+<p>一，C语言内建型别：</p>
+<p>i++;</p>
+<p>++i;</p>
+<p>C++里，i是一个对象，++i比i++效率高。</p>
+<p>二，在复合表达式或赋值语句中：</p>
+<p>int i&#x3D;0；</p>
+<p>int a&#x3D; i++;a&#x3D;i;i&#x3D;i+1</p>
+<p>int i&#x3D;0;</p>
+<p>int b&#x3D; ++i;i&#x3D;i+1;b&#x3D;i-&gt;b&#x3D;1,i&#x3D;1</p>
+<p>三，函数中</p>
+<p>i++</p>
+<p>++i</p>
+<p>I++,++i属于不确定（由编译器决定） </p>
+<p>对于i&#x3D;&#x3D;0和0&#x3D;&#x3D;i来说，在if（）{}时是没错的但是，如果输入少&#x3D;时i&#x3D;&#x3D;0不会报错，产生的错误不易被发现，但是0&#x3D;&#x3D;i就会报错使错误更容易被发现改正。</p>
+<p>a%&#x3D;5是指a&#x3D;a%5取余，a*&#x3D;5是指a×5.</p>
+
             
         </div>
     </div>
