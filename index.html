@@ -167,6 +167,85 @@
         
 
 <div class="post">
+    <a href="/2023/10/20/P21/">
+        <h2 class="post-title">P21</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/20
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>switch语句是一种多路段判定语句，它测试表达语句是否为一些常量整数值中的某一个值匹配，并执行相应的分支动作。所以switch语句也是一种分支语句，可以和if语句互相转换。</p>
+<p>switch(a)&#x2F;&#x2F;a只能为整数(char,short,int,long等),不能为指针，浮点数。</p>
+<pre><code>控制语句之循环语句：for,while,do-while.
+</code></pre>
+<p>for(表达式1;条件表达式2;表达式3)</p>
+<p>{</p>
+<p>循环体</p>
+<p>}</p>
+<p>for循环中的“参数初始化表达式”，“条件表达式”和“更新循环变量表达式”都是选择项，即可以缺省，但是“;”不能缺。省略了初始化，表示不对循环控制变量赋初值，省略了条件表达式，则不做其他处理时便成为死循环。省略了增量，则不对循环控制变量进行操作，这时可在语句中加入修改循环控制变量的语句。</p>
+<p>1，简单的for循环</p>
+<p>for(int i&#x3D;0; i&lt;10;i++)</p>
+<p>{</p>
+<p>printf(“i:%d\n”,i);</p>
+<p>}</p>
+<p>return 0; </p>
+<p>2，while的循环</p>
+<p>int i&#x3D;0;</p>
+<p>while(i&lt;10)</p>
+<p>{</p>
+<p>printf(“i:%d\n”,i);</p>
+<p>i++;</p>
+<p>}</p>
+<p>return 0;</p>
+<p>3，do_while语句的用法</p>
+<p>int i&#x3D;0;</p>
+<p>do</p>
+<p>{</p>
+<p>printf(“i:%d\n”,i);&#x2F;&#x2F;先执行在打印。</p>
+<p>i++;</p>
+<p>} while  (i&lt;10);&#x2F;&#x2F;while的循环写在花括号后边。</p>
+<p>return 0;</p>
+<pre><code>控制语句之转向语句
+</code></pre>
+<p>goto</p>
+<p>循环中的转向语句</p>
+<p>break</p>
+<p>continue</p>
+<p>return:</p>
+<p>return 0 or return.</p>
+<p>慎用goto语句，使用方式：</p>
+<p>语句1</p>
+<p>语句2</p>
+<p>goto Lable1;</p>
+<p>. . . . </p>
+<p>Lable1:</p>
+<p>语句7；</p>
+<p>语句8；</p>
+<p>语句9；</p>
+<p><img src="/../images/P21/p21001.png" alt="1"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/20/P21/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2023/10/19/P20/">
         <h2 class="post-title">P20</h2>
     </a>
@@ -559,46 +638,6 @@ return;
         
     </div>
     <a href="/2023/10/16/P9/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/10/16/P8/">
-        <h2 class="post-title">P8</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/16
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>整数的储存方式分为：低位优先(little-endian)和高位优先(big-endian)。</p>
-<p>低位优先从低位到高位排序，高位优先从高到低排序。</p>
-<p>我们的32位系统也就是x86系统所用的方式是低位优先，64位是高位优先。对于一个整数0x00 00 00 01，靠近0x的是高位，右侧为低位。例如一个32位的整数的值为0x12345678，则在32位的系统中储存方式为78 56 34 12，如果换成64位系统就是12 34 56 78。</p>
-<p>htons()</p>
-<p>(htons to net short)主机字节序到网络字节序转换。</p>
-<p>ntons()</p>
-<p>(net to host short)网络字节序到主机字节序的转换。</p>
-<p>我们可以通过以下两种方式了解主机的字节序优先。<br><img src="/../images/P8/p8005.png" alt="5"><br><img src="/../images/P8/p8006.png" alt="6"></p>
-<p>ip数据的报头是高位优先的，我们可以编写以下程序来识别。<br><img src="/../images/P8/p8001.png" alt="1"><br><img src="/../images/P8/p8002.png" alt="2"></p>
-<p>之后把数值改为1234.<br><img src="/../images/P8/p8003.png" alt="3"><br><img src="/../images/P8/p8004.png" alt="4"></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2023/10/16/P8/" class="go-post">阅读全文</a>
 </div>
 
 

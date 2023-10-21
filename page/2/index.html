@@ -167,6 +167,46 @@
         
 
 <div class="post">
+    <a href="/2023/10/16/P8/">
+        <h2 class="post-title">P8</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/16
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>整数的储存方式分为：低位优先(little-endian)和高位优先(big-endian)。</p>
+<p>低位优先从低位到高位排序，高位优先从高到低排序。</p>
+<p>我们的32位系统也就是x86系统所用的方式是低位优先，64位是高位优先。对于一个整数0x00 00 00 01，靠近0x的是高位，右侧为低位。例如一个32位的整数的值为0x12345678，则在32位的系统中储存方式为78 56 34 12，如果换成64位系统就是12 34 56 78。</p>
+<p>htons()</p>
+<p>(htons to net short)主机字节序到网络字节序转换。</p>
+<p>ntons()</p>
+<p>(net to host short)网络字节序到主机字节序的转换。</p>
+<p>我们可以通过以下两种方式了解主机的字节序优先。<br><img src="/../images/P8/p8005.png" alt="5"><br><img src="/../images/P8/p8006.png" alt="6"></p>
+<p>ip数据的报头是高位优先的，我们可以编写以下程序来识别。<br><img src="/../images/P8/p8001.png" alt="1"><br><img src="/../images/P8/p8002.png" alt="2"></p>
+<p>之后把数值改为1234.<br><img src="/../images/P8/p8003.png" alt="3"><br><img src="/../images/P8/p8004.png" alt="4"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/16/P8/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2023/10/16/P7/">
         <h2 class="post-title">P7</h2>
     </a>
