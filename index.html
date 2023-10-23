@@ -167,6 +167,51 @@
         
 
 <div class="post">
+    <a href="/2023/10/21/Array/">
+        <h2 class="post-title"></h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/21
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>数组</p>
+<p>一维数组的定义：<br>数据类型 数组名[常量表达式]<br>数组元素的类型 合法标识符 数组元素个数。<br>数组是连续的可以随机访问。但是链表就不能。<br>字符数组<br>char str1[]&#x3D;{‘h’,’e’,’l’,’l’,’o’,’w’,’o’,’r’,’l’,’d’};<br>char str2[]&#x3D;”hello world”;<br>第一个是字符数组，第二个即是字符数组还是字符串。<br>&#x2F;&#x2F;sizeof是用来计算类型和数据的长度，strlen是用来计算字符串中非‘\0’的字符个数。<br>每当重新定义变量的时候所对应的a[i]就会改变。<br>数组的赋值要在初始化阶段完成，初始化结束后不能直接赋值必须拷贝或单个元素赋值。<br>数组名是常量指针一旦定义就不能修改。<br> #define hansu(a) sizeof(a)&#x2F;sizeof(a[0])<br> 如果输入的数组过多就会导致产生一些垃圾数值，C语言不会检测数组溢出。</p>
+<p>二维数组<br>初始化数组a[5]&#x3D;{1,2,3,4,5};<br>二维数组和一维数组的储存方式相同<br>数组是一种引用数据类型，数组引用变量只是一个引用，数组元素和数组变量在内存里是分开存放的。 下面将深入介绍数组在内存中的运行机制。 数组引用变量只是一个引用，这个引用变量可以指向任何有效的内存，只有当该引用指向有效内存后，才可通过该数组变量来访问数组元素。 与所有引用变量相同的是，引用变量是访问真实对象的根本方式。 也就是说，如果我们希望在程序中访问数组，则只能通过这个数组的引用变量来访问它。 实际的数组元素被存储在<strong>堆</strong>（heap）内存中；数组引用变量是一个引用类型的变量，被存储在栈（stack）内存中。<br>采用按行列出的效率高因为这样的数组是连续的可以随机访问而按列排序在储存中是跳跃的。</p>
+<p>#include &lt;stdio.h&gt;<br>void func(int a[],int len)<br>{<br>    printf(“sizeof(a) in func&#x3D;%d\n”,sizeof(a));<br>}<br>int main()<br>{<br>int a[10]&#x3D;{0};<br>printf(“sizeof(a)&#x3D;%d\n”,sizeof(a));<br>func(a,10);<br>return  0;<br>}<br>输出40，4</p>
+<p>#include &lt;stdio.h&gt;<br>int main()<br>{<br>    int a[5]&#x3D;{1,2,3,4,5};<br>    int <em>ptr1&#x3D;(int</em>)(&amp;a+1);<br>    int <em>ptr2&#x3D;(int</em>)((int)a+1);<br>    printf(“%x,%x”,ptr1[-1],*ptr2);<br>    return 0;<br>}<br>输出5，200000</p>
+<p>字符串数组<br>是由零个或多个字符组成的有限序列。C语言的字符串可以定义为：”c1c2c3c4……cn\0”。<br>从定义的形式可以看出，C语言的字符串是以’\0’结尾的。程序在存放字符后会自动加上’\0’。<br>当字符串中的字符有符号时可以用&quot;real&quot;来防止产生的语法错误。（即在普通字符前加上反斜线。）</p>
+<p>多字节字符串和宽字节字符串<br>在C语言中，多字节字符串每个字符的编码宽度都不等，可以是一个字节还可以是多个字节。<br>例如：char *str &#x3D; “Hello World!你好，世界!”。<br>就是一个多字节的字符串(英文一个字节，中文两个字节)<br>宽字节符的每个字节都是一样的。<br>比如：wchar_t *wstr&#x3D;L”Hello World!你好，世界！”。<br>上面的字符串都是两个字节。<br>我们可以利用wctomb()进行宽字节和多字节的转。</p>
+<p> #include &lt;stdio.h&gt;<br> int g_sl[]&#x3D;”hello world 1”;<br>int main()<br>{<br>    char *s2&#x3D;”hello world 2”;<em>不能在指针上修改数据，即不能修改存在静态常量值的字符串</em><br>    char s3[]&#x3D;”hello world 3”;<br>    char *ps4&#x3D;(char*)malloc(128);</p>
+<p>if(ps4=&#x3D;NULL)<br>{<br>    return -1;<br>}<br>memset(ps4,1,128);<br>strcpy(ps4,128,”hello world 4”);</p>
+<p>printf(“%s\n”,g_sl);<em>静态区</em><br>printf(“%s\n”,s2);<em>静态常量区</em><br>printf(“%s\n”,s3);<em>栈</em><br>printf(“%s\n”,ps4);<em>堆</em></p>
+<p>free(ps4);</p>
+<p>return 0;<br>}</p>
+<p>字符串遍历的三种方法：<br>char *str &#x3D; “hello world!”;<br>while(*str !&#x3D; ‘\0’)<br>{<br>    printf(“%c”,*str);<br>    str++;<br>}</p>
+<p>for(;*str !&#x3D; ‘\0’;str++)<br>{<br>    printf(“%c”,str);<br>}</p>
+<p>for(int i&#x3D;0;str[i] !&#x3D; ‘\0’;i++)<br>{<br>    printf(“%c”,str[i]);<br>}&#96;&#96;</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/21/Array/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2023/10/20/P21/">
         <h2 class="post-title">P21</h2>
     </a>
@@ -592,52 +637,6 @@ return;
         
     </div>
     <a href="/2023/10/18/P12/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/10/16/P9/">
-        <h2 class="post-title">P9</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/16
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>C语言中浮点数的定义：</p>
-<p>单精度浮点数：float,占4个字节</p>
-<p>双精度浮点数：double,占8个字节</p>
-<p>例如：</p>
-<p>float x&#x3D;1.732f；</p>
-<p>double y&#x3D;3.1415926；</p>
-<p>在IEEE标准中，浮点数是将特定长度的连续字节（4个字节或8个字节）的所有2进制位（32或64）分割为特定的三个区域。</p>
-<p>符号域：S，占1位，正0，负1.</p>
-<p>阶码域：E,占8位或11位，E&#x3D;e+127（float） or e+1023(double),指数e右正负即为符号数，但阶码为正是无符号数，所以把e加127或1023作为偏移，方便指数的比较。</p>
-<p>尾数域：M，占23位和52位因为整数部分的1是默认的可以不存储。</p>
-<p>公式</p>
-<p>精度实数的存储结构：</p>
-<p>例如：</p>
-<p>-99.75的float：1 10000101 10001111000000000000000</p>
-<p>double：1 10000000101 1000111100000000000000000000000000000000000000000000</p>
-<p>1.5625的二进制表示用x2取整的方法，第一次x2整数部分为1，小数部分是0.125，第二次x2的整数为0，小数为0.25，第三次的x2，整数是0，小数是0.5，第四次x2，整数是1，小数为0。所以1.5625的2进制是1.1001.</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2023/10/16/P9/" class="go-post">阅读全文</a>
 </div>
 
 
