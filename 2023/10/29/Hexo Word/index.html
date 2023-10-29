@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="en" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Redclay's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: false});</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: Bender;
+ src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+ font-family: BenderLight;
+ src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+  --theme-encrypt-confirm: 'confirm'
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1></h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-10-29T03:10:30.634Z" id="date"> 2023-10-29</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-10-29T03:29:06.061Z" id="updated"> 2023-10-29</time></div></span></div></div><hr><div id="post-content"><ol>
+<li><p><strong>安装Node.js和Git</strong>：首先，你需要在你的计算机上安装Node.js和Git。你可以从官方网站下载并安装它们。</p>
+</li>
+<li><p><strong>安装Hexo</strong>：打开命令行，然后输入以下命令来全局安装Hexo：</p>
+<pre><code>npm install -g hexo-cli
+</code></pre>
+</li>
+<li><p><strong>创建博客</strong>：然后，你可以使用以下命令来创建一个新的Hexo项目：</p>
+<pre><code>hexo init blog
+cd blog
+</code></pre>
+</li>
+<li><p><strong>安装依赖</strong>：在新创建的项目目录中，运行以下命令来安装依赖：</p>
+<pre><code>npm install
+</code></pre>
+</li>
+<li><p><strong>启动服务器</strong>：现在，你可以启动Hexo服务器来预览你的博客：</p>
+<pre><code>hexo server
+</code></pre>
+</li>
+<li><p><strong>生成静态文件</strong>：当你对博客满意时，你可以生成静态文件：</p>
+<pre><code>hexo generate
+</code></pre>
+</li>
+<li><p><strong>部署到GitHub</strong>：最后，你可以将你的博客部署到GitHub。首先，你需要在<code>_config.yml</code>文件中设置部署配置。然后，运行以下命令来部署你的博客：</p>
+<pre><code>hexo deploy
+</code></pre>
+</li>
+</ol>
+<pre><code>hexo -v //检测版本号
+git config --global user.name &quot;GitHub用户名&quot;
+git config --global user.email &quot;GitHub注册邮箱&quot;
+</code></pre>
+<pre><code>ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;
+</code></pre>
+<pre><code>cat ~/.ssh/id_rsa.pub
+</code></pre>
+<p>博客初始化</p>
+<p>首先选择一个你喜欢的地方作为你的博客根目录。</p>
+<pre><code>mkdir ~/git/你的GitHub用户名.github.io
+</code></pre>
+<p>随后依次运行：</p>
+<pre><code>hexo init ~/git/你的GitHub用户名.github.io
+cd ~/git/你的GitHub用户名.github.io
+npm install
+</code></pre>
+<p>现在博客已经初始化完成了。使用以下命令：</p>
+<pre><code>hexo server
+</code></pre>
+<p>就可以在本地看到你的站点了。可以在终端里使用<code>control+c</code>关掉本地服务器。下面列举一些常用的命令，更多命令与参数可以参考.</p>
+<ul>
+<li>hexo clean用于清除缓存与静态文件。</li>
+<li>hexo new “文章标题”用于新建文章。</li>
+<li>hexo server用于启动本地服务器查看渲染好的网页，可简写为hexo s。</li>
+<li>hexo generate用于生成静态文件，可简写为hexo g。</li>
+<li>hexo deploy用于部署网站，需要先设置好_config.yml，可简写hexo d。</li>
+</ul>
+<p>设置_config.yml</p>
+<pre><code>deploy:
+  type: git
+  repo: 你的GitHub目录地址
+  branch: master
+</code></pre>
+<h3 id="首次部署"><a href="#首次部署" class="headerlink" title="首次部署"></a>首次部署</h3><p>我们需要再安装一个依赖：</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre>
+<p>随后一切就绪，依次运行：</p>
+<pre><code>hexo clean
+hexo g
+hexo d
+</code></pre>
+<h2 id="安装Markdown语法扩展"><a href="#安装Markdown语法扩展" class="headerlink" title="安装Markdown语法扩展"></a>安装Markdown语法扩展</h2><p><code>Hexo</code>原生的Markdown渲染插件支持的Markdown语法不够丰富，比如不支持<a href="https://link.zhihu.com/?target=https://github.github.com/gfm/">GitHub Flavored Markdown</a>、<a href="https://link.zhihu.com/?target=https://commonmark.org/">CommonMark</a>、上标下标、脚注等等。因此，我们在写文章之前，可以把原生的插件<code>hexo-renderer-marked</code>改为<code>hexo-renderer-markdown-it</code>。</p>
+<p>首先，根据该插件的<a href="https://link.zhihu.com/?target=https://github.com/hexojs/hexo-renderer-markdown-it/wiki/Getting-Started">安装指南</a>，运行以下命令：</p>
+<pre><code class="text">npm uninstall hexo-renderer-marked
+npm install hexo-renderer-markdown-it
+</code></pre>
+<p>随后在<code>_config.yml</code>里添加如下语句（可以添加在<code>deploy</code>前面）：</p>
+<pre><code class="text"># Markdown-it config
+## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: &#39;“”‘’&#39;
+  plugins:
+    - markdown-it-abbr
+    - markdown-it-footnote
+    - markdown-it-ins
+    - markdown-it-sub
+    - markdown-it-sup
+  anchors:
+    level: 2
+    collisionSuffix: &#39;v&#39;
+    permalink: true
+    permalinkClass: header-anchor
+    permalinkSide: &#39;left&#39;
+    permalinkSymbol: ¶
+</code></pre>
+<p>随后你就可以使用扩展语法了。使用方法可以参看<a href="https://link.zhihu.com/?target=http://markdown.p2hp.com/extended-syntax/index.html">这里</a>和<a href="https://link.zhihu.com/?target=https://markdown-it.github.io/">这里</a>，尤其是后一个网页给出了很详细的例子。</p>
+<p>如果你觉得脚注字体偏大，可以看我的字体设置文章，看完后就知道怎么修改了。我个人做了如下设置：</p>
+<pre><code class="text">.footnotes &#123;
+    font-size: 75%;
+&#125;
+</code></pre>
+<p>因为我们引入了新的插件，所以也要改一下工作流文件，在<code>安装Hexo</code>那一步加一些步骤，安装这些依赖。你可以在本地修改<code>.github/workflows/main.yml</code>的内容，也可以在GitHub的<code>blog</code>仓库，点击Actions，选择最近的一次部署，点击右侧的省略号中的View workflow file，然后点击右侧的铅笔按钮进行修改。将新的依赖安装写在<code>npm install</code>那一行后面即可。如果你采用后者，在你将本地新的改动push到GitHub之前，要记得先做<code>git pull</code>，否则会报错显示远程仓库有新的改动。推荐在本地修改，一步到位。</p>
+<pre><code class="text">run: |
+    npm install hexo-cli -g
+    npm install
+  + npm uninstall hexo-renderer-marked
+  + npm install hexo-renderer-markdown-it
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/164368299">Hexo 静态博客指南：建站教程（上） - 知乎 (zhihu.com)</a></p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/10/28/Structure/">struct Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%96%E6%AC%A1%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">首次部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Markdown%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95"><span class="toc-number"></span> <span class="toc-text">安装Markdown语法扩展</span></a></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
