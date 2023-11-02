@@ -16,25 +16,25 @@ if (window.localStorage.getItem('theme-mode') === 'dark')
   --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
   --light-background: url('/img/bk.jpg');
   --theme-encrypt-confirm: 'confirm'
-}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>条件编译</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-11-01T11:05:26.682Z" id="date"> 2023-11-01</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-02T11:39:25.653Z" id="updated"> 2023-11-02</time></div></span></div></div><hr><div id="post-content"><p>在C语言源代码里,除了那些被注释了的代码不会被编译进程序里外,还有一种方式来规定代码是否会被编译进程序里,这就是所谓的条件编译,即代码只有在某种条件下才能编译进程序。因为有的代码只有在某些情况下才具有被执行的可能,在其它条件下这些代码要么无法执行,要么没有必要行。比如在Windows平台,有的函数只能在Vista以上平台才能被执行,那么在XP及以下的平台里就无法被执行,因此在XP及以下平台就没有必要将这部分代码编译进程序,有时候甚至还无法在这些平台里编译通过。又比如有的代码只能在X86平台才能执行,在X64平台下是无效的,因此也要对这部分代码进行条件编译.</p>
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>条件编译</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-11-01T11:05:26.682Z" id="date"> 2023-11-01</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-02T11:49:01.888Z" id="updated"> 2023-11-02</time></div></span></div></div><hr><div id="post-content"><p>在C语言源代码里,除了那些被注释了的代码不会被编译进程序里外,还有一种方式来规定代码是否会被编译进程序里,这就是所谓的条件编译,即代码只有在某种条件下才能编译进程序。因为有的代码只有在某些情况下才具有被执行的可能,在其它条件下这些代码要么无法执行,要么没有必要行。比如在Windows平台,有的函数只能在Vista以上平台才能被执行,那么在XP及以下的平台里就无法被执行,因此在XP及以下平台就没有必要将这部分代码编译进程序,有时候甚至还无法在这些平台里编译通过。又比如有的代码只能在X86平台才能执行,在X64平台下是无效的,因此也要对这部分代码进行条件编译.</p>
 <details>
 <summary>条件编译格式1</summary>
-\#ifdef 标识符
-程序段1
-\#else
-程序段2
-\#endif
+#ifdef 标识符
+    程序段1
+#else
+    程序段2
+#endif
 在上面这种定义形式下,当标识符被定义(通过#define),那么就将程序段
 1编译进程序,否则,就将程序段2编译进程序。
-\#define WINVER 6.1
+#define WINVER 6.1
 int main(void)
 {
-\#ifdef WINVER
+#ifdef WINVER
 /*1*/  prigtf("wenversion defined\n");
-\#else
+#else
 /*2*/  printf(winversion not defined\n");
-\#endif
-return 0;
+#endif
+    return 0;
 }
 </details>
 
