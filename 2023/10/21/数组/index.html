@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>数组 | Redclay's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: false});</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: Bender;
+ src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+ font-family: BenderLight;
+ src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+  --theme-encrypt-confirm: 'confirm'
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>数组</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-10-21T09:33:34.292Z" id="date"> 2023-10-21</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-06T13:25:39.766Z" id="updated"> 2023-11-06</time></div></span></div></div><hr><div id="post-content"><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>一维数组的定义：<br>数据类型 数组名[常量表达式]<br>数组元素的类型 合法标识符 数组元素个数。<br>数组是连续的可以随机访问。但是链表就不能。</p>
+<h3 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h3><p>char str1[]&#x3D;{‘h’,’e’,’l’,’l’,’o’,’w’,’o’,’r’,’l’,’d’};<br>char str2[]&#x3D;”hello world”;<br>第一个是字符数组，第二个即是字符数组还是字符串。<br>&#x2F;&#x2F;sizeof是用来计算类型和数据的长度，strlen是用来计算字符串中非‘\0’的字符个数。<br>每当重新定义变量的时候所对应的a[i]就会改变。<br>数组的赋值要在初始化阶段完成，初始化结束后不能直接赋值必须拷贝或单个元素赋值。<br>数组名是常量指针一旦定义就不能修改。<br> #define hansu(a) sizeof(a)&#x2F;sizeof(a[0])<br> 如果输入的数组过多就会导致产生一些垃圾数值，C语言不会检测数组溢出。</p>
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>初始化数组a[5]&#x3D;{1,2,3,4,5};<br>二维数组和一维数组的储存方式相同<br>数组是一种引用数据类型，数组引用变量只是一个引用，数组元素和数组变量在内存里是分开存放的。 下面将深入介绍数组在内存中的运行机制。 数组引用变量只是一个引用，这个引用变量可以指向任何有效的内存，只有当该引用指向有效内存后，才可通过该数组变量来访问数组元素。 与所有引用变量相同的是，引用变量是访问真实对象的根本方式。 也就是说，如果我们希望在程序中访问数组，则只能通过这个数组的引用变量来访问它。 实际的数组元素被存储在<strong>堆</strong>（heap）内存中；数组引用变量是一个引用类型的变量，被存储在栈（stack）内存中。<br>采用按行列出的效率高因为这样的数组是连续的可以随机访问而按列排序在储存中是跳跃的。</p>
+<pre class="line-numbers language-Code" data-language="Code"><code class="language-Code">\#include &lt;stdio.h&gt;
+void func(int a\[],int len)
+&#123;
+    printf(&quot;sizeof(a) in func&#x3D;%d\n&quot;,sizeof(a));
+&#125;
+int main()
+&#123;
+int a\[10]&#x3D;&#123;0&#125;;
+printf(&quot;sizeof(a)&#x3D;%d\n&quot;,sizeof(a));
+func(a,10);
+return  0;
+&#125;
+输出40，4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-Code" data-language="Code"><code class="language-Code">\#include &lt;stdio.h&gt;
+int main()
+&#123;
+    int a\[5]&#x3D;&#123;1,2,3,4,5&#125;;
+    int *ptr1&#x3D;(int*)(&amp;a+1);
+    int *ptr2&#x3D;(int*)((int)a+1);
+    printf(&quot;%x,%x&quot;,ptr1\[-1],*ptr2);
+    return 0;
+&#125;
+输出5，200000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="字符串数组"><a href="#字符串数组" class="headerlink" title="字符串数组"></a>字符串数组</h3><p>是由零个或多个字符组成的有限序列。C语言的字符串可以定义为：”c1c2c3c4……cn\0”。<br>从定义的形式可以看出，C语言的字符串是以’\0’结尾的。程序在存放字符后会自动加上’\0’。<br>当字符串中的字符有符号时可以用&quot;real&quot;来防止产生的语法错误。（即在普通字符前加上反斜线。）</p>
+<h3 id="多字节字符串和宽字节字符串"><a href="#多字节字符串和宽字节字符串" class="headerlink" title="多字节字符串和宽字节字符串"></a>多字节字符串和宽字节字符串</h3><p>在C语言中，多字节字符串每个字符的编码宽度都不等，可以是一个字节还可以是多个字节。<br>例如：char *str &#x3D; “Hello World!你好，世界!”。<br>就是一个多字节的字符串(英文一个字节，中文两个字节)<br>宽字节符的每个字节都是一样的。<br>比如：wchar_t *wstr&#x3D;L”Hello World!你好，世界！”。<br>上面的字符串都是两个字节。<br>我们可以利用wctomb()进行宽字节和多字节的转。</p>
+<pre class="line-numbers language-Code" data-language="Code"><code class="language-Code"> \#include &lt;stdio.h&gt;
+ int g_sl\[]&#x3D;&quot;hello world 1&quot;;
+int main()
+&#123;
+	char \*s2&#x3D;&quot;hello world 2&quot;;*不能在指针上修改数据，即不能修改存在静态常量值的字符串*
+	char s3\[]&#x3D;&quot;hello world 3&quot;;
+	char \*ps4&#x3D;(char\*)malloc(128);
+	
+if(ps4\&#x3D;&#x3D;NULL)
+&#123;
+	return -1;
+&#125;
+memset(ps4,1,128);
+strcpy(ps4,128,&quot;hello world 4&quot;);
+
+printf(&quot;%s\\n&quot;,g_sl);*静态区*
+printf(&quot;%s\\n&quot;,s2);*静态常量区*
+printf(&quot;%s\\n&quot;,s3);*栈*
+printf(&quot;%s\\n&quot;,ps4);*堆*
+
+free(ps4);
+
+return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="字符串遍历的三种方法："><a href="#字符串遍历的三种方法：" class="headerlink" title="字符串遍历的三种方法："></a>字符串遍历的三种方法：</h3><p>char *str &#x3D; “hello world!”;<br>while(*str !&#x3D; ‘\0’)<br>{<br>    printf(“%c”,*str);<br>    str++;<br>}</p>
+<p>for(;*str !&#x3D; ‘\0’;str++)<br>{<br>    printf(“%c”,str);<br>}</p>
+<p>for(int i&#x3D;0;str[i] !&#x3D; ‘\0’;i++)<br>{<br>    printf(“%c”,str[i]);<br>}</p>
+<h3 id="字符串库函数的应用："><a href="#字符串库函数的应用：" class="headerlink" title="字符串库函数的应用："></a>字符串库函数的应用：</h3><p>#include&lt;string.h&gt;<br>#include&lt;stdio.h&gt;<br>#include&lt;tchar.h&gt;<br>&#x2F;&#x2F;定义三种类型的字符串，缓存</p>
+<h3 id="printf-printf-“-ws”-tprintf-T-“-s”-xx"><a href="#printf-printf-“-ws”-tprintf-T-“-s”-xx" class="headerlink" title="printf &#x2F; printf(“%ws”) &#x2F; _tprintf(_T(“%s”),xx)"></a>printf &#x2F; printf(“%ws”) &#x2F; _tprintf(_T(“%s”),xx)</h3><p>strlen(取得多字节字符串中字符长度，不包含 ‘&#x2F;0’。) &#x2F; wsclen(取得宽字节字符串中字符长度，不包含 ‘&#x2F;0’。) &#x2F; _tcslen(取得宽字节&#x2F;多字节字符串中字符长度，不包含 ‘&#x2F;0’。)</p>
+<h3 id="strcpy-stecpy-s-tcslen"><a href="#strcpy-stecpy-s-tcslen" class="headerlink" title="strcpy &#x2F; stecpy_s &#x2F; _tcslen"></a>strcpy &#x2F; stecpy_s &#x2F; _tcslen</h3><p>1,例如:char *strcpy(char* dest, const char *src);功能:把从src地址开始且含有NULL结束符的字符串复制到以dest开始的地址空间,说明：src和dest所指内存区域不可以重叠且dest必须有足够的空间来容纳src的字符串。返回指向dest的指针。</p>
+<h3 id="wcscpy-wcscpy-s-wcsncpy"><a href="#wcscpy-wcscpy-s-wcsncpy" class="headerlink" title="wcscpy &#x2F; wcscpy_s &#x2F; wcsncpy"></a>wcscpy &#x2F; wcscpy_s &#x2F; wcsncpy</h3><h3 id="tcscpy-tcscpy-s-tcsncpy"><a href="#tcscpy-tcscpy-s-tcsncpy" class="headerlink" title="_tcscpy &#x2F; _tcscpy_s &#x2F; _tcsncpy"></a>_tcscpy &#x2F; _tcscpy_s &#x2F; _tcsncpy</h3><h3 id="strcmp-strncmp-stricmp-strnicmp"><a href="#strcmp-strncmp-stricmp-strnicmp" class="headerlink" title="strcmp &#x2F; strncmp &#x2F; stricmp &#x2F; strnicmp"></a>strcmp &#x2F; strncmp &#x2F; stricmp &#x2F; strnicmp</h3><p>比较字符串s1和s2</p>
+<h3 id="strcat-strcat-s-hello-world，文件路径"><a href="#strcat-strcat-s-hello-world，文件路径" class="headerlink" title="strcat &#x2F; strcat_s   &#x2F;&#x2F;hello+world，文件路径"></a>strcat &#x2F; strcat_s   &#x2F;&#x2F;hello+world，文件路径</h3><p>字符串追加&#x2F;连接函数，它的功能就是在一个字符串后面追加上另外一个字符串。</p>
+<h3 id="strchr-strrchr-返回位置地址，str，求文件名，扩展名。"><a href="#strchr-strrchr-返回位置地址，str，求文件名，扩展名。" class="headerlink" title="strchr &#x2F; strrchr &#x2F;&#x2F;返回位置地址，str，求文件名，扩展名。"></a>strchr &#x2F; strrchr &#x2F;&#x2F;返回位置地址，str，求文件名，扩展名。</h3><p>查找字符串中的一个字符，并返回该字符在字符串中第一次出现的位置.</p>
+<h3 id="strstr"><a href="#strstr" class="headerlink" title="strstr"></a>strstr</h3><p>函数搜索一个字符串在另一个字符串中的第一次出现<br>找到所搜索的字符串，则该函数返回第一次匹配的字符串的地址<br>如果未找到所搜索的字符串，则返回NULL</p>
+<h3 id="strtok-strtok-s-ip地址"><a href="#strtok-strtok-s-ip地址" class="headerlink" title="strtok &#x2F; strtok_s  &#x2F;&#x2F;ip地址"></a>strtok &#x2F; strtok_s  &#x2F;&#x2F;ip地址</h3><pre><code>    strtok(st_ip,st_ip_delim);
+    strtok_s(NULL,st_s1_deilm,&amp;next);
+</code></pre>
+<p>用于分解字符串，返回分解得到的字符串指针.<br>atof &#x2F; atoi &#x2F; atol &#x2F; atoll &#x2F; _ttol()</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/10/28/%E6%8C%87%E9%92%88/">← Next 指针</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/10/20/P21/">P21 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84"><span class="toc-number">2.</span> <span class="toc-text">字符数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">3.</span> <span class="toc-text">二维数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E7%BB%84"><span class="toc-number">4.</span> <span class="toc-text">字符串数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AE%BD%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">5.</span> <span class="toc-text">多字节字符串和宽字节字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%81%8D%E5%8E%86%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">字符串遍历的三种方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BA%93%E5%87%BD%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%9A"><span class="toc-number">7.</span> <span class="toc-text">字符串库函数的应用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#printf-printf-%E2%80%9C-ws%E2%80%9D-tprintf-T-%E2%80%9C-s%E2%80%9D-xx"><span class="toc-number">8.</span> <span class="toc-text">printf &#x2F; printf(“%ws”) &#x2F; _tprintf(_T(“%s”),xx)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strcpy-stecpy-s-tcslen"><span class="toc-number">9.</span> <span class="toc-text">strcpy &#x2F; stecpy_s &#x2F; _tcslen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wcscpy-wcscpy-s-wcsncpy"><span class="toc-number">10.</span> <span class="toc-text">wcscpy &#x2F; wcscpy_s &#x2F; wcsncpy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tcscpy-tcscpy-s-tcsncpy"><span class="toc-number">11.</span> <span class="toc-text">_tcscpy &#x2F; _tcscpy_s &#x2F; _tcsncpy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strcmp-strncmp-stricmp-strnicmp"><span class="toc-number">12.</span> <span class="toc-text">strcmp &#x2F; strncmp &#x2F; stricmp &#x2F; strnicmp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strcat-strcat-s-hello-world%EF%BC%8C%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="toc-number">13.</span> <span class="toc-text">strcat &#x2F; strcat_s   &#x2F;&#x2F;hello+world，文件路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strchr-strrchr-%E8%BF%94%E5%9B%9E%E4%BD%8D%E7%BD%AE%E5%9C%B0%E5%9D%80%EF%BC%8Cstr%EF%BC%8C%E6%B1%82%E6%96%87%E4%BB%B6%E5%90%8D%EF%BC%8C%E6%89%A9%E5%B1%95%E5%90%8D%E3%80%82"><span class="toc-number">14.</span> <span class="toc-text">strchr &#x2F; strrchr &#x2F;&#x2F;返回位置地址，str，求文件名，扩展名。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strstr"><span class="toc-number">15.</span> <span class="toc-text">strstr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strtok-strtok-s-ip%E5%9C%B0%E5%9D%80"><span class="toc-number">16.</span> <span class="toc-text">strtok &#x2F; strtok_s  &#x2F;&#x2F;ip地址</span></a></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
