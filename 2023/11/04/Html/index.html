@@ -16,7 +16,7 @@ if (window.localStorage.getItem('theme-mode') === 'dark')
   --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
   --light-background: url('/img/bk.jpg');
   --theme-encrypt-confirm: 'confirm'
-}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Html</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-11-04T02:21:49.956Z" id="date"> 2023-11-04</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-09T09:33:13.142Z" id="updated"> 2023-11-09</time></div></span></div></div><hr><div id="post-content"><p>在HTML中，<code>href</code>是一个属性，全称为Hypertext Reference。它用于指定超链接目标的URL。当用户点击一个带有<code>href</code>属性的元素（通常是<code>&lt;a&gt;</code>标签）时，他们将被导航到<code>href</code>属性中指定的URL。例如，<code>&lt;a href=&quot;https://www.bing.com&quot;&gt;访问Bing&lt;/a&gt;</code>会创建一个链接，点击这个链接会导航到Bing的主页。<code>href</code>也可以用于其他元素，如<code>&lt;link&gt;</code>和<code>&lt;base&gt;</code>，但最常见的用途是在<code>&lt;a&gt;</code>标签中创建超链接。希望这个解释对您有所帮助！</p>
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Html</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-11-04T02:21:49.956Z" id="date"> 2023-11-04</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-09T11:05:56.308Z" id="updated"> 2023-11-09</time></div></span></div></div><hr><div id="post-content"><p>在HTML中，<code>href</code>是一个属性，全称为Hypertext Reference。它用于指定超链接目标的URL。当用户点击一个带有<code>href</code>属性的元素（通常是<code>&lt;a&gt;</code>标签）时，他们将被导航到<code>href</code>属性中指定的URL。例如，<code>&lt;a href=&quot;https://www.bing.com&quot;&gt;访问Bing&lt;/a&gt;</code>会创建一个链接，点击这个链接会导航到Bing的主页。<code>href</code>也可以用于其他元素，如<code>&lt;link&gt;</code>和<code>&lt;base&gt;</code>，但最常见的用途是在<code>&lt;a&gt;</code>标签中创建超链接。希望这个解释对您有所帮助！</p>
 <p>在HTML中，您可以使用 <code>&lt;br&gt;</code> 标签来创建新的一行。例如：</p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是第一行。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>这是第二行。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在这个例子中，<code>&lt;br&gt;</code> 标签在 “这是第一行。” 和 “这是第二行。” 之间创建了一个换行，所以这两句话会被显示在不同的行上。</p>
@@ -101,14 +101,14 @@ var el_down = document.getElementById("DOWN");
 function Fun() {
 var a = document.createElement('a');
 //为锚a元素创建文本节点 
-var link = document.createTextNode("这是链接！");
+var link = document.createTextNode("https://www.bilibili.com");
 // 将文本节点追加到锚a元素
 a.appendChild(link);
 // 设置title.
-a.title = "这是链接！";
+a.title = "https://www.bilibili.com";
 // 设置href属性
 a.href = "https://www.bilibili.com";
- // 将锚元素附加到body 
+// 将锚元素附加到body 
 document.body.appendChild(a); 
 }
 </script>
