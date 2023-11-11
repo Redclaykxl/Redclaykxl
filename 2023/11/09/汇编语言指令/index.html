@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>汇编语言指令 | Redclay's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: false});</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: Bender;
+ src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+ font-family: BenderLight;
+ src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+  --theme-encrypt-confirm: 'confirm'
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>汇编语言指令</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-11-09T07:25:04.429Z" id="date"> 2023-11-09</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-11T12:14:15.137Z" id="updated"> 2023-11-11</time></div></span></div></div><hr><div id="post-content"><h3 id="加"><a href="#加" class="headerlink" title="加"></a>加</h3><p>汇编语言中的 <code>add</code> 指令用于将两个操作数相加，并将结果存储在目标操作数中。<code>add</code> 指令的语法如下：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">add 目标, 源<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里，<code>目标</code> 是将存储加法结果的操作数，<code>源</code> 是将与目标操作数相加的操作数。<code>目标</code> 和 <code>源</code> 可以是寄存器或内存位置。</p>
+<h3 id="减"><a href="#减" class="headerlink" title="减"></a>减</h3><p>汇编语言中的 <code>sub</code> 指令用于从目标操作数中减去源操作数，并将结果存储在目标操作数中。<code>sub</code> 指令的语法如下：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">sub 目标, 源<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里，<code>目标</code> 是将存储减法结果的操作数，<code>源</code> 是将从目标操作数中减去的操作数。<code>目标</code> 和 <code>源</code> 可以是寄存器或内存位置.</p>
+<h3 id="乘"><a href="#乘" class="headerlink" title="乘"></a>乘</h3><p>汇编语言中的 <code>mul</code> 指令用于执行无符号乘法运算。<code>mul</code> 指令的语法如下：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">mul 源<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里，<code>源</code> 是与累加器（<code>AX</code>，<code>EAX</code> 或 <code>RAX</code>，取决于操作数的大小）一起进行乘法运算的操作数。结果将存储在 <code>DX:AX</code>，<code>EDX:EAX</code> 或 <code>RDX:RAX</code> 中，取决于操作数的大小。<br>例如，以下代码将 <code>eax</code> 寄存器中的值与 <code>ebx</code> 寄存器中的值相乘，并将结果存储在 <code>edx:eax</code> 中：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">mov eax, ebx
+mul ecx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在这个例子中，<code>eax</code> 中的值与 <code>ecx</code> 中的值相乘，结果存储在 <code>edx:eax</code> 中。</p>
+<h3 id="除"><a href="#除" class="headerlink" title="除"></a>除</h3><p>汇编语言中的 <code>div</code> 指令用于执行无符号除法运算。<code>div</code> 指令的语法如下：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">div 源<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里，<code>源</code> 是作为除数的操作数。被除数是累加器（<code>AX</code>，<code>EAX</code> 或 <code>RAX</code>，取决于操作数的大小）或 <code>DX:AX</code>，<code>EDX:EAX</code> 或 <code>RDX:RAX</code>，取决于操作数的大小。商将存储在累加器中，余数将存储在 <code>DX</code>，<code>EDX</code> 或 <code>RDX</code> 中。<br>例如，以下代码将 <code>eax</code> 寄存器中的值除以 <code>ebx</code> 寄存器中的值，并将商存储在 <code>eax</code> 中，余数存储在 <code>edx</code> 中：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">mov eax, ebx
+div ecx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在这个例子中，<code>eax</code> 中的值除以 <code>ecx</code> 中的值，商存储在 <code>eax</code> 中，余数存储在 <code>edx</code> 中。</p>
+<p>除了 <code>div</code> 指令，汇编语言还有一个用于执行带符号除法的 <code>idiv</code> 指令。<code>idiv</code> 指令的语法如下：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">idiv 源<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这里，<code>源</code> 是作为除数的操作数。被除数是累加器（<code>AX</code>，<code>EAX</code> 或 <code>RAX</code>，取决于操作数的大小）或 <code>DX:AX</code>，<code>EDX:EAX</code> 或 <code>RDX:RAX</code>，取决于操作数的大小。商将存储在累加器中，余数将存储在 <code>DX</code>，<code>EDX</code> 或 <code>RDX</code> 中。<br>例如，以下代码将 <code>eax</code> 寄存器中的值除以 <code>ebx</code> 寄存器中的值，并将商存储在 <code>eax</code> 中，余数存储在 <code>edx</code> 中：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">mov eax, ebx
+idiv ecx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在这个例子中，<code>eax</code> 中的值除以 <code>ecx</code> 中的值，商存储在 <code>eax</code> 中，余数存储在 <code>edx</code> 中。<br><code>idiv</code> 指令与 <code>div</code> 指令的主要区别在于，<code>idiv</code> 执行的是带符号的除法，而 <code>div</code> 执行的是无符号的除法。</p>
+<h3 id="跳转指令"><a href="#跳转指令" class="headerlink" title="跳转指令"></a>跳转指令</h3><p><code>JMP</code>  ;无条件跳转</p>
+<p><code>JE</code>   ;&#x2F;&#x2F;等于则跳转			同JZ<br><code>JNE</code>  ;&#x2F;&#x2F;不等于则跳转		同JNZ<br><code>JA</code>   ;&#x2F;&#x2F;无符号大于则跳转<br><code>JNA</code>  ;&#x2F;&#x2F;无符号不大于则跳转<br><code>JAE</code>  ;&#x2F;&#x2F;无符号大于等于则跳转		同JNB<br><code>JNAE</code> ;&#x2F;&#x2F;无符号不大于等于则跳转	同JB<br><code>JB</code>   ;&#x2F;&#x2F;无符号小于则跳转<br><code>JNB</code>  ;&#x2F;&#x2F;无符号不小于则跳转<br><code>JBE</code>  ;&#x2F;&#x2F;无符号小于等于则跳转		同JNA<br><code>JNBE</code> ;&#x2F;&#x2F;无符号不小于等于则跳转	同JA<br><code>JG</code>   ;&#x2F;&#x2F;有符号大于则跳转<br><code>JNG</code>  ;&#x2F;&#x2F;有符号不大于则跳转<br><code>JGE</code>  ;&#x2F;&#x2F;有符号大于等于则跳转		同JNL<br><code>JNGE</code> ;&#x2F;&#x2F;有符号不大于等于则跳转	同JL<br><code>JL</code>   ;&#x2F;&#x2F;有符号小于则跳转<br><code>JNL</code>  ;&#x2F;&#x2F;有符号不小于则跳转<br><code>JLE</code>  ;&#x2F;&#x2F;有符号小于等于则跳转		同JNG<br><code>JNLE</code> ;&#x2F;&#x2F;有符号不小于等于则跳转	同JG<br><code>JZ</code>   ;&#x2F;&#x2F;为零则跳转<br><code>JNZ</code>  ;&#x2F;&#x2F;不为零则跳转<br><code>JS</code>   ;&#x2F;&#x2F;为负则跳转<br><code>JNS</code>  ;&#x2F;&#x2F;不为负则跳转<br><code>JC</code>   ;&#x2F;&#x2F;进位则跳转<br><code>JNC</code>  ;&#x2F;&#x2F;不进位则跳转<br><code>JO</code>   ;&#x2F;&#x2F;溢出则跳转<br><code>JNO</code>  ;&#x2F;&#x2F;不溢出则跳转<br><code>JP</code>   ;&#x2F;&#x2F;为偶则跳转<br><code>JNP</code>  ;&#x2F;&#x2F;不为偶则跳转<br><code>JPE</code>  ;&#x2F;&#x2F;奇偶位置位则跳转		同JP<br><code>JPO</code>  ;&#x2F;&#x2F;奇偶位复位则跳转		同JNP</p>
+<h3 id="Test指令"><a href="#Test指令" class="headerlink" title="Test指令"></a>Test指令</h3><p><code>test</code>指令用于两个操作数的按位<code>AND</code>运算，并根据结果设置标志寄存器，结果本身不会写回到目的操作数。<br>(1) AND 运算结果为0时， ZF(zero flag)置位<br>(2) test可以影响CF，OF，PF，SF，ZF标志位<br>(3) 两个操作数相等,同时为0时,AND 结果为0,此时ZF置位。<br>例如test和je的连用</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">Test eax,eax
+je some_address<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="mov系列指令"><a href="#mov系列指令" class="headerlink" title="mov系列指令"></a>mov系列指令</h3><p>MOVSX说明:带符号扩展传送指令<br>符号扩展的意思是,当计算机存储某一个有符号数时,符号位位于该数的第一位,所以，当扩展一个负数的时候需要将扩展的高位全赋为1.对于正数而言，符号扩展和零扩展MOVZX是一样的，将扩展的高位全赋为0.</p>
+<p>MOVZX功能:<br>将8位或16位的OPS零扩展为16位或32位,在传给OPD.<br>格式:</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">MOVZX OPD,OPS<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>说明:<br>所谓零扩展,就是把新扩展的高位字节填0,这可以保证无符号数扩展后还是原来的无符号数.<br>至于什么时候用符号扩展,什么时候用零扩展,视程序中是用带符号数还是无符 号数操作而定.<br>样列：</p>
+<pre class="line-numbers language-assembly" data-language="assembly"><code class="language-assembly">movzx edi,bx		; movzx 扩展高位为0，并把其赋值到edi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2>movsb movsw movsd 指令详解</h2>
+这三个指令，都是数据传送指令,都是从源地址向目的地址传送数据。
+16位模式下:
+源地址是`DS:SI`,目的地址是`ES:DI`  
+32位模式下:  
+源地址是`DS:ESI`,目的地址是`ES:EDI`
+注意:在传送完成之后，`SI`和`DI`(或者`ESI`和`EDI`)会增加或者减小.
+当`DF`=0时，表示正向传送，传送之后`SI`和`DI`(或者`ESI`和`EDI`)的值会增加;
+当`DF`=1时，表示反向传送，传送之后`SI`和`DI`(或者`ESI`和`EDI`)的值会减小;
+区别:
+`MOVSB`:传送一个字节，之后`SI`和`DI`(或者`ESI`和`EDI`)加/减`1`.
+`MOVSW`:传送一个字，之后`SI`和`DI`(或者`ESI`和`EDI`)加/减`2`.
+`MOVSD`:传送一个双字，之后`SI`和`DI`(或者`ESI`和`EDI`)加/减`4`.
+单纯的`movsb/ movsw/ movsd`只能执行一次，如果希望处理器自动地反复执行，可以加上指令前缀`rep`;在寄存器`CX`（16位模式）或者`ECX`（32位模式）中设置传送的次数。当`CX`/`ECX`不等于0时，则执行`movsb/ movsw/ movsd`,执行后，`CX`/`ECX`的值减一，直到减为0为止.
+### rep stosd循环 
+从`lea edi`,`EBP+arg_0`开始,到rep stosd结束.EDI中存入的是循环操作的起始地址,ECX存入的是循环次数,EAX是循环填入的值.这一段的操作就是从`EBP+var_40`处开始,循环十次,向下依次填入CCCCCCCC,写入的长度由EAX决定,32位.
+### lea指令
+lea eax，addr
+就是将表达式addr的值放入eax寄存器，示例如下：
+lea eax,401000h; 将值401000h写入eax寄存器中
+lea指令右边的操作数表示一个精指针，上述指令和mov eax，401000h是等价的
+2、lea eax，dword ptr ebx;将ebx的值赋值给eax
+3、lea eax，c；其中c为一个int型的变量，该条语句的意思是把c的地址赋值给eax；
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/11/09/%E6%BA%90%E7%A8%8B%E5%BA%8F/">源程序 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0"><span class="toc-number">1.</span> <span class="toc-text">加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%8F"><span class="toc-number">2.</span> <span class="toc-text">减</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%98"><span class="toc-number">3.</span> <span class="toc-text">乘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%A4"><span class="toc-number">4.</span> <span class="toc-text">除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC%E6%8C%87%E4%BB%A4"><span class="toc-number">5.</span> <span class="toc-text">跳转指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Test%E6%8C%87%E4%BB%A4"><span class="toc-number">6.</span> <span class="toc-text">Test指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mov%E7%B3%BB%E5%88%97%E6%8C%87%E4%BB%A4"><span class="toc-number">7.</span> <span class="toc-text">mov系列指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">movsb movsw movsd 指令详解</span></a></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
