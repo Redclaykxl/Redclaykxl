@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>汇编指令 | Redclay's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - $1 行","copy":"复制"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: false});</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: Bender;
+ src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+ font-family: BenderLight;
+ src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+  --theme-encrypt-confirm: '确认'
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>汇编指令</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2023-11-11T12:40:46.577Z" id="date"> 2023-11-11</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-11-11T13:36:35.525Z" id="updated"> 2023-11-11</time></div></span></div></div><hr><div id="post-content"><p>复杂指令集计算机（CISC）： CISC架构的主要特点是其指令集的复杂性。这些指令集包含许多不同的指令，每个指令都有不同的长度和复杂的操作。CISC架构的目标是通过减少程序中的指令数量来提高效率。这是通过创建可以执行多个低级操作的复杂指令来实现的。例如，Intel的x86架构就是CISC的一个例子。</p>
+<p>精简指令集计算机（RISC）： 与CISC相反，RISC架构的目标是简化指令集。RISC处理器的每个指令通常只执行一个低级操作，如加载存储器，执行算术操作，或者跳转到新的代码位置。这意味着在RISC架构中，执行同样的任务可能需要更多的指令，但每个指令的执行速度更快。ARM和MIPS架构就是RISC的例子。</p>
+<p><code>MOV</code>：这是最常见的传送指令，用于将源操作数的值复制到目标操作数。例如，<code>MOV AX, 10</code> 将值 10 复制到寄存器 AX。<br><code>PUSH</code> 和 <code>POP</code>：这两个指令用于向堆栈推送和弹出数据。例如，<code>PUSH AX</code> 将 AX 寄存器的内容推送到堆栈，而 <code>POP AX</code> 将堆栈顶部的值弹出到 AX 寄存器。<br><code>LEA</code>：Load Effective Address 指令用于将有效地址加载到寄存器。例如，<code>LEA AX, [BX+SI]</code> 将 BX 寄存器和 SI 寄存器的和加载到 AX 寄存器。<br><code>XCHG</code>：Exchange 指令用于交换两个操作数的值。例如，<code>XCHG AX, BX</code> 将 AX 和 BX 寄存器的值交换。<br>正在为你生成答案…</p>
+<p>在汇编语言中，标志寄存器用于存储和反映 CPU 的状态信息。以下是一些常见的标志位：</p>
+<p>**零标志 (ZF)**：当算术或逻辑操作的结果为零时，该标志被设置。</p>
+<p>**符号标志 (SF)**：当算术或逻辑操作的结果为负时，该标志被设置。  </p>
+<p>**进位标志 (CF)**：当算术操作导致进位或借位时，该标志被设置。</p>
+<p>**溢出标志 (OF)**：当算术操作导致正溢出或负溢出时，该标志被设置。</p>
+<p>**奇偶标志 (PF)**：当算术或逻辑操作的结果中 1 的个数为偶数时，该标志被设置。</p>
+<p>**辅助进位标志 (AF)**：当算术操作导致四位二进制码的进位或借位时，该标志被设置。</p>
+<p>**方向标志 (DF)**：该标志用于字符串操作。当 DF 为 0 时，字符串操作从低地址向高地址进行；当 DF 为 1 时，字符串操作从高地址向低地址进行。</p>
+<p>**中断标志 (IF)**：当该标志被设置时，CPU 将响应外部中断；当该标志被清除时，CPU 将忽略外部中断。</p>
+<p>**陷阱标志 (TF)**：当该标志被设置时，CPU 将在执行每条指令后产生一个中断，通常用于调试。   </p>
+<p>这些标志位通常在特定的操作中使用，例如字符串操作、中断处理和调试等</p>
+<p>这些标志位通常在条件跳转或循环指令中使用，例如 <code>JZ</code>（Jump if Zero）、<code>JNZ</code>（Jump if Not Zero）、<code>JC</code>（Jump if Carry）、<code>JNC</code>（Jump if Not Carry）等<br>在x86平台中，标志寄存器被称为<strong>EFLAGS</strong>寄存器。这是一个32位的寄存器，包含了一些用于反映CPU状态的标志位。以下是一些主要的标志位：</p>
+<p>**进位标志 (CF)**：位0，当算术操作导致进位或借位时，该标志被设置。</p>
+<p>**奇偶标志 (PF)**：位2，当算术或逻辑操作的结果中 1 的个数为偶数时，该标志被设置。</p>
+<p>**辅助进位标志 (AF)**：位4，当算术操作导致四位二进制码的进位或借位时，该标志被设置。</p>
+<p>**零标志 (ZF)**：位6，当算术或逻辑操作的结果为零时，该标志被设置。</p>
+<p>**符号标志 (SF)**：位7，当算术或逻辑操作的结果为负时，该标志被设置。</p>
+<p>**陷阱标志 (TF)**：位8，当该标志被设置时，CPU 将在执行每条指令后产生一个中断，通常用于调试。</p>
+<p>**中断标志 (IF)**：位9，当该标志被设置时，CPU 将响应外部中断；当该标志被清除时，CPU 将忽略外部中断。</p>
+<p>**方向标志 (DF)**：位10，该标志用于字符串操作。当 DF 为 0 时，字符串操作从低地址向高地址进行；当 DF 为 1 时，字符串操作从高地址向低地址进行。</p>
+<p>**溢出标志 (OF)**：位11，当算术操作导致正溢出或负溢出时，该标志被设置。  </p>
+<p>此外，EFLAGS 寄存器还包含一些其他的标志位，如系统标志、I&#x2F;O特权级别等，这些通常用于操作系统或高级语言编程，对于汇编语言编程来说，我们通常只需要关注上述的那些标志位<br>在64位的x86平台中，标志寄存器被称为<strong>RFLAGS</strong>寄存器。这是一个64位的寄存器，但实际上，只有低32位被使用，高32位保留未用。</p>
+<p>RFLAGS寄存器包含了EFLAGS寄存器中的所有标志位，如进位标志（CF）、奇偶标志（PF）、辅助进位标志（AF）、零标志（ZF）、符号标志（SF）、陷阱标志（TF）、中断标志（IF）、方向标志（DF）和溢出标志（OF）等。</p>
+<p>此外，RFLAGS寄存器还包含一些其他的标志位，如系统标志、I&#x2F;O特权级别等，这些通常用于操作系统或高级语言编程，对于汇编语言编程来说，我们通常只需要关注上述的那些标志位。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/11/09/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E6%8C%87%E4%BB%A4/">汇编语言指令 上一篇 →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
