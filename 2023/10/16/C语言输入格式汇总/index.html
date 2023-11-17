@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="en" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>C语言输入格式汇总 | Redclay's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - $1 行","copy":"复制"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: false});</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: Bender;
+ src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+ font-family: BenderLight;
+ src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+  --theme-encrypt-confirm: '确认'
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>C语言输入格式汇总</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2023-10-16T13:24:09.473Z" id="date"> 2023-10-16</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-11-16T07:27:32.815Z" id="updated"> 2023-11-16</time></div></span></div></div><hr><div id="post-content"><h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><h5 id="1-d格式：用来输出十进制整数，有以下几种用法："><a href="#1-d格式：用来输出十进制整数，有以下几种用法：" class="headerlink" title="1. %d格式：用来输出十进制整数，有以下几种用法："></a>1. %d格式：用来输出十进制整数，有以下几种用法：</h5><p>1、%d 按整型数据的实际长度输出。<br>2、%md m为指定的输出值的宽度。如果数据的位数小于m，则左端补以空格，若大于m，则按实际位数输出。<br>3、%0md 用这种格式时，左端用0来代替空格<br>4、%-md m为指定的输出值的宽度。如果数据的位数小于m，则右端补以空格，若大于m，则按实际位数输出<br>5、%ld 输出长整型数据。</p>
+<h5 id="2-f格式：用来输出实数（包括单、双精度），以小数形式输出。有以下几种用法："><a href="#2-f格式：用来输出实数（包括单、双精度），以小数形式输出。有以下几种用法：" class="headerlink" title="2. f格式：用来输出实数（包括单、双精度），以小数形式输出。有以下几种用法："></a>2. f格式：用来输出实数（包括单、双精度），以小数形式输出。有以下几种用法：</h5><p>1、%f 不指定宽度，整数部分全部输出并输出6位小数。<br>2、%m.nf 输出共占m列，其中有n位小数，如数值宽度小于m左端补空格。<br>3、%-m.nf 输出共占m列，其中有n位小数，如数值宽度小于m右端补空格。</p>
+<h5 id="3-e格式：以指数形式输出实数。有以下用法："><a href="#3-e格式：以指数形式输出实数。有以下用法：" class="headerlink" title="3. e格式：以指数形式输出实数。有以下用法："></a>3. e格式：以指数形式输出实数。有以下用法：</h5><p>1、%e 数字部分（又称尾数）输出6位小数，指数部分占5位或4位。<br>2、%m.ne和%-m.ne m、n和”-”字符含义与前相同。此处n指数据的数字部分的小数位数，m表示整个输出数据所占的宽度</p>
+<h5 id="4-g格式：自动选f格式或e格式中较短的一种输出，且不输出无意义的零"><a href="#4-g格式：自动选f格式或e格式中较短的一种输出，且不输出无意义的零" class="headerlink" title="4. g格式：自动选f格式或e格式中较短的一种输出，且不输出无意义的零"></a>4. g格式：自动选f格式或e格式中较短的一种输出，且不输出无意义的零</h5><h5 id="5-s格式：用来输出一个串。用法如下："><a href="#5-s格式：用来输出一个串。用法如下：" class="headerlink" title="5. %s格式：用来输出一个串。用法如下："></a>5. %s格式：用来输出一个串。用法如下：</h5><p>1、%s：例如:printf(“%s”, “CHINA”)输出”CHINA”字符串（不包括双引号）。<br>2、%ms：输出的字符串占m列，如字符串本身长度大于m，则突破获m的限制,将字符串全部输出。若串长小于m，则左补空格。<br>3、%-ms：如果串长小于m，则在m列范围内，字符串向左靠，右补空格。<br>4、%m.ns：输出占m列，但只取字符串中左端n个字符。这n个字符输出在m列的右侧，左补空格。<br>5、%-m.ns：其中m、n含义同上，n个字符输出在m列范围的左侧，右补空格。如果n&gt;m，则自动取n值，即保证n个字符正常输出。</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>scanf函数</p>
+<ul>
+<li><code>%d</code>：读取一个十进制整数。</li>
+<li><code>%i</code>：读取一个十进制、八进制或十六进制整数。</li>
+<li><code>%o</code>：读取一个八进制整数。</li>
+<li><code>%u</code>：读取一个无符号十进制整数。</li>
+<li><code>%x</code>：读取一个十六进制整数。</li>
+<li><code>%f</code>：读取一个浮点数。</li>
+<li><code>%e</code>：读取一个科学计数法表示的浮点数。</li>
+<li><code>%g</code>：根据数值的大小自动选择<code>%f</code>或<code>%e</code>。</li>
+<li><code>%c</code>：读取一个字符。</li>
+<li><code>%s</code>：读取一个字符串。</li>
+<li><code>%p</code>：读取一个指针。</li>
+<li><code>%n</code>：读取到目前为止已经读取的字符数。</li>
+<li><code>%%</code>：读取一个百分号。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>转换说明</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>%a</code></td>
+<td>浮点数、十六进制数和<code>p</code> 记数法（C99&#x2F;C11）</td>
+</tr>
+<tr>
+<td><code>%A</code></td>
+<td>浮点数、十六进制数和<code>p</code> 记数法（C99&#x2F;C11）</td>
+</tr>
+<tr>
+<td><code>%c</code></td>
+<td>单个字符</td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>有符号十进制整数</td>
+</tr>
+<tr>
+<td><code>%e</code></td>
+<td>浮点数，<code>e</code> 记数法</td>
+</tr>
+<tr>
+<td><code>%E</code></td>
+<td>浮点数，<code>e</code> 记数法</td>
+</tr>
+<tr>
+<td><code>%f</code></td>
+<td>浮点数，十进制记数法</td>
+</tr>
+<tr>
+<td><code>%g</code></td>
+<td>根据值的不同，自动选择<code>%f</code> 或<code>%e</code> 。<code>%e</code> 格式用于指数小于<code>-4</code> 或者大于或等于精度时</td>
+</tr>
+<tr>
+<td><code>%G</code></td>
+<td>根据值的不同，自动选择<code>%f</code> 或<code>%E</code> 。<code>%E</code> 格式用于指数小于<code>-4</code> 或者大于或等于精度时</td>
+</tr>
+<tr>
+<td><code>%i</code></td>
+<td>有符号十进制整数（与<code>%d</code> 相同）</td>
+</tr>
+<tr>
+<td><code>%o</code></td>
+<td>无符号八进制整数</td>
+</tr>
+<tr>
+<td><code>%p</code></td>
+<td>指针</td>
+</tr>
+<tr>
+<td><code>%s</code></td>
+<td>字符串</td>
+</tr>
+<tr>
+<td><code>%u</code></td>
+<td>无符号十进制整数</td>
+</tr>
+<tr>
+<td><code>%x</code></td>
+<td>无符号十六进制整数，使用十六进制数<code>0f</code></td>
+</tr>
+<tr>
+<td><code>%X</code></td>
+<td>无符号十六进制整数，使用十六进制数<code>0F</code></td>
+</tr>
+<tr>
+<td><code>%%</code></td>
+<td>打印一个百分号</td>
+</tr>
+</tbody></table>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/10/16/P7/">← 下一篇 P7</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/10/12/P6/">P6 上一篇 →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="文章目录">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA"><span class="toc-number">1.</span> <span class="toc-text">输出</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-d%E6%A0%BC%E5%BC%8F%EF%BC%9A%E7%94%A8%E6%9D%A5%E8%BE%93%E5%87%BA%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B4%E6%95%B0%EF%BC%8C%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%87%A0%E7%A7%8D%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. %d格式：用来输出十进制整数，有以下几种用法：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-f%E6%A0%BC%E5%BC%8F%EF%BC%9A%E7%94%A8%E6%9D%A5%E8%BE%93%E5%87%BA%E5%AE%9E%E6%95%B0%EF%BC%88%E5%8C%85%E6%8B%AC%E5%8D%95%E3%80%81%E5%8F%8C%E7%B2%BE%E5%BA%A6%EF%BC%89%EF%BC%8C%E4%BB%A5%E5%B0%8F%E6%95%B0%E5%BD%A2%E5%BC%8F%E8%BE%93%E5%87%BA%E3%80%82%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%87%A0%E7%A7%8D%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. f格式：用来输出实数（包括单、双精度），以小数形式输出。有以下几种用法：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-e%E6%A0%BC%E5%BC%8F%EF%BC%9A%E4%BB%A5%E6%8C%87%E6%95%B0%E5%BD%A2%E5%BC%8F%E8%BE%93%E5%87%BA%E5%AE%9E%E6%95%B0%E3%80%82%E6%9C%89%E4%BB%A5%E4%B8%8B%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-number">1.0.3.</span> <span class="toc-text">3. e格式：以指数形式输出实数。有以下用法：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-g%E6%A0%BC%E5%BC%8F%EF%BC%9A%E8%87%AA%E5%8A%A8%E9%80%89f%E6%A0%BC%E5%BC%8F%E6%88%96e%E6%A0%BC%E5%BC%8F%E4%B8%AD%E8%BE%83%E7%9F%AD%E7%9A%84%E4%B8%80%E7%A7%8D%E8%BE%93%E5%87%BA%EF%BC%8C%E4%B8%94%E4%B8%8D%E8%BE%93%E5%87%BA%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E9%9B%B6"><span class="toc-number">1.0.4.</span> <span class="toc-text">4. g格式：自动选f格式或e格式中较短的一种输出，且不输出无意义的零</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-s%E6%A0%BC%E5%BC%8F%EF%BC%9A%E7%94%A8%E6%9D%A5%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%AA%E4%B8%B2%E3%80%82%E7%94%A8%E6%B3%95%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">1.0.5.</span> <span class="toc-text">5. %s格式：用来输出一个串。用法如下：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5"><span class="toc-number">2.</span> <span class="toc-text">输入</span></a></li></ol></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
