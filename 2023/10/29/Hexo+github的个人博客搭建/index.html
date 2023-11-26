@@ -16,7 +16,7 @@ if (window.localStorage.getItem('theme-mode') === 'dark')
   --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
   --light-background: url('/img/bk.jpg');
   --theme-encrypt-confirm: 'confirm'
-}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Hexo+github的个人博客搭建</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-10-29T03:10:30.634Z" id="date"> 2023-10-29</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-26T07:39:29.648Z" id="updated"> 2023-11-26</time></div></span></div></div><hr><div id="post-content"><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Hexo+github的个人博客搭建</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-10-29T03:10:30.634Z" id="date"> 2023-10-29</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-26T07:56:21.567Z" id="updated"> 2023-11-26</time></div></span></div></div><hr><div id="post-content"><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
 <li>安装node.js和git这两个可以在官网查询到.</li>
 <li>我们需要一个IDE,比如VSstudio或者VScode.</li>
 <li>在github注册自己的账号,并在里面创造自己的代码库,帮库的名字命名为自己的github的用户名.github.io的格式.</li>
@@ -30,15 +30,13 @@ npm install &#x2F;&#x2F;安装依赖
 hexo -v &#x2F;&#x2F;检测版本
 npm install hexo-deployer-git --save &#x2F;&#x2F;安装部署依赖<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
-<pre class="line-numbers language-none"><code class="language-none">我们也可以安装其他的依赖
-比如我们的cnpm依赖的安装
-cnpm install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">我们在创建博客的时候如果报错的话,可以先直接在一个选定的系统盘里打开gitbush使用
-mkdir myblog
-这会创建一个文件,之后
-cd myblog
-进入文件夹,之后再使用上述的方式创建博客.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>我们也可以安装其他的依赖</li>
+<li>比如我们的cnpm依赖的安装<pre class="line-numbers language-none"><code class="language-none">cnpm install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>我们在创建博客的时候如果报错的话,可以先直接在一个选定的系统盘里打开gitbush使用<pre class="line-numbers language-none"><code class="language-none">mkdir myblog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>这会创建一个文件,之后<pre class="line-numbers language-none"><code class="language-none">cd myblog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>进入文件夹,之后再使用上述的方式创建博客.</li>
+</ul>
 <ol start="2">
 <li>博客内常用的指令<pre class="line-numbers language-none"><code class="language-none">hexo server &#x2F;&#x2F;创建本地的网站
 hexo generate &#x2F;&#x2F;生成静态文件,要在部署前进行
@@ -46,22 +44,24 @@ hexo deploy &#x2F;&#x2F;部署博客
 hexo new &#x2F;&#x2F;创建新的文章
 hexo clean &#x2F;&#x2F;清除缓存<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>把博客连接到代码库<pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;GitHub用户名&quot;
-git config --global user.email &quot;GitHub注册邮箱&quot;
-这个部分会更改git的用户名
-git config user.name
-git config user.email
-使用这两个命令来查看现在的用户
-ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;
-这个命令会生成一个ssh的明文和密文
-cat ~&#x2F;.ssh&#x2F;id_rsa.pub
-这个指令找到我们的ssh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+git config --global user.email &quot;GitHub注册邮箱&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<ul>
+<li>这个部分会更改git的用户名<pre class="line-numbers language-none"><code class="language-none">git config user.name
+git config user.email<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>使用这两个命令来查看现在的用户<pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>这个命令会生成一个ssh的明文和密文<pre class="line-numbers language-none"><code class="language-none">cat ~&#x2F;.ssh&#x2F;id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>这个指令找到我们的ssh</li>
+</ul>
+<ol start="4">
 <li>配置_config.yml<pre class="line-numbers language-none"><code class="language-none">deploy:
   type: &#39;git&#39;
   repo: 你的GitHub目录地址 &#x2F;&#x2F;这个可以在库的设置里看到
   branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
-<pre class="line-numbers language-none"><code class="language-none">这里配置repo的时候可用以下格式
-repository: git@github.com:你的名字&#x2F;你的github库的名字.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>这里配置repo的时候可用以下格式<pre class="line-numbers language-none"><code class="language-none">repository: git@github.com:你的名字&#x2F;你的github库的名字.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
 <h4 id="连接博客到github"><a href="#连接博客到github" class="headerlink" title="连接博客到github"></a>连接博客到github</h4><ol>
 <li>进入github点击右上角找到setting</li>
 <li>点击左边SSH and GPG keys的页面</li>
