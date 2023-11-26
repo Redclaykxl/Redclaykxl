@@ -16,121 +16,58 @@ if (window.localStorage.getItem('theme-mode') === 'dark')
   --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
   --light-background: url('/img/bk.jpg');
   --theme-encrypt-confirm: 'confirm'
-}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Hexo+github的个人博客搭建</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-10-29T03:10:30.634Z" id="date"> 2023-10-29</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-26T03:45:39.783Z" id="updated"> 2023-11-26</time></div></span></div></div><hr><div id="post-content"><ol>
-<li><p><strong>安装Node.js和Git</strong>：首先，你需要在你的计算机上安装Node.js和Git。你可以从官方网站下载并安装它们。(node -v 和 git -v用来检测是否安装成功)</p>
-</li>
-<li><p><strong>安装Hexo</strong>：打开命令行，然后输入以下命令来全局安装Hexo：</p>
- <pre class="line-numbers language-none"><code class="language-none">npm install -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><strong>创建博客</strong>：然后，你可以使用以下命令来创建一个新的Hexo项目：<br> (这里使用hexo -v这个指令可以检查我们的博客是否安装成功)</p>
- <pre class="line-numbers language-none"><code class="language-none">hexo init blog
-cd blog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p><strong>安装依赖</strong>：在新创建的项目目录中，运行以下命令来安装依赖：</p>
- <pre class="line-numbers language-none"><code class="language-none">npm install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><strong>启动服务器</strong>：现在，你可以启动Hexo服务器来预览你的博客：</p>
- <pre class="line-numbers language-none"><code class="language-none">hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><strong>生成静态文件</strong>：当你对博客满意时，你可以生成静态文件：</p>
- <pre class="line-numbers language-none"><code class="language-none">hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><strong>部署到GitHub</strong>：最后，你可以将你的博客部署到GitHub。首先，你需要在<code>_config.yml</code>文件中设置部署配置。然后，运行以下命令来部署你的博客：</p>
- <pre class="line-numbers language-none"><code class="language-none">hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Hexo+github的个人博客搭建</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-10-29T03:10:30.634Z" id="date"> 2023-10-29</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-26T07:16:45.105Z" id="updated"> 2023-11-26</time></div></span></div></div><hr><div id="post-content"><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
+<li>安装node.js和git这两个可以在官网查询到.</li>
+<li>我们需要一个IDE,比如VSstudio或者VScode.</li>
+<li>在github注册自己的账号,并在里面创造自己的代码库,帮库的名字命名为自己的github的用户名.github.io的格式.</li>
+<li>使用node -v和git -v检测版本</li>
 </ol>
-<pre class="line-numbers language-none"><code class="language-none">hexo -v &#x2F;&#x2F;检测版本号
-git config --global user.name &quot;GitHub用户名&quot;
-git config --global user.email &quot;GitHub注册邮箱&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>使用git config user.name</li>
-<li>使用git config user.email<br>这个用来检测输入是否正确</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="博客的创建"><a href="#博客的创建" class="headerlink" title="博客的创建"></a>博客的创建</h4><ol>
+<li>打开命令行，然后输入以下命令来全局安装Hexo：<pre class="line-numbers language-none"><code class="language-none">hexo init myblog &#x2F;&#x2F;创建博客文件夹
+cd myblog &#x2F;&#x2F;进入博客
+npm install &#x2F;&#x2F;安装依赖
+hexo -v &#x2F;&#x2F;检测版本
+npm install hexo-deployer-git --save &#x2F;&#x2F;安装部署依赖<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">我们也可以安装其他的依赖
+比如我们的cnpm依赖的安装
+cnpm install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-none"><code class="language-none">cat ~&#x2F;.ssh&#x2F;id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>博客初始化</p>
-<p><strong>下边这个指令和上边的方法是一样的所以同样的操作不要用两次</strong>(这代码的格式和上边完全一样好吧)<br>首先选择一个你喜欢的地方作为你的博客根目录。</p>
-<pre class="line-numbers language-none"><code class="language-none">mkdir ~&#x2F;git&#x2F;你的GitHub用户名.github.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>随后依次运行：</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo init ~&#x2F;git&#x2F;你的GitHub用户名.github.io
-cd ~&#x2F;git&#x2F;你的GitHub用户名.github.io
-npm install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>现在博客已经初始化完成了。使用以下命令：</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>就可以在本地看到你的站点了。可以在终端里使用<code>control+c</code>关掉本地服务器。下面列举一些常用的命令，更多命令与参数可以参考.</p>
-<ul>
-<li>hexo clean用于清除缓存与静态文件。</li>
-<li>hexo new “文章标题”用于新建文章。</li>
-<li>hexo server用于启动本地服务器查看渲染好的网页，可简写为hexo s。</li>
-<li>hexo generate用于生成静态文件，可简写为hexo g。</li>
-<li>hexo deploy用于部署网站，需要先设置好_config.yml，可简写hexo d。</li>
-</ul>
-<p>设置_config.yml</p>
-<pre class="line-numbers language-none"><code class="language-none">deploy:
-  type: git
-  repo: 你的GitHub目录地址
-  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这里配置repo的时候可用以下格式<br><strong>repository: <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#109;">&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#109;</a>:你的名字&#x2F;你的github库的名字.git</strong></p>
-<h3 id="首次部署"><a href="#首次部署" class="headerlink" title="首次部署"></a>首次部署</h3><p>我们需要再安装一个依赖：</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>随后一切就绪，依次运行：</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo clean
-hexo g
-hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-<h2 id="安装Markdown语法扩展"><a href="#安装Markdown语法扩展" class="headerlink" title="安装Markdown语法扩展"></a>安装Markdown语法扩展</h2><p><code>Hexo</code>原生的Markdown渲染插件支持的Markdown语法不够丰富，比如不支持<a href="https://link.zhihu.com/?target=https://github.github.com/gfm/">GitHub Flavored Markdown</a>、<a href="https://link.zhihu.com/?target=https://commonmark.org/">CommonMark</a>、上标下标、脚注等等。因此，我们在写文章之前，可以把原生的插件<code>hexo-renderer-marked</code>改为<code>hexo-renderer-markdown-it</code>。</p>
-<p>首先，根据该插件的<a href="https://link.zhihu.com/?target=https://github.com/hexojs/hexo-renderer-markdown-it/wiki/Getting-Started">安装指南</a>，运行以下命令：</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">npm uninstall hexo-renderer-marked
-npm install hexo-renderer-markdown-it<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>随后在<code>_config.yml</code>里添加如下语句（可以添加在<code>deploy</code>前面）：</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text"># Markdown-it config
-## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
-markdown:
-  render:
-    html: true
-    xhtmlOut: false
-    breaks: true
-    linkify: true
-    typographer: true
-    quotes: '“”‘’'
-  plugins:
-    - markdown-it-abbr
-    - markdown-it-footnote
-    - markdown-it-ins
-    - markdown-it-sub
-    - markdown-it-sup
-  anchors:
-    level: 2
-    collisionSuffix: 'v'
-    permalink: true
-    permalinkClass: header-anchor
-    permalinkSide: 'left'
-    permalinkSymbol: ¶<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>随后你就可以使用扩展语法了。使用方法可以参看<a href="https://link.zhihu.com/?target=http://markdown.p2hp.com/extended-syntax/index.html">这里</a>和<a href="https://link.zhihu.com/?target=https://markdown-it.github.io/">这里</a>，尤其是后一个网页给出了很详细的例子。</p>
-<p>如果你觉得脚注字体偏大，可以看我的字体设置文章，看完后就知道怎么修改了。我个人做了如下设置：</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">.footnotes &#123;
-    font-size: 75%;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>因为我们引入了新的插件，所以也要改一下工作流文件，在<code>安装Hexo</code>那一步加一些步骤，安装这些依赖。你可以在本地修改<code>.github/workflows/main.yml</code>的内容，也可以在GitHub的<code>blog</code>仓库，点击Actions，选择最近的一次部署，点击右侧的省略号中的View workflow file，然后点击右侧的铅笔按钮进行修改。将新的依赖安装写在<code>npm install</code>那一行后面即可。如果你采用后者，在你将本地新的改动push到GitHub之前，要记得先做<code>git pull</code>，否则会报错显示远程仓库有新的改动。推荐在本地修改，一步到位。</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">run: |
-    npm install hexo-cli -g
-    npm install
-  + npm uninstall hexo-renderer-marked
-  + npm install hexo-renderer-markdown-it<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/164368299">Hexo 静态博客指南：建站教程（上） - 知乎 (zhihu.com)</a></p>
-<h3 id="关于一些依赖的安装"><a href="#关于一些依赖的安装" class="headerlink" title="关于一些依赖的安装"></a>关于一些依赖的安装</h3><p>cnpm install<br>git clone \<a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights.git">https://github.com/Yue-plus/hexo-theme-arknights.git</a> themes&#x2F;arknights<br>cnpm install hexo-server hexo-browsersync hexo-renderer-pug –save</p>
-<h3 id="实用插件"><a href="#实用插件" class="headerlink" title="实用插件"></a>实用插件</h3><p>[代码块折叠]<a target="_blank" rel="noopener" href="https://github.com/fletchto99/hexo-sliding-spoiler">fletchto99&#x2F;hexo-sliding-spoiler: A sliding spoiler for hexo (github.com)</a>.<br>使用格式为</p>
-<pre class="line-numbers language-none"><code class="language-none">\&#123;% spoiler &quot;点击我查看内容&quot; %&#125;
-\&#123;% endspoiler %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/10/29/%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88%E4%B8%8E%E6%95%B0%E7%BB%84/">← Next 结构体指针和数组</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/10/28/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%96%E6%AC%A1%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">首次部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Markdown%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95"><span class="toc-number"></span> <span class="toc-text">安装Markdown语法扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E4%B8%80%E4%BA%9B%E4%BE%9D%E8%B5%96%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">关于一些依赖的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">实用插件</span></a></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+<pre class="line-numbers language-none"><code class="language-none">我们在创建博客的时候如果报错的话,可以先直接在一个选定的系统盘里打开gitbush使用
+mkdir myblog
+这会创建一个文件,之后
+cd myblog
+进入文件夹,之后再使用上述的方式创建博客.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li>博客内常用的指令<pre class="line-numbers language-none"><code class="language-none">hexo server &#x2F;&#x2F;创建本地的网站
+hexo generate &#x2F;&#x2F;生成静态文件,要在部署前进行
+hexo deploy &#x2F;&#x2F;部署博客
+hexo new &#x2F;&#x2F;创建新的文章
+hexo clean &#x2F;&#x2F;清除缓存<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>把博客连接到代码库<pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;GitHub用户名&quot;
+git config --global user.email &quot;GitHub注册邮箱&quot;
+这个部分会更改git的用户名
+git config user.name
+git config user.email
+使用这两个命令来查看现在的用户
+ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;
+这个命令会生成一个ssh的明文和密文
+cat ~&#x2F;.ssh&#x2F;id_rsa.pub
+这个指令找到我们的ssh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>配置_config.yml<pre class="line-numbers language-none"><code class="language-none">deploy:
+  type: &#39;git&#39;
+  repo: 你的GitHub目录地址 &#x2F;&#x2F;这个可以在库的设置里看到
+  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">这里配置repo的时候可用以下格式
+repository: git@github.com:你的名字&#x2F;你的github库的名字.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="连接博客到github"><a href="#连接博客到github" class="headerlink" title="连接博客到github"></a>连接博客到github</h4><ol>
+<li>进入github点击右上角找到setting</li>
+<li>点击左边SSH and GPG keys的页面</li>
+<li>添加上述使用cat指令找到的ssh密钥,标题随意输入但是要记住</li>
+<li>在自己的博客目录使用gitbush进行部署即可</li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/10/29/%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88%E4%B8%8E%E6%95%B0%E7%BB%84/">← Next 结构体指针和数组</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/10/28/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">2.</span> <span class="toc-text">博客的创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E5%8D%9A%E5%AE%A2%E5%88%B0github"><span class="toc-number">3.</span> <span class="toc-text">连接博客到github</span></a></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
 lightGallery(document.getElementById('post-bg'), {
   plugins: [lgZoom,lgThumbnail],
   selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
