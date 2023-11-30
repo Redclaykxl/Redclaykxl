@@ -1,0 +1,922 @@
+<!DOCTYPE html><html lang="en" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>C语言 | Redclay's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: false});</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: Bender;
+ src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+ font-family: BenderLight;
+ src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+  --theme-encrypt-confirm: 'confirm'
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>C语言</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-10-12T14:05:24.147Z" id="date"> 2023-10-12</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-30T11:13:41.863Z" id="updated"> 2023-11-30</time></div></span></div></div><hr><div id="post-content"><p>一个X进制的整数（从an到a1），转化为十进制的公式：</p>
+<pre><code>a(n)a(n-1)...a(1)=a(n)*x(n-1)+...+a(2)*x+a(1)
+</code></pre>
+<p>一个10进制的整数a，转化为x进制的公式为:</p>
+<pre><code>a除以x取余，商继续除以x取余，直到商为0，所有的余数逆序就是x的进制数。
+</code></pre>
+<p>10进制转化为2进制可以用表格法及以1开始向左&#x2F;右除2所形成的表格用10进制的数字进行比较大于取1，小于取0，位数不足补上0。</p>
+<p>2进制和16进制的互相转换可以用以下方法:</p>
+<pre><code>我们需要把2进制的数字每四个分为一组，从左向右所对应的数为8421，如果2进制的数字是1，就可以取到值，反之就是取不到。
+</code></pre>
+<p>例如:</p>
+<pre><code>01101011变成16进制，分为两组0110和1011，分别取值为0+4+2+0和8+0+2+1，可知16进制的数字为6b。
+</code></pre>
+<p>而从16进制转换成2进制就是把16进制的每一位数字拆成由8+4+2+1所得到的形式。</p>
+<p>例如:</p>
+<pre><code>一个8进制的数字256，它转换为10进制的数字为2x8^2+5x8^1+6=128+40+6=174。之后转换为7进制就是336。
+</code></pre>
+<p>比如设计一个可以把10进制的数字转换为n进制的C语言如下。<br class='item-img' data-src='/../images/P6/p6001.png'><img src="/../images/P6/p6001.png" alt="1"></p>
+<h3 id="P7"><a href="#P7" class="headerlink" title="P7"></a>P7</h3><p>Bit:位，小b，最小单位。</p>
+<p>Byte:字节，大B，1Byte&#x3D;8bit</p>
+<p>1个bit只能储存2个信息：0，1</p>
+<p>1个Byte能储存：2^8个信息：[-128，127]，[0，255]</p>
+<p>有2，4，8个Byte，没有3Byte</p>
+<p>数据储存位置：寄存器，内存，磁盘等。</p>
+<p>整数的符号表示：</p>
+<p>有符号和没有符号，</p>
+<p>有符号的用最高位表示正负，因此它们有符号之分，1表示负数，0表示正数。</p>
+<p>如：10110110为负，01001011为正。</p>
+<p>无符号的数表示0和正整数，无需表示正负，参与数值计算。</p>
+<p>对于一个字节的整数有符号的在[-128,127]之间，没有符号的整数在[0，255]之间。</p>
+<p>整数的编码分为：源码，反码和补码。</p>
+<p>原码：在数值前面增加了一位符号位（即最高位为符号位），该位为0表示正数，1则表示负数，其余的位置是数值大小。</p>
+<p>反码：正整数的反码就是其自身，而负整数的反码可以通过对其绝对值逐位求反来求得。</p>
+<p>补码：正数的补码为它本身，负数的补码就是它的绝对值求反加1，0的补码是0。</p>
+<pre class="line-numbers language-例如" data-language="例如"><code class="language-例如">表格法：512，256，128，64，32，16，8，4，2，1
+
+47用表格法转换为2进制为00101111，则-47的补码为11010001.
+
+-1的补码为11111111。
+
+128用表格法可知其2进制为10000000-128的补码为10000000。
+
+127的补码为01111111。
+
+int i&#x3D;-1在内存中存在的形式是补码，因为1的int形式为00000001，则-1为11111111。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="P8"><a href="#P8" class="headerlink" title="P8"></a>P8</h3><p>整数的储存方式分为：低位优先(little-endian)和高位优先(big-endian)。</p>
+<p>低位优先从低位到高位排序，高位优先从高到低排序。</p>
+<p>我们的32位系统也就是x86系统所用的方式是低位优先，64位是高位优先。对于一个整数0x00 00 00 01，靠近0x的是高位，右侧为低位。例如一个32位的整数的值为0x12345678，则在32位的系统中储存方式为78 56 34 12，如果换成64位系统就是12 34 56 78。</p>
+<p>htons()</p>
+<p>(htons to net short)主机字节序到网络字节序转换。</p>
+<p>ntons()</p>
+<p>(net to host short)网络字节序到主机字节序的转换。</p>
+<p>我们可以通过以下两种方式了解主机的字节序优先。<br class='item-img' data-src='/../images/P8/p8005.png'><img src="/../images/P8/p8005.png" alt="5"><br class='item-img' data-src='/../images/P8/p8006.png'><img src="/../images/P8/p8006.png" alt="6"></p>
+<p>ip数据的报头是高位优先的，我们可以编写以下程序来识别。<br class='item-img' data-src='/../images/P8/p8001.png'><img src="/../images/P8/p8001.png" alt="1"><br class='item-img' data-src='/../images/P8/p8002.png'><img src="/../images/P8/p8002.png" alt="2"></p>
+<p>之后把数值改为1234.<br class='item-img' data-src='/../images/P8/p8003.png'><img src="/../images/P8/p8003.png" alt="3"><br class='item-img' data-src='/../images/P8/p8004.png'><img src="/../images/P8/p8004.png" alt="4"></p>
+<h3 id="P9"><a href="#P9" class="headerlink" title="P9"></a>P9</h3><p>C语言中浮点数的定义：</p>
+<p>单精度浮点数：float,占4个字节</p>
+<p>双精度浮点数：double,占8个字节</p>
+<p>例如：</p>
+<p>float x&#x3D;1.732f；</p>
+<p>double y&#x3D;3.1415926；</p>
+<p>在IEEE标准中，浮点数是将特定长度的连续字节（4个字节或8个字节）的所有2进制位（32或64）分割为特定的三个区域。</p>
+<p>符号域：S，占1位，正0，负1.</p>
+<p>阶码域：E,占8位或11位，E&#x3D;e+127（float） or e+1023(double),指数e右正负即为符号数，但阶码为正是无符号数，所以把e加127或1023作为偏移，方便指数的比较。</p>
+<p>尾数域：M，占23位和52位因为整数部分的1是默认的可以不存储。</p>
+<p>公式</p>
+<p>精度实数的存储结构：</p>
+<p>例如：</p>
+<p>-99.75的float：1 10000101 10001111000000000000000</p>
+<p>double：1 10000000101 1000111100000000000000000000000000000000000000000000</p>
+<p>1.5625的二进制表示用x2取整的方法，第一次x2整数部分为1，小数部分是0.125，第二次x2的整数为0，小数为0.25，第三次的x2，整数是0，小数是0.5，第四次x2，整数是1，小数为0。所以1.5625的2进制是1.1001.</p>
+<h3 id="P12"><a href="#P12" class="headerlink" title="P12"></a>P12</h3><p>P12<br>字符类型：char（1）&#x2F;wchar_t（2或4）<br>整型：short（2）&#x2F;int（4）&#x2F;long(4或8)&#x2F;long long(8)&#x2F;_int64(8)<br>实数单精度：float（4）<br>实数双精度：double（8）<br>有符号和无符号：signed&#x2F;unsdigned,(signed)int&#x2F;unsigned int<br>布尔类型：bool，0&#x2F;1（true&#x2F;false）C99&lt;stdbool.h&gt;<br>typedef int bool<br>#define true 1<br>#define false 0</p>
+<p>字符编码有Ascll，utf系列，unicode。<br>·a·是ascll的L·a·是unicode的<br>NULL，0，’\0’都是一样的，都是值0<br>NULL<br>虽然值是0，但是它的含义不一样，或者说它的类型不一样。NULL是指针类型，不过它是空指针，即值为0<br>‘\0’<br>我们都知道\是转义符，用单引号包起来，再加转义，实际上就是0，只不过它表示的是字符<br>“0”<br>用双引号包裹的0是字符串</p>
+<p>#include &lt;stdio.h&gt;<br>#include &lt;math.h&gt;</p>
+<p>void main()<br>{<br>    float a &#x3D; 0;</p>
+<pre><code>if (fabs(a)&lt; 1e-6)
+&#123;
+    printf(&quot;a 等于 0\n&quot;);
+&#125;
+else
+&#123;
+    printf(&quot;a 不等于 0\n&quot;);
+&#125;
+
+return;
+</code></pre>
+<p>}</p>
+<p>#include &lt;stdio.h&gt;<br>#include &lt;math.h&gt;</p>
+<p>void main()<br>{<br>    double a &#x3D; 0;</p>
+<pre><code>if (fabs(a)&lt; 1e-15)
+&#123;
+    printf(&quot;a 等于 0\n&quot;);
+&#125;
+else
+&#123;
+    printf(&quot;a 不等于 0\n&quot;);
+&#125;
+
+return;
+</code></pre>
+<p>}</p>
+<h3 id="P13"><a href="#P13" class="headerlink" title="P13"></a>P13</h3><p>P13<br>类型长度-sizeof（是一个操作符，在编译阶段就确定）<br>char[-128,127][0,255]<br>short[-32768,32767][0,65535]<br>int&#x2F;long[-2147483648,2147483647][0,4294967295]<br>float[-3.4<em>10^38,3.4</em>10^38]<br>double[-1.7<em>10^308,1.7</em>10^308]<br>无符号的int最小为0，最大为-1（2进制的位全是1）<br>有符号的int<br>int max &#x3D; 0x7fffffff除符号位全是1<br>int min &#x3D; 0x80000000除符号位全是0<br>在整数上溢出1是最小值，整数下溢出1是最大值。<br> (char)(-128*-1)&#x3D;-128<br>16位系统中，int有符号的取值范围是[-2<em>16&#x2F;2,2</em>16&#x2F;2-1]无符号是[0,65536]<br>所以当i&#x3D;65536是溢出1位则是-32768，i&#x3D;65535时为-32767.</p>
+<h3 id="P15"><a href="#P15" class="headerlink" title="P15"></a>P15</h3><p>强制转换<br>格式（新类型）变量<br>丢失字节从高位开始丢失。<br>从小到大转换要用符号位填充，整数用0填充，负数用1填充。<br>自动（隐式）转换<br>1，若参与的运算量的类型不同，则先转换成同一类型，然后进行运算。<br>2，转换按数据长度的增加方向进行，以保证精度不降低。如int型和long型运算时，先把int量转成long型后在进行运算。<br>字节数不同的转换为高字节进行运算，<br>字节相同的如果一种有符号另一种没有符号，则转换为无符号类型。</p>
+<p>自动转换2</p>
+<p>进行算数运算（加减乘除取余及符号运算）时，不同类型数据必须转换成同一类型的数据才能运算，算数转换原则为：</p>
+<p>进行运算时，以表达式中最长的类型为主，将其他类型数据均转换成该类型，</p>
+<p>a，若运算数中有double型或float型，则其他类型的数据均转换成double类型进行运算。</p>
+<p>b，若运算中最长的类型为long型，则其他类型数均转换成long型数。</p>
+<p>c，若运算中最长型为int型，则char型也转换成int型进行运算。算数转换是在运算过程中自动完成的。</p>
+<p>d，函数调用中参数传递时，系统隐式地将实参转换为形参的类型后，赋给形参。char和short会被转换成int，float会被转换成double。</p>
+<p>f，printf函数会将char和short转换成int；float会被转换成double传递。</p>
+<p>g，函数有返回值时，系统将隐式地将返回表达式类型转换为返回值类型，赋值给调用函数。</p>
+<p>注意事项：<br class='item-img' data-src='/../images/P15/p15001.png'><img src="/../images/P15/p15001.png" alt="1"><br class='item-img' data-src='/../images/P15/p15002.png'><img src="/../images/P15/p15002.png" alt="2"></p>
+<p>作业：</p>
+<p>1<br class='item-img' data-src='/../images/P15/p15003.png'><img src="/../images/P15/p15003.png" alt="3"><br class='item-img' data-src='/../images/P15/p15004.png'><img src="/../images/P15/p15004.png" alt="4"><br class='item-img' data-src='/../images/P15/p15007.png'><img src="/../images/P15/p15007.png" alt="7"><br>从int转换为char时字节是减少的512的2进制是0000 0001 0000 0000变为16进制是0x01 00，进行转换从大到小是舍弃高位变成0x00，之后输出的printf会把输出的char再转换成int就是0x00 00也就是0.<br class='item-img' data-src='/../images/P15/p15008.png'><img src="/../images/P15/p15008.png" alt="8"></p>
+<p>首先我们能知道在int类型中0x000000ff是255转换为char从高位舍弃是0x00ff还是255但255是无符号的char类型的最大值但有符号时是-1而有符号转无符号时内部储存方式不变但是外部是无符号的%lu所表示的是long unsigned即4字节int也是4字节从char转long要填充，我们知道最小值向下溢出是最大数值就是2*32-1。</p>
+<p>3</p>
+<p>短整型变长整型要在符号位填充0，长整形变短整型要舍弃高位。</p>
+<p>4</p>
+<p>有符号变无符号时内部储存方式不变但是外部要表示无符号。</p>
+<p>看有符号数的最高位是否为1，如果不为1（即为0），则无符号数就直接等于有符号数；如果有符号数的最高位为1，则将有符号数取补码，得到的数就是无符号数。</p>
+<p>及无符号变有符号时，原值照赋，存储方式不变但是外部值可能改变。</p>
+<h3 id="P16"><a href="#P16" class="headerlink" title="P16"></a>P16</h3><p>变量</p>
+<p>变量是内存或寄存器中用一个标识符命名的存储单元，可以用来存储一个特定类型的数据，并且数据的值在程序运行过程中可以进行修复。</p>
+<p>变量就至少可以给我们提供两个信息：一是变量的地址，即就是，操作系统为变量在内存中分配的若干内存首地址；二是变量的值，也就是，变量在内存中所分配的那些内存单元中所存放的数据。</p>
+<p>常量没有地址。</p>
+<p>变量的命名</p>
+<p>必须由字母，下划线和数字组成，但是第一个字符必须是字母，下划线也被看作是字母。</p>
+<p>大写字母和小写字母是不同的字符。</p>
+<p>局部变量建议用比较短的名，全局变量使用比较长的名字（命名变量不用拼音尽量符合英语逻辑）。</p>
+<p class='item-img' data-src='/../images/P16/p16001.png'><img src="/../images/P16/p16001.png" alt="1"><br class='item-img' data-src='/../images/P16/p16002.png'><img src="/../images/P16/p16002.png" alt="2"><br class='item-img' data-src='/../images/P16/p16003.png'><img src="/../images/P16/p16003.png" alt="3"><br>1</p>
+<p>要获取变量的地址，可以用取地址符 (&amp;)来操作变量<br class='item-img' data-src='/../images/P16/p16004.png'><img src="/../images/P16/p16004.png" alt="4"></p>
+<p>2</p>
+<p>操作系统为变量在内存中分配的若干内存首地址，变量在内存中所分配的那些内存单元中所存放的数据</p>
+<p>3</p>
+<p>3.14f中f代表这是一个单精度的数</p>
+<p>4</p>
+<p>3value，_value,value,v1</p>
+<p>第一个不和法。</p>
+<h3 id="P17"><a href="#P17" class="headerlink" title="P17"></a>P17</h3><p class='item-img' data-src='/../images/P17/p17001.png'><img src="/../images/P17/p17001.png" alt="1"><br class='item-img' data-src='/../images/P17/p17002.png'><img src="/../images/P17/p17002.png" alt="2"><br class='item-img' data-src='/../images/P17/p17003.png'><img src="/../images/P17/p17003.png" alt="3"><br class='item-img' data-src='/../images/P17/p17004.png'><img src="/../images/P17/p17004.png" alt="4"><br class='item-img' data-src='/../images/P17/p17005.png'><img src="/../images/P17/p17005.png" alt="5"><br class='item-img' data-src='/../images/P17/p17006.png'><img src="/../images/P17/p17006.png" alt="6"></p>
+<p>静态存储区：内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在。 它主要存放静态数据、全局数据和常量。</p>
+<p>栈区：在执行函数时，函数内局部变量的存储单元都可以在栈上创建，函数执行结束时这些存储单元自动被释放。 栈内存分配运算内置于处理器的指令集中，效率很高，但是分配的内存容量有限。</p>
+<p> 堆区：亦称动态内存分配</p>
+<p>11.0属于没有被定义的状态，此时只能打印出0 or 1.</p>
+<h3 id="P18"><a href="#P18" class="headerlink" title="P18"></a>P18</h3><p>以 int buf[100]&#x3D;{0} 为例，集中讨论 buf、buf[0]、&amp;buf[0]、&amp;buf 四个字符含义的内涵。</p>
+<p>1、buf：有两层含义，一是数组名，sizeof(buf) 时就是数组名的含义；二是等价于 &amp;buf[0]，表示数组的第一个元素的首字节地址，是一个常量值。因此，既然是一个常量值，无论从哪层含义来使用，buf 都不能作为左值来使用，但是，buf 可以用来作为右值来使用，作为右值使用时，应理解为地址。</p>
+<p>2、buf[0]：表示存储第一个元素的空间，可对其进行读写操作，所以可以作为左值来使用。</p>
+<p>3、&amp;buf[0]：等价于 buf，是一个地址常量，只能作为右值使用。</p>
+<p>4、&amp;buf：表示地址的首地址，是一个地址常量，只能作为右值使用。</p>
+<p>buf 与 &amp;buf 的值相等，但是含义完全不同。printf(“%p\n”,buf) 与 printf(“%p\n”,&amp;buf) 这两条代码的打印结果是相同的，表明它们的值是相同的，但是 printf(“%p\n”,buf+1) 与 printf(“%p\n”,&amp;buf+1) 的结果完全不同，因为它们的含义不同，buf 表示数组的第一个元素的首字节地址，加 1 加的时一个元素空间的大小；&amp;buf 表示的是整个数组的首地址，加 1 加的是整个数组空间大小，数组首地址主要用于构建多维数组，对于一堆数组来说，数组首地址没有太大的实用意义。</p>
+<p>fflush(sidin)使用回车键删掉上一个输入的数值。</p>
+<p>char c1&#x3D;getch();直接输出值{不会在屏幕上直接显示}</p>
+<p>char c2&#x3D;getchar();需要回车键输出值</p>
+<p>使用上述两个需要有#include &lt;conio.h&gt;</p>
+<p>getch()可以间隔分段使用。</p>
+<p>scanf_s可以用来限制输入的字符防止数值溢出。（只有微软有）</p>
+<p>gets,puts平替scanf。</p>
+<p>输入一个字符串时不用&amp;，而变量需要在前面加&amp;</p>
+<p>使用_wchart定义，在scanf中使用%lc或%C输入</p>
+<p>scanf后加入_s可以限制字符的输入防止溢出。</p>
+<p>get同理</p>
+<p>4996警告是一种数据溢出警告当输入的数值过大时溢出的数值可能会损坏其他数据造成破坏。<br class='item-img' data-src='/../images/P18/p18001.png'><img src="/../images/P18/p18001.png" alt="1"><br class='item-img' data-src='/../images/P18/p18002.png'><img src="/../images/P18/p18002.png" alt="2"><br class='item-img' data-src='/../images/P18/p18003.png'><img src="/../images/P18/p18003.png" alt="3"><br class='item-img' data-src='/../images/P18/p18004.png'><img src="/../images/P18/p18004.png" alt="4"></p>
+<h3 id="P19"><a href="#P19" class="headerlink" title="P19"></a>P19</h3><p>i++和++i的区别：</p>
+<p>一，C语言内建型别：</p>
+<p>i++;</p>
+<p>++i;</p>
+<p>C++里，i是一个对象，++i比i++效率高。</p>
+<p>二，在复合表达式或赋值语句中：</p>
+<p>int i&#x3D;0；</p>
+<p>int a&#x3D; i++;a&#x3D;i;i&#x3D;i+1</p>
+<p>int i&#x3D;0;</p>
+<p>int b&#x3D; ++i;i&#x3D;i+1;b&#x3D;i-&gt;b&#x3D;1,i&#x3D;1</p>
+<p>三，函数中</p>
+<p>i++</p>
+<p>++i</p>
+<p>I++,++i属于不确定（由编译器决定） </p>
+<p class='item-img' data-src='/../images/P19/p19001.png'><img src="/../images/P19/p19001.png" alt="1"><br class='item-img' data-src='/../images/P19/p19002.png'><img src="/../images/P19/p19002.png" alt="2"><br class='item-img' data-src='/../images/P19/p19003.png'><img src="/../images/P19/p19003.png" alt="3"></p>
+<p>对于i&#x3D;&#x3D;0和0&#x3D;&#x3D;i来说，在if（）{}时是没错的但是，如果输入少&#x3D;时i&#x3D;&#x3D;0不会报错，产生的错误不易被发现，但是0&#x3D;&#x3D;i就会报错使错误更容易被发现改正。</p>
+<p>a%&#x3D;5是指a&#x3D;a%5取余，a*&#x3D;5是指a×5.</p>
+<h3 id="P20"><a href="#P20" class="headerlink" title="P20"></a>P20</h3><p class='item-img' data-src='/../images/P20/p20001.png'><img src="/../images/P20/p20001.png" alt="1"><br class='item-img' data-src='/../images/P20/p20002.png'><img src="/../images/P20/p20002.png" alt="2"></p>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p>switch语句是一种多路段判定语句，它测试表达语句是否为一些常量整数值中的某一个值匹配，并执行相应的分支动作。所以switch语句也是一种分支语句，可以和if语句互相转换。</p>
+<p>switch(a)&#x2F;&#x2F;a只能为整数(char,short,int,long等),不能为指针，浮点数。</p>
+<pre><code>控制语句之循环语句：for,while,do-while.
+</code></pre>
+<p>for(表达式1;条件表达式2;表达式3)</p>
+<p>{</p>
+<p>循环体</p>
+<p>}</p>
+<p>for循环中的“参数初始化表达式”，“条件表达式”和“更新循环变量表达式”都是选择项，即可以缺省，但是“;”不能缺。省略了初始化，表示不对循环控制变量赋初值，省略了条件表达式，则不做其他处理时便成为死循环。省略了增量，则不对循环控制变量进行操作，这时可在语句中加入修改循环控制变量的语句。</p>
+<p>1，简单的for循环</p>
+<p>for(int i&#x3D;0; i&lt;10;i++)</p>
+<p>{</p>
+<p>printf(“i:%d\n”,i);</p>
+<p>}</p>
+<p>return 0; </p>
+<p>2，while的循环</p>
+<p>int i&#x3D;0;</p>
+<p>while(i&lt;10)</p>
+<p>{</p>
+<p>printf(“i:%d\n”,i);</p>
+<p>i++;</p>
+<p>}</p>
+<p>return 0;</p>
+<p>3，do_while语句的用法</p>
+<p>int i&#x3D;0;</p>
+<p>do</p>
+<p>{</p>
+<p>printf(“i:%d\n”,i);&#x2F;&#x2F;先执行在打印。</p>
+<p>i++;</p>
+<p>} while  (i&lt;10);&#x2F;&#x2F;while的循环写在花括号后边。</p>
+<p>return 0;</p>
+<pre><code>控制语句之转向语句
+</code></pre>
+<p>goto</p>
+<p>循环中的转向语句</p>
+<p>break</p>
+<p>continue</p>
+<p>return:</p>
+<p>return 0 or return.</p>
+<p>慎用goto语句，使用方式：</p>
+<p>语句1</p>
+<p>语句2</p>
+<p>goto Lable1;</p>
+<p>. . . . </p>
+<p>Lable1:</p>
+<p>语句7；</p>
+<p>语句8；</p>
+<p>语句9；</p>
+<p class='item-img' data-src='/../images/P21/p21001.png'><img src="/../images/P21/p21001.png" alt="1"></p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h3 id="数组-1"><a href="#数组-1" class="headerlink" title="数组"></a>数组</h3><p>一维数组的定义：<br>数据类型 数组名[常量表达式]<br>数组元素的类型 合法标识符 数组元素个数。<br>数组是连续的可以随机访问。但是链表就不能。</p>
+<h3 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h3><p>char str1[]&#x3D;{‘h’,’e’,’l’,’l’,’o’,’w’,’o’,’r’,’l’,’d’};<br>char str2[]&#x3D;”hello world”;<br>第一个是字符数组，第二个即是字符数组还是字符串。<br>&#x2F;&#x2F;sizeof是用来计算类型和数据的长度，strlen是用来计算字符串中非‘\0’的字符个数。<br>每当重新定义变量的时候所对应的a[i]就会改变。<br>数组的赋值要在初始化阶段完成，初始化结束后不能直接赋值必须拷贝或单个元素赋值。<br>数组名是常量指针一旦定义就不能修改。<br> #define hansu(a) sizeof(a)&#x2F;sizeof(a[0])<br> 如果输入的数组过多就会导致产生一些垃圾数值，C语言不会检测数组溢出。</p>
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>初始化数组a[5]&#x3D;{1,2,3,4,5};<br>二维数组和一维数组的储存方式相同<br>数组是一种引用数据类型，数组引用变量只是一个引用，数组元素和数组变量在内存里是分开存放的。 下面将深入介绍数组在内存中的运行机制。 数组引用变量只是一个引用，这个引用变量可以指向任何有效的内存，只有当该引用指向有效内存后，才可通过该数组变量来访问数组元素。 与所有引用变量相同的是，引用变量是访问真实对象的根本方式。 也就是说，如果我们希望在程序中访问数组，则只能通过这个数组的引用变量来访问它。 实际的数组元素被存储在<strong>堆</strong>（heap）内存中；数组引用变量是一个引用类型的变量，被存储在栈（stack）内存中。<br>采用按行列出的效率高因为这样的数组是连续的可以随机访问而按列排序在储存中是跳跃的。</p>
+<pre class="line-numbers language-Code" data-language="Code"><code class="language-Code">\#include &lt;stdio.h&gt;
+void func(int a\[],int len)
+&#123;
+    printf(&quot;sizeof(a) in func&#x3D;%d\n&quot;,sizeof(a));
+&#125;
+int main()
+&#123;
+int a\[10]&#x3D;&#123;0&#125;;
+printf(&quot;sizeof(a)&#x3D;%d\n&quot;,sizeof(a));
+func(a,10);
+return  0;
+&#125;
+输出40，4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-Code" data-language="Code"><code class="language-Code">\#include &lt;stdio.h&gt;
+int main()
+&#123;
+    int a\[5]&#x3D;&#123;1,2,3,4,5&#125;;
+    int *ptr1&#x3D;(int*)(&amp;a+1);
+    int *ptr2&#x3D;(int*)((int)a+1);
+    printf(&quot;%x,%x&quot;,ptr1\[-1],*ptr2);
+    return 0;
+&#125;
+输出5，200000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="字符串数组"><a href="#字符串数组" class="headerlink" title="字符串数组"></a>字符串数组</h3><p>是由零个或多个字符组成的有限序列。C语言的字符串可以定义为：”c1c2c3c4……cn\0”。<br>从定义的形式可以看出，C语言的字符串是以’\0’结尾的。程序在存放字符后会自动加上’\0’。<br>当字符串中的字符有符号时可以用&quot;real&quot;来防止产生的语法错误。（即在普通字符前加上反斜线。）</p>
+<h3 id="多字节字符串和宽字节字符串"><a href="#多字节字符串和宽字节字符串" class="headerlink" title="多字节字符串和宽字节字符串"></a>多字节字符串和宽字节字符串</h3><p>在C语言中，多字节字符串每个字符的编码宽度都不等，可以是一个字节还可以是多个字节。<br>例如：char *str &#x3D; “Hello World!你好，世界!”。<br>就是一个多字节的字符串(英文一个字节，中文两个字节)<br>宽字节符的每个字节都是一样的。<br>比如：wchar_t *wstr&#x3D;L”Hello World!你好，世界！”。<br>上面的字符串都是两个字节。<br>我们可以利用wctomb()进行宽字节和多字节的转。</p>
+<pre class="line-numbers language-Code" data-language="Code"><code class="language-Code"> \#include &lt;stdio.h&gt;
+ int g_sl\[]&#x3D;&quot;hello world 1&quot;;
+int main()
+&#123;
+	char \*s2&#x3D;&quot;hello world 2&quot;;*不能在指针上修改数据，即不能修改存在静态常量值的字符串*
+	char s3\[]&#x3D;&quot;hello world 3&quot;;
+	char \*ps4&#x3D;(char\*)malloc(128);
+	
+if(ps4\&#x3D;&#x3D;NULL)
+&#123;
+	return -1;
+&#125;
+memset(ps4,1,128);
+strcpy(ps4,128,&quot;hello world 4&quot;);
+
+printf(&quot;%s\\n&quot;,g_sl);*静态区*
+printf(&quot;%s\\n&quot;,s2);*静态常量区*
+printf(&quot;%s\\n&quot;,s3);*栈*
+printf(&quot;%s\\n&quot;,ps4);*堆*
+
+free(ps4);
+
+return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="字符串遍历的三种方法："><a href="#字符串遍历的三种方法：" class="headerlink" title="字符串遍历的三种方法："></a>字符串遍历的三种方法：</h3><p>char *str &#x3D; “hello world!”;<br>while(*str !&#x3D; ‘\0’)<br>{<br>    printf(“%c”,*str);<br>    str++;<br>}</p>
+<p>for(;*str !&#x3D; ‘\0’;str++)<br>{<br>    printf(“%c”,str);<br>}</p>
+<p>for(int i&#x3D;0;str[i] !&#x3D; ‘\0’;i++)<br>{<br>    printf(“%c”,str[i]);<br>}</p>
+<h3 id="字符串库函数的应用："><a href="#字符串库函数的应用：" class="headerlink" title="字符串库函数的应用："></a>字符串库函数的应用：</h3><p>#include&lt;string.h&gt;<br>#include&lt;stdio.h&gt;<br>#include&lt;tchar.h&gt;<br>&#x2F;&#x2F;定义三种类型的字符串，缓存</p>
+<h3 id="printf-printf-“-ws”-tprintf-T-“-s”-xx"><a href="#printf-printf-“-ws”-tprintf-T-“-s”-xx" class="headerlink" title="printf &#x2F; printf(“%ws”) &#x2F; _tprintf(_T(“%s”),xx)"></a>printf &#x2F; printf(“%ws”) &#x2F; _tprintf(_T(“%s”),xx)</h3><p>strlen(取得多字节字符串中字符长度，不包含 ‘&#x2F;0’。) &#x2F; wsclen(取得宽字节字符串中字符长度，不包含 ‘&#x2F;0’。) &#x2F; _tcslen(取得宽字节&#x2F;多字节字符串中字符长度，不包含 ‘&#x2F;0’。)</p>
+<h3 id="strcpy-stecpy-s-tcslen"><a href="#strcpy-stecpy-s-tcslen" class="headerlink" title="strcpy &#x2F; stecpy_s &#x2F; _tcslen"></a>strcpy &#x2F; stecpy_s &#x2F; _tcslen</h3><p>1,例如:char *strcpy(char* dest, const char *src);功能:把从src地址开始且含有NULL结束符的字符串复制到以dest开始的地址空间,说明：src和dest所指内存区域不可以重叠且dest必须有足够的空间来容纳src的字符串。返回指向dest的指针。</p>
+<h3 id="wcscpy-wcscpy-s-wcsncpy"><a href="#wcscpy-wcscpy-s-wcsncpy" class="headerlink" title="wcscpy &#x2F; wcscpy_s &#x2F; wcsncpy"></a>wcscpy &#x2F; wcscpy_s &#x2F; wcsncpy</h3><h3 id="tcscpy-tcscpy-s-tcsncpy"><a href="#tcscpy-tcscpy-s-tcsncpy" class="headerlink" title="_tcscpy &#x2F; _tcscpy_s &#x2F; _tcsncpy"></a>_tcscpy &#x2F; _tcscpy_s &#x2F; _tcsncpy</h3><h3 id="strcmp-strncmp-stricmp-strnicmp"><a href="#strcmp-strncmp-stricmp-strnicmp" class="headerlink" title="strcmp &#x2F; strncmp &#x2F; stricmp &#x2F; strnicmp"></a>strcmp &#x2F; strncmp &#x2F; stricmp &#x2F; strnicmp</h3><p>比较字符串s1和s2</p>
+<h3 id="strcat-strcat-s-hello-world，文件路径"><a href="#strcat-strcat-s-hello-world，文件路径" class="headerlink" title="strcat &#x2F; strcat_s   &#x2F;&#x2F;hello+world，文件路径"></a>strcat &#x2F; strcat_s   &#x2F;&#x2F;hello+world，文件路径</h3><p>字符串追加&#x2F;连接函数，它的功能就是在一个字符串后面追加上另外一个字符串。</p>
+<h3 id="strchr-strrchr-返回位置地址，str，求文件名，扩展名。"><a href="#strchr-strrchr-返回位置地址，str，求文件名，扩展名。" class="headerlink" title="strchr &#x2F; strrchr &#x2F;&#x2F;返回位置地址，str，求文件名，扩展名。"></a>strchr &#x2F; strrchr &#x2F;&#x2F;返回位置地址，str，求文件名，扩展名。</h3><p>查找字符串中的一个字符，并返回该字符在字符串中第一次出现的位置.</p>
+<h3 id="strstr"><a href="#strstr" class="headerlink" title="strstr"></a>strstr</h3><p>函数搜索一个字符串在另一个字符串中的第一次出现<br>找到所搜索的字符串，则该函数返回第一次匹配的字符串的地址<br>如果未找到所搜索的字符串，则返回NULL</p>
+<h3 id="strtok-strtok-s-ip地址"><a href="#strtok-strtok-s-ip地址" class="headerlink" title="strtok &#x2F; strtok_s  &#x2F;&#x2F;ip地址"></a>strtok &#x2F; strtok_s  &#x2F;&#x2F;ip地址</h3><pre><code>    strtok(st_ip,st_ip_delim);
+    strtok_s(NULL,st_s1_deilm,&amp;next);
+</code></pre>
+<p>用于分解字符串，返回分解得到的字符串指针.<br>atof &#x2F; atoi &#x2F; atol &#x2F; atoll &#x2F; _ttol()</p>
+<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><h3 id="指针是个变量里面存放内存地址。"><a href="#指针是个变量里面存放内存地址。" class="headerlink" title="指针是个变量里面存放内存地址。"></a>指针是个变量里面存放内存地址。</h3><p>指针的初始化，可以让指针指向某一个变量的地址，也可以让指针指向一个分配的内存或者字符串常量，当然也可以指向NULL。<br>例如：<br>一，<br>int i，*p  \\声明了一个整形变量i，一个指针p，这里的*与int一起。<br>p&#x3D;&i;<br>二，<br>int i;<br>int *p&#x3D;NULL;&#x2F;&#x2F;声明了一个指针p，并初始化为NULL。<br>p&#x3D;&i;&#x2F;&#x2F;将指针p指向变量i.<br>三，<br>int i;<br>int *p&#x3D;&i;&#x2F;&#x2F;声明了一个指针p，并直接初始化为变量i的地址。<br>四，<br>char *p (char*)malloc(100);&#x2F;&#x2F;声明一个字符指针p，并初始化为堆上的一个地址。<br>char *str&#x3D;”hello world”;&#x2F;&#x2F;声明了一个字符指针str，并初始化为字符串的首地址。<br>char c&#x3D;’A’;<br>char *str&#x3D;&c;&#x2F;&#x2F;声明了一个指针并直接初始化围为变量C的地址。<br>char *pch &#x3D;&c;</p>
+<h3 id="地址：有效地址，NULL地址，野地址，信封地址。"><a href="#地址：有效地址，NULL地址，野地址，信封地址。" class="headerlink" title="地址：有效地址，NULL地址，野地址，信封地址。"></a>地址：有效地址，NULL地址，野地址，信封地址。</h3><p>#define NULL ((void*)0)</p>
+<p>*p 解引用运算符（dereferrnce）<br>*解引用：通过指针（存放的内存地址），找到对应的内存和里面存放的数据，（类似于邮递员根据信封地址，找到地点）。</p>
+<p>&amp;和*互为逆运算：*&amp;与&amp;*<br>&amp;:取址，取变量的地址（reference）<br>*:取内存，是取地址对应的内存（dereference），*p代表该内存，内存的长度就是p类型的长度，如果为void类型，那么长度不确定，GCC中默认为1字节。</p>
+<p>*在指针定义的时候，是和类型结合的.<br>*在指针使用的时候，是取内存（解引用）<br>char *s&#x3D;”hello world”;&#x2F;&#x2F;此处的*s是用于定义指针s.<br>char c&#x3D;’a’;<br>char *p&#x3D;&c;&#x2F;&#x2F;此处的*p是用于定义指针p,实际上是（char*）<br>p&#x3D;&c;<br>int x&#x3D;10,*p;&#x2F;&#x2F;此处的*p一样是用于定义指针p，此处的*与int结合：int *.<br>*p+&#x3D;1;&#x2F;&#x2F;此处的*p是解引用(即C).<br>printf(“%c\n”,*p);&#x2F;&#x2F;此处的*p是解引用.<br>void func(char *p)<br>{<br>    printf(“%c\n”,*p);&#x2F;&#x2F;取值<br>}</p>
+<h3 id="指针类型和相互转换"><a href="#指针类型和相互转换" class="headerlink" title="指针类型和相互转换"></a>指针类型和相互转换</h3><p>char *p;&#x2F;&#x2F;指向内存单元的1个字节.<br>short *p;&#x2F;&#x2F;指向内存单元的2个字节.<br>int *p;&#x2F;&#x2F;指向内存单元的4个字节.<br>float *p;&#x2F;&#x2F;指向内存单元的4个字节.<br>double *p;&#x2F;&#x2F;指向内存单元的8个字节.</p>
+<p>sizeof(p)&#x3D;4 or 8 &#x2F; x86 or x64<br>sizeof(*p)&#x3D;所知类型的长度</p>
+<p>char c;<br>int *p &#x3D; (int *)&c;</p>
+<p>int a;<br>int *p1 &#x3D; &a;<br>char *p2 &#x3D; (char*)p1;</p>
+<h3 id="void-p"><a href="#void-p" class="headerlink" title="void *p"></a>void *p</h3><p>void *p;&#x2F;&#x2F;这个类型来说,其他类型指针隐式转换成该类型,不能*p来取值,先转换特定类型再取值.<br>可以接受任何类型的指针<br>赋值给其他类型的指针,需要强转.<br>不能进行解引用*运算,必须先转换.<br>int i&#x3D;10;<br>char ch&#x3D;’a’;<br>int *p&#x3D;&i;<br>char *p2&#x3D;&ch;</p>
+<p>void *pv1&#x3D;p1;&#x2F;&#x2F;不能*pv1 error<br>void *pv2&#x3D;p2;&#x2F;&#x2F;不能*pv2 error</p>
+<p>int *p3&#x3D;(int*)pv1;&#x2F;&#x2F;*p3<br>char *p4&#x3D;(char*)pv2;&#x2F;&#x2F;*p4<br>void *memcpy(void *dst,void *src,size_t len)<br>sizeof(pv1)=&#x3D;4 or 8<br>sizeof(*pv1)=&#x3D;error,gcc=&#x3D;1.</p>
+<h3 id="字符指针"><a href="#字符指针" class="headerlink" title="字符指针"></a>字符指针</h3><p>既可以指向字符,也可以指向字符(其实也是指向的字符,即字符串的地址).<br>判断指向字符还是字符串,在代码中可以自己确定.<br>将字符或者字符串传给函数做参数,也可以通过字符指针完成.(二者需要自己确定)<br>char ch&#x3D;’a’;<br>char *p&#x3D;ch;</p>
+<p>char p&#x3D;”hello world”;<br>while(*p&#x3D;’\0’)<br>{<br>    printf(“%c”,*p);<br>    p++;<br>}</p>
+<p>sizeof(p),sizeof(*p)<br>第一个指的是指针的长度<br>第二个指的是指针对应类型的长度</p>
+<p>用指针的方法判断低位优先还是高位优先</p>
+<pre class="line-numbers language-指针转换" data-language="指针转换"><code class="language-指针转换">\#include &lt;stdio.h&gt;
+int main(void)
+&#123;
+	int num &#x3D; 0x000000ff;
+	char\* p1 &#x3D; (char\*)&amp;num;
+	unsigned char\* p2 &#x3D; (unsigned char\*)&amp;num;
+	printf(&quot;%lu\\n&quot;,\*p1);
+	printf(&quot;%lu\\n&quot;,\*p2);
+	return 0;
+&#125;
+输出是4294967295,255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="二级指针"><a href="#二级指针" class="headerlink" title="二级指针"></a>二级指针</h3><h3 id="二级指针-存放一级指针的地址"><a href="#二级指针-存放一级指针的地址" class="headerlink" title="二级指针:存放一级指针的地址"></a>二级指针:存放一级指针的地址</h3><p>一级指针存放的是普通变量的内存地址.<br>二级指针存放的是一级指针的地址.<br>int a&#x3D;10;<br>int *p&#x3D;&a;<br>int **pp&#x3D;&p;<br>*p为a   &amp;a为p<br>*pp为p   &amp;p为pp<br>**pp为a<br>**pp–&gt;*(*pp)–&gt;*(p)–&gt;*p–&gt;a</p>
+<pre class="line-numbers language-Code" data-language="Code"><code class="language-Code">\#include &lt;stdio.h&gt;
+
+int main()
+&#123;
+int a &#x3D; 10;
+
+int\* p &#x3D; &amp;a;
+int\*\* pp &#x3D; &amp;p;
+
+&#x2F;&#x2F;a,&amp;a,p,&amp;p,pp,\*pp,\*\*pp
+
+printf(&quot;a:%d\\n&quot;,a);&#x2F;&#x2F;10
+printf(&quot;&amp;a:%p\\n&quot;,&amp;a);&#x2F;&#x2F;addr of a
+printf(&quot;p%p\\n&quot;,p);&#x2F;&#x2F;addr of a
+printf(&quot;&amp;p:%p\\n&quot;,&amp;p);&#x2F;&#x2F;adde of p
+printf(&quot;pp:%p\\n&quot;,pp);&#x2F;&#x2F;addr of p
+printf(&quot;\*p:%p\\n&quot;,\*p);&#x2F;&#x2F;10
+printf(&quot;\*pp:%p\\n&quot;, \*pp);&#x2F;&#x2F;p.addr of a
+printf(&quot;\*\*pp:%p\\n&quot;,\*\*pp);&#x2F;&#x2F;a,10
+
+return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="二级指针的应用"><a href="#二级指针的应用" class="headerlink" title="二级指针的应用"></a>二级指针的应用</h3><p>如果指针做实参,那么传实参的指针(地址),就必须使用二级指针.<br>要改变指针的值,就必须传指针的指针(地址)(二级指针)</p>
+<p>二级指针的作用:传参时改变一级指针的值.</p>
+<h3 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h3><p>int func(int x);传实参值,不能改变实参<br>int func(int *x);传实参指针,修改实参<br>int func(int &amp;x);传实参引用,修改实参<br>int func(int **x);实参是指针,传指针的指针,修改指针<br>int func(int *&amp;x);实参是指针,传指针的引用,修改指针</p>
+<pre class="line-numbers language-Code" data-language="Code"><code class="language-Code">\#include &lt;stdio.h&gt;
+void f(int\*\* ptr1, int\* ptr2)
+&#123;
+	int\* tmp &#x3D; ptr2;
+	\*\*ptr1 \*&#x3D; 10;
+	\*ptr2 \*&#x3D; 10;
+	ptr2 &#x3D; \*ptr1;
+	\*ptr1 &#x3D; tmp;
+&#125;
+
+int main(void)
+&#123;
+	int i &#x3D; 0, j &#x3D; 20, \* p1 &#x3D; &amp;i, \* p2 &#x3D; &amp;j;
+	f(&amp;p1, p2);
+	printf(&quot;i:%d,j:%d,p1:%p,p2:%p\\n&quot;, i, j, \*p1, \*p2);
+	return 0;
+&#125;
+输出为0,200.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-Code" data-language="Code"><code class="language-Code">\#include &lt;stdio.h&gt;
+void GetMemory(char\* p)
+&#123;
+	p &#x3D; (char\*)malloc(100);
+&#125;
+void Test(char \*s)
+&#123;
+	char\* str &#x3D; NULL;
+	GetMemory(str);&#x2F;&#x2F;这里应该传二级指针
+	strcpy(str,s);
+	printf(str);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>正确做法</p>
+<pre class="line-numbers language-Code" data-language="Code"><code class="language-Code">\#include &lt;stdio.h&gt;
+\#include &lt;string.h&gt;
+void get_memory2(char \*\*p)
+&#123;
+	\*p &#x3D; (char \*)malloc(100);
+&#125;
+int main()
+&#123;
+	char\* str &#x3D; NULL;
+	get_memory2(&amp;str);&#x2F;&#x2F;这里应该传二级指针
+	strcpy_s(str,100,&quot;hello world&quot;);
+	printf(&quot;%s\\n&quot;,str);
+	free(str);
+	str &#x3D; NULL;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h3><h3 id="结构体-1"><a href="#结构体-1" class="headerlink" title="结构体"></a>结构体</h3><p>定义:struct(结构体)每一个构成成员可以是一个基本数据类型或者又是一个构造类型.<br>四种定义结构体的方法<br>一,<br>struct 结构名<br>{<br>    成员列表<br>}<br>struct 结构名 变量名;<br>二,<br>struct 结构名<br>{<br>    成员列表<br>}<br>变量名1,变量名2;<br>三,<br>struct<br>{<br>    成员列表<br>}<br>变量名1,变量名2;<br>四,<br>typedef struct_结构名<br>{<br>    成员列表<br>}<br>结构名,*p结构名;<br>结构名 变量名;</p>
+<h3 id="结构体的定义-初始化与成员的访问"><a href="#结构体的定义-初始化与成员的访问" class="headerlink" title="结构体的定义,初始化与成员的访问"></a>结构体的定义,初始化与成员的访问</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">\#include <span class="token operator">&lt;</span>stdio<span class="token punctuation">.</span>h<span class="token operator">></span>
+\#include <span class="token operator">&lt;</span>string<span class="token punctuation">.</span>h<span class="token operator">></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> \_student
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> id<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> age<span class="token punctuation">;</span>
+	<span class="token keyword">char</span> name\<span class="token punctuation">[</span><span class="token number">20</span>\<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">char</span> sex<span class="token punctuation">;</span>
+	<span class="token keyword">float</span> score<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>student<span class="token punctuation">,</span>\<span class="token operator">*</span>pstudent<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	student s1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">17</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token string">"Tom"</span><span class="token punctuation">,</span><span class="token char">'M'</span><span class="token punctuation">,</span><span class="token number">99.5f</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	student s2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+s2<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token number">19</span><span class="token punctuation">;</span>
+s2<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">23</span><span class="token punctuation">;</span>
+<span class="token function">strcpy_s</span><span class="token punctuation">(</span>s2<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">"lily"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+s2<span class="token punctuation">.</span>sex <span class="token operator">=</span> <span class="token char">'F'</span><span class="token punctuation">;</span>
+s2<span class="token punctuation">.</span>score <span class="token operator">=</span> <span class="token number">87.5f</span><span class="token punctuation">;</span>
+
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"id:%d,age:%d,name:%s,sex=%c,%f\\n"</span><span class="token punctuation">,</span>
+	s1<span class="token punctuation">.</span>id<span class="token punctuation">,</span>s1<span class="token punctuation">.</span>age<span class="token punctuation">,</span>s1<span class="token punctuation">.</span>name<span class="token punctuation">,</span>s1<span class="token punctuation">.</span>sex<span class="token punctuation">,</span>s1<span class="token punctuation">.</span>score<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"id:%d,age:%d,name:%s,sex=%c,%f\\n"</span><span class="token punctuation">,</span>
+	s2<span class="token punctuation">.</span>id<span class="token punctuation">,</span> s2<span class="token punctuation">.</span>age<span class="token punctuation">,</span> s2<span class="token punctuation">.</span>name<span class="token punctuation">,</span>s2<span class="token punctuation">.</span>sex<span class="token punctuation">,</span>s2<span class="token punctuation">.</span>score<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="结构体指针访问"><a href="#结构体指针访问" class="headerlink" title="结构体指针访问"></a>结构体指针访问</h3><pre class="line-numbers language-none"><code class="language-none">\#include &lt;stdio.h&gt;
+\#include &lt;string.h&gt;
+\#include &lt;stdlib.h&gt;
+
+typedef struct \_student
+&#123;
+	int id;
+	int age;
+	char name\[20\];
+	char sex;
+	float score;
+&#125;student, \* pstudent;
+
+int main()
+&#123;
+	student s1 &#x3D; &#123; 17,22,&quot;Tom&quot;,&#39;M&#39;,99.5f &#125;;
+	student s2 &#x3D; &#123; 0 &#125;;
+
+s2.id &#x3D; 19;
+s2.age &#x3D; 23;
+strcpy_s(s2.name, 20, &quot;lily&quot;);
+s2.sex &#x3D; &#39;F&#39;;
+s2.score &#x3D; 87.5f;
+
+printf(&quot;id:%d,age:%d,name:%s,sex&#x3D;%c,%f\\n&quot;,
+	s1.id, s1.age, s1.name, s1.sex, s1.score);
+printf(&quot;id:%d,age:%d,name:%s,sex&#x3D;%c,%f\\n&quot;,
+	s2.id, s2.age, s2.name, s2.sex, s2.score);
+
+student* ps1 &#x3D; &amp;s1;
+pstudent ps2 &#x3D; &amp;s2;&#x2F;&#x2F;pstudent &#x3D;&#x3D; student \*
+
+printf(&quot;id:%d,age:%d,name:%s,sex&#x3D;%c,%f\\n&quot;,
+	ps1-&gt;id,ps1-&gt;age,ps1-&gt;name,ps1-&gt;sex,ps1-&gt;score);
+printf(&quot;id:%d,age:%d,name:%s,sex&#x3D;%c,%f\\n&quot;,
+	ps2-&gt;id, ps2-&gt;age, ps2-&gt;name, ps2-&gt;sex, ps2-&gt;score);
+
+&#x2F;&#x2F;ps1+1
+&#x2F;&#x2F;sizeof(ps1),sizeof(\*ps1)\&#x3D;\&#x3D;sizeof(student)
+
+printf(&quot;sizeof(ps1)&#x3D;%d,sizeof(*ps1)&#x3D;%d,sizepf(student)&#x3D;%d\\n&quot;,
+	sizeof(ps1),sizeof(*ps1),sizeof(student));
+
+printf(&quot;sizeof(student*):%d\\n&quot;,sizeof(student\*));
+
+printf(&quot;ps1:%p,ps1+1:%p\\n&quot;,ps1,ps1+1);
+
+student* ps3 &#x3D; (student*)malloc(sizeof(student));
+if (ps3 &#x3D;&#x3D; NULL)
+&#123;
+return -1;
+&#125;
+memset(ps3, 0, sizeof(student));
+ps3-&gt;id &#x3D; 25;
+ps3-&gt;age &#x3D; 24;
+strcpy_s(ps3-&gt;name, 20, &quot;lilei&quot;);
+ps3-&gt;sex &#x3D; &#39;M&#39;;
+ps3-&gt;score &#x3D; 86.5f;
+
+printf(&quot;id:%d,age:%d,name:%s,sex&#x3D;%c,%f\\n&quot;,
+	ps3-&gt;id, ps3-&gt;age, ps3-&gt;name, ps3-&gt;sex, ps3-&gt;score);
+free(ps3);
+ps3 &#x3D; NULL;
+
+return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="与-运算符"><a href="#与-运算符" class="headerlink" title="*与-&gt;,.运算符"></a>*与-&gt;,.运算符</h3><p>首先-&gt;与.运算符比*优先级高</p>
+<pre class="line-numbers language-none"><code class="language-none">typedef struct \_student
+&#123;
+	int id;
+	int age;
+	char name\[20\];
+	char sex;
+	float score;
+&#125;student, \* pstudent;
+student stdt&#x3D;&#123;...&#125;;
+pstdt&#x3D;&amp;stdt;
+\*pstdt-&gt;sex--&gt;\*(pstdt-&gt;sex)&#x2F;&#x2F;错误,因为sex不是一个指针.
+\*pstdt-&gt;name--&gt;\*(pstdt-&gt;name)&#x2F;&#x2F;正确的,因为name是一个指针,name是一个字符.
+\*pstdt.sex--&gt;\*(pstdt.sex)&#x2F;&#x2F;错误,pstdt是指针,不支持.运算符,没有.这个运算符.
+(\*pstdt).sex--&gt;stdt.sex\&#x2F;&#x2F;正确,\*pstdt就是stdt.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="结构体中的结构体"><a href="#结构体中的结构体" class="headerlink" title="结构体中的结构体"></a>结构体中的结构体</h3><pre class="line-numbers language-none"><code class="language-none">\#include &lt;stdio.h&gt;
+\#include &lt;string.h&gt;
+\#include &lt;stdlib.h&gt;
+
+typedef struct _date
+&#123;
+	int year;
+	int month;
+	int day;
+
+&#125;date;
+
+typedef struct _student
+&#123;
+	int id;
+	int age;
+	char name[20];
+	char sex;
+	float score;
+	date birthday;
+&#125;student, * pstudent;
+
+int main()
+&#123;
+	student s1 &#x3D; &#123; 17,22,&quot;Tom&quot;,&#39;M&#39;,99.5f,&#123;1995,2,5&#125;&#125;;
+	student s2 &#x3D; &#123; 0 &#125;;
+
+s2.id &#x3D; 19;
+s2.age &#x3D; 23;
+strcpy_s(s2.name, 20, &quot;lily&quot;);
+s2.sex &#x3D; &#39;F&#39;;
+s2.score &#x3D; 87.5f;
+s2.birthday.year &#x3D; 1997;
+s2.birthday.month &#x3D; 6;
+s2.birthday.day &#x3D; 21;
+
+printf(&quot;id:%d,age:%d,name:%s,sex&#x3D;%c,%f,&quot;
+	&quot;year:%d,month:%d,day:%d\n&quot;,
+	s1.id, s1.age, s1.name, s1.sex, s1.score,
+	s1.birthday.year,s1.birthday.month,s1.birthday.day);
+printf(&quot;id:%d,age:%d,name:%s,sex&#x3D;%c,%f,&quot;
+	&quot;year:%d,month:%d,day:%d\n&quot;,
+	s2.id, s2.age, s2.name, s2.sex, s2.score,
+	s2.birthday.year,s2.birthday.month,s2.birthday.day);
+
+student* ps1 &#x3D; &amp;s1;
+pstudent ps2 &#x3D; &amp;s2;&#x2F;&#x2F;pstudent &#x3D;&#x3D; student *
+	
+
+printf(&quot;*ps2-&gt;name:%c\n&quot;, *ps2-&gt;name);
+
+printf(&quot;id:%d,age:%d,name:%s,sex&#x3D;%c,%f\n&quot;,
+	ps1-&gt;id,ps1-&gt;age,ps1-&gt;name,ps1-&gt;sex,ps1-&gt;score);
+printf(&quot;id:%d,age:%d,name:%s,sex&#x3D;%c,%f\n&quot;,
+	ps2-&gt;id, ps2-&gt;age, ps2-&gt;name, ps2-&gt;sex, ps2-&gt;score);
+
+&#x2F;&#x2F;ps1+1
+&#x2F;&#x2F;sizeof(ps1),sizeof(*ps1)&#x3D;&#x3D;sizeof(student)
+
+printf(&quot;sizeof(ps1)&#x3D;%d,sizeof(*ps1)&#x3D;%d,sizepf(student)&#x3D;%d\n&quot;,
+	sizeof(ps1),sizeof(*ps1),sizeof(student));
+
+printf(&quot;sizeof(student*):%d\n&quot;,sizeof(student*));
+
+printf(&quot;ps1:%p,ps1+1:%p\n&quot;,ps1,ps1+1);
+
+student* ps3 &#x3D; (student*)malloc(sizeof(student));
+if (ps3 &#x3D;&#x3D; NULL)
+&#123;
+	return -1;
+&#125;
+memset(ps3, 0, sizeof(student));
+ps3-&gt;id &#x3D; 25;
+ps3-&gt;age &#x3D; 24;
+strcpy_s(ps3-&gt;name, 20, &quot;lilei&quot;);
+ps3-&gt;sex &#x3D; &#39;M&#39;;
+ps3-&gt;score &#x3D; 86.5f;
+ps3-&gt;birthday.year &#x3D; 1996;
+ps3-&gt;birthday.month &#x3D; 6;
+ps3-&gt;birthday.day &#x3D; 7;
+
+printf(&quot;id:%d,age:%d,name:%s,sex&#x3D;%c,%f,&quot;
+	&quot;year:%d,month:%d,day:%d\n&quot;,
+	ps3-&gt;id, ps3-&gt;age, ps3-&gt;name, ps3-&gt;sex, ps3-&gt;score,
+	ps3-&gt;birthday.year,ps3-&gt;birthday.month,
+	ps3-&gt;birthday.day);
+free(ps3);
+ps3 &#x3D; NULL;
+
+return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="结构体中的指针-1"><a href="#结构体中的指针-1" class="headerlink" title="结构体中的指针-1"></a>结构体中的指针-1</h3><pre class="line-numbers language-none"><code class="language-none">\#include &lt;stdio.h&gt;
+\#include &lt;string.h&gt;
+\#include &lt;stdlib.h&gt;
+
+typedef struct _student
+&#123;
+	int id;
+	int age;
+	char *name;
+	char sex;
+	float score;
+&#125;student,*pstudent;
+
+int main()
+&#123;
+&#x2F;&#x2F;student s1 &#x3D; &#123; 11,21,&quot;Tom&quot;,&#39;M&#39;,97.5f&#125;;
+student s2 &#x3D; &#123; 0 &#125;;
+
+s2.id &#x3D; 15;
+s2.age &#x3D; 22;
+
+s2.name &#x3D; (char*)malloc(20);
+if (s2.name &#x3D;&#x3D; NULL)
+&#123;
+	return -1;
+&#125;
+strcpy_s(s2.name,20,&quot;lily&quot;);
+s2.sex &#x3D; &#39;M&#39;;
+s2.score &#x3D; 94.5f;
+	
+	
+	
+student* s3 &#x3D; (student*)malloc(sizeof(student));
+if (s3 &#x3D;&#x3D; NULL)
+&#123;
+	return -1;
+&#125;
+memset(s3, 0, sizeof(student));
+s3-&gt;id &#x3D; 18;
+s3-&gt;age &#x3D; 23;
+s3-&gt;name &#x3D; (char*)malloc(20);
+if (s3-&gt;name &#x3D;&#x3D; NULL)
+&#123;
+	free(s3);
+	return -1;
+&#125;
+memset(s3-&gt;name, 0, 20);
+strcpy_s(s3-&gt;name, 20, &quot;david&quot;);
+s3-&gt;sex &#x3D; &#39;M&#39;;
+s3-&gt;score &#x3D; 92.5f;
+
+&#x2F;&#x2F;printf(&quot;s1:name:%s\n&quot;,s1.name);
+printf(&quot;s2:name:%s\n&quot;, s2.name);
+printf(&quot;s3.name:%s\n&quot;, s3-&gt;name);
+
+free(s2.name);
+s2.name &#x3D; NULL;
+free(s3-&gt;name);
+s3-&gt;name &#x3D; NULL;
+return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="结构体中的指针-2-链表和树"><a href="#结构体中的指针-2-链表和树" class="headerlink" title="结构体中的指针-2:链表和树"></a>结构体中的指针-2:链表和树</h3><p>typedef struct _node<br>{<br>int value;<br>struct _node *next;<br>}node,*pnode;</p>
+<p>typedef struct _btree<br>{<br>int data;<br>struct _btree *left;<br>struct _btree *right;<br>}btree,*pbtree;</p>
+<h3 id="结构体中的指针和数组"><a href="#结构体中的指针和数组" class="headerlink" title="结构体中的指针和数组"></a>结构体中的指针和数组</h3><h3 id="结构体赋值时的拷贝"><a href="#结构体赋值时的拷贝" class="headerlink" title="结构体赋值时的拷贝"></a>结构体赋值时的拷贝</h3><p>typedef struct _struct1<br>{<br>    …<br>    …<br>}struct1;<br>struct1 s1&#x3D;{1,’a’};<br>struct1 s2&#x3D;s1;&#x2F;&#x2F;?<br>struct1 s3;<br>s3&#x3D;s1;&#x2F;&#x2F;?</p>
+<h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><p>拷贝中默认是浅拷贝</p>
+<h3 id="结构体数组"><a href="#结构体数组" class="headerlink" title="结构体数组"></a>结构体数组</h3><p>结构体数组的初始化和应用<br>结构体指针数组</p>
+<div class="spoiler collapsed">
+    <div class="spoiler-title">
+        点击我查看内容
+    </div>
+    <div class="spoiler-content">
+        <p>#include &lt;stdio.h&gt;<br>#include &lt;string.h&gt;<br>#include &lt;stdlib.h&gt;</p>
+<p>typedef struct _student<br>{<br>    int score;<br>    char name[16];<br>}student,*pstudent;</p>
+<p>int main()<br>{<br>    student stu1[3] &#x3D; { {78,”tom”}, {83,”lily”}, {79,”david”} };<br>    student stu2[3] &#x3D; { 0 };<br>    pstudent stu3[3] &#x3D; { 0 };</p>
+<pre><code>for (int i = 0; i &lt; 3; i++)
+{
+    printf(&quot;Please input score and name for %d\n&quot;, i + 1);
+    scanf_s(&quot;%d,%s&quot;, &amp;stu2[i].score, stu2[i].name, 16);
+}
+
+for (int i = 0; i &lt; 3; i++)
+{
+    stu3[i] = &amp;stu1[i];
+}
+
+for (int i = 0; i &lt; 3; i++)
+{
+    printf(&quot;stu1:%d:score:%d,name:%s\n&quot;, i, stu1[i].score,
+        stu1[i].name);
+}
+</code></pre>
+
+    </div>
+</div>
+
+
+<h3 id="结构体做参数"><a href="#结构体做参数" class="headerlink" title="结构体做参数"></a>结构体做参数</h3><p>传指针<br>传值<br>判断两个同学的成绩</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs c"><span <br><span class="hljs-comment">#include &lt;stdio.h&gt;</span>
+<span class="hljs-comment">#include &lt;string.h&gt;</span>
+<span class="hljs-comment">#include &lt;stdlib.h&gt;</span>
+<br><span class="hljs-comment">typedef struct _student</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">    int score;</span>
+<span class="hljs-comment">    char name[16];</span>
+<span class="hljs-comment">&#125;student,*pstudent;</span>
+<br><span class="hljs-comment">int compare_student_score1(student s1, student s2)</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">    return s1.score - s2.score;</span>
+<span class="hljs-comment">&#125;</span>
+<br><span class="hljs-comment">int compare_student_score2(student* s1, student* s2)</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">    return s1-&gt;score - s2-&gt;score;</span>
+<span class="hljs-comment">&#125;</span>
+<br><span class="hljs-comment">int main()</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">    student stu1[3] = &#123; &#123;78,"tom"&#125;, &#123;83,"lily"&#125;, &#123;79,"david"&#125; &#125;;</span>
+<span class="hljs-comment">    student stu2[3] = &#123; 0 &#125;;</span>
+<span class="hljs-comment">    pstudent stu3[3] = &#123; 0 &#125;;</span>
+<br><span class="hljs-comment">    for (int i = 0; i &lt; 3; i++)</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">        printf("Please input score and name for %d\n", i + 1);</span>
+<span class="hljs-comment">        scanf_s("%d%s", &stu2[i].score, stu2[i].name, 16);</span>
+<span class="hljs-comment">&#125;</span>
+<br><span class="hljs-comment">    for (int i = 0; i &lt; 3; i++)</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">        stu3[i] = &stu1[i];</span>
+<span class="hljs-comment">&#125;</span>
+<br><span class="hljs-comment">    for (int i = 0; i &lt; 3; i++)</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">        printf("stu1:%d:score:%d,name:%s\n", i, stu1[i].score,stu1[i].name);</span>
+<span class="hljs-comment">&#125;</span>
+<br><span class="hljs-comment">    for (int i = 0; i &lt; 3; i++)</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">        printf("stu2:%d:score:%d,name:%s\n", i, stu2[i].score,stu2[i].name);</span>
+<span class="hljs-comment">&#125;</span>
+<br><span class="hljs-comment">    for (int i = 0; i &lt; 3; i++)</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">        printf("stu3:%d:score:%d,name:%s\n",i,stu3[i]-&gt;score,stu3[i]-&gt;name);</span>
+<span class="hljs-comment">&#125;</span>
+<br><span class="hljs-comment">	student s3 = &#123; 85,"a" &#125;;</span>
+<span class="hljs-comment"> student s4 = &#123; 91,"b" &#125;;</span>
+<br><span class="hljs-comment">    int res = compare_student_score1(s3,s4);</span>
+<br><span class="hljs-comment">    if (res == 0)</span>
+<span class="hljs-comment">&#123;</span>
+<br><span class="hljs-comment">        printf("the score of %s equals the score of %s\n",s3.name,s4.name);</span>
+<span class="hljs-comment">&#125;</span>
+<br><span class="hljs-comment">    else if (res &gt; 0)</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">        printf("the score of %s above the score of %s\n",s3.name, s4.name);</span>
+<span class="hljs-comment">&#125;</span>
+<br><span class="hljs-comment">    else</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">        printf("the score of %s below the score of %s\n",s3.name, s4.name);</span>
+<span class="hljs-comment">&#125;</span>
+<br><span class="hljs-comment">    return 0;</span>
+<br>&#125;<br></span></code></pre></td></tr></table></figure>
+
+<h3 id="使用sizeof计算结构体长度"><a href="#使用sizeof计算结构体长度" class="headerlink" title="使用sizeof计算结构体长度"></a>使用sizeof计算结构体长度</h3><h3 id="结构体的自然对齐"><a href="#结构体的自然对齐" class="headerlink" title="结构体的自然对齐"></a>结构体的自然对齐</h3><p class='item-img' data-src='/../images/zhan/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-10-29-173039.png'><img src="/../images/zhan/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-10-29-173039.png" alt="1"></p>
+<p>#pragma pack(n)<br>#pragma pack(push)&#x2F;&#x2F;<br>#pragma pack(n)&#x2F;&#x2F;<br>#pragma pack(pop)&#x2F;&#x2F;</p>
+<p>#pragma pack(n)来设定变量n字节对齐方式.这种对齐应该遵守如下两条对齐规则.<br>1)数据成员对齐规则:<br>n字节对齐就是说变量存放的起始地址的偏移量:min(sizeof(基本类型),n)或其倍数.<br>2)整体对齐规则:<br>结构的总大小也有个约束条件:min(最大的sizeof(基本类型),n)的倍数.</p>
+<p>也就是说:<br>第一,如果n大于等于该变量所占用的字节数,那么偏移量必须满足默认的对齐方式:如果n小于该变量的类型所占用的字节数,那么偏移量为n的倍数,不用满足默认的对齐方式.<br>第二,结构的总大小也有个约束条件,分下面的两种情况:如果n大于所有成员变量的所占类型所占的字节数,那么结构的总大小必须为占用空间最大的变量占有的空间数的倍数:否则必须为n的倍数.</p>
+<h3 id="例如"><a href="#例如" class="headerlink" title="例如:"></a>例如:</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c"><span <br><span class="hljs-comment">#pragma pack(8)</span>
+<span class="hljs-comment">struct s1</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">	short a;</span>
+<span class="hljs-comment">	long b;</span>
+<span class="hljs-comment">&#125;;</span>
+<span class="hljs-comment">struct s2</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">	char c;</span>
+<span class="hljs-comment">	s1 d;</span>
+<span class="hljs-comment">	long long 3;</span>
+<span class="hljs-comment">&#125;;</span>
+<span class="hljs-comment">struct s3</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">	char c;</span>
+<span class="hljs-comment">	short a;</span>
+<span class="hljs-comment">	long b;</span>
+<span class="hljs-comment">	long long e;</span>
+<span class="hljs-comment">&#125;;</span>
+<span class="hljs-comment">#pragma pack()</span>
+<span class="hljs-comment">1,sizeof(s1)=?</span>
+<span class="hljs-comment">sizeof(s2)=?</span>
+<span class="hljs-comment">sizeof(s3)=?</span>
+<span class="hljs-comment">2,s2的c后面空了几个字节接着d?<br></span></span></code></pre></td></tr></table></figure>
+
+<h3 id="栈空间的对齐"><a href="#栈空间的对齐" class="headerlink" title="栈空间的对齐"></a>栈空间的对齐</h3><p>栈形参部分:按4字节(x86)或8字节(x64)对齐</p>
+<p>局部变量区间:变量位置可能改变,char对齐到一个字节, short2个字节.</p>
+<h3 id="联合体"><a href="#联合体" class="headerlink" title="联合体"></a>联合体</h3><h3 id="联合体-UNION"><a href="#联合体-UNION" class="headerlink" title="联合体(UNION)"></a>联合体(UNION)</h3><p>定义:C语言编程的时候,需要使几种不同类型的变量存放到同一段内存单元中.也就是使用覆盖技术,几个变量互相覆盖重叠,这种几个不同的变量共同占用一段内存的结构,在C语言中,被称为联合体(union),也被称为共用体.</p>
+<div class="spoiler collapsed">
+    <div class="spoiler-title">
+        点击我查看内容
+    </div>
+    <div class="spoiler-content">
+        <p>union foo<br>{<br>    char s[10];<br>    int i;<br>}a,b;</p>
+<p>union foo<br>{<br>    char s[10];<br>    int i;<br>};<br>union foo s;</p>
+<p>typedef union<br>{<br>    char s[10];<br>    int i;<br>}foo;<br>foo a;</p>
+<p>typedef union _foo<br>{<br>    char s[10];<br>    int i;<br>}foo,* pfoo;<br>foo a;</p>
+
+    </div>
+</div>
+<h3 id="结构体与联合体的区别"><a href="#结构体与联合体的区别" class="headerlink" title="结构体与联合体的区别"></a>结构体与联合体的区别</h3><p>1,联合体和结构体都是由多个不同的数据类型成员组成的,但在任何同一时刻,共用体只存放了一个被选中的成员而结构体的所有成员都存在.<br>2,对于联合体的不同成员赋值,将会对其他成员重写,原来的成员的值就不存在了,而对于结构体的不同成员赋值是互不影响的.<br>3,结构体里可以含有union的成员,union里也可以含结构体成员.<br>结构体:先存放数据成员;<br>联合体:并排存放数据成员.</p>
+<h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><p>enum枚举<br>当一个变量的值被限于列出来二点值的范围内,那么这个变量就可以被定义为一个枚举类型的量.比如一个星期有7天,每一天都是确定的;假如用一个变量来表示一个星期的某一天,用其他类型都不是很恰当.于是就引入了枚举类型.<br>在枚举类型中列出所有可能的取值,被说明为该”枚举”类型的变量取值不能超过定义的范围.枚举类型是一种基本数据类型,而不是像struct这样的一种构造类型,因为它不能再分解为任何的基本类型.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span <br><span class="hljs-comment">typedef wnum \_枚举名</span>
+<span class="hljs-comment">&#123;   //下面这些值是常量,一般从零开始</span>
+<span class="hljs-comment">	值1,//如果不额外指则第一个标识等于整数0,后续依次加1.</span>
+<span class="hljs-comment">	值2,</span>
+<span class="hljs-comment">	值3=7,</span>
+<span class="hljs-comment">	值4,//=2?</span>
+<span class="hljs-comment">	...</span>
+<span class="hljs-comment">	值n</span>
+<span class="hljs-comment">&#125;枚举名,\*p枚举名;</span>
+枚举名 变量名;<br></span></code></pre></td></tr></table></figure>
+
+<h3 id="define"><a href="#define" class="headerlink" title="define"></a>define</h3><p>宏定义<br>用一个标识符来代替一个字符串<br>宏名 字符串<br>宏名(参数表) 字符串<br>const float ….</p>
+<h3 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a>条件编译</h3><p>在C语言源代码里,除了那些被注释了的代码不会被编译进程序里外,还有一种方式来规定代码是否会被编译进程序里,这就是所谓的条件编译,即代码只有在某种条件下才能编译进程序。因为有的代码只有在某些情况下才具有被执行的可能,在其它条件下这些代码要么无法执行,要么没有必要行。比如在Windows平台,有的函数只能在Vista以上平台才能被执行,那么在XP及以下的平台里就无法被执行,因此在XP及以下平台就没有必要将这部分代码编译进程序,有时候甚至还无法在这些平台里编译通过。又比如有的代码只能在X86平台才能执行,在X64平台下是无效的,因此也要对这部分代码进行条件编译.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c"><span <br><span class="hljs-comment">#ifdef 标识符</span>
+<span class="hljs-comment">	程序段1</span>
+<span class="hljs-comment">#else</span>
+<span class="hljs-comment">	程序段2</span>
+<span class="hljs-comment">#endif</span>
+<br><span class="hljs-comment">在上面这种定义形式下,当标识符被定义(通过#define),那么就将程序段</span>
+<span class="hljs-comment">1编译进程序,否则,就将程序段2编译进程序。</span>
+<br><span class="hljs-comment">#define WINVER 6.1</span>
+<span class="hljs-comment">int main(void)</span>
+<span class="hljs-comment">#ifdef WINVER</span>
+<span class="hljs-comment">/*1*/  prigtf("wenversion defined\n");</span>
+<span class="hljs-comment">#else</span>
+<span class="hljs-comment">/*2*/  printf(winversion not defined\n");</span>
+<span class="hljs-comment">#endif</span>
+<span class="hljs-comment">	return 0;</span>
+<span class="hljs-comment">&#125;<br></span></span></code></pre></td></tr></table></figure>
+
+<p>还有例如ifndef和上边正好相反.</p>
+<h3 id="条件格式3"><a href="#条件格式3" class="headerlink" title="条件格式3"></a>条件格式3</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c"><span <br><span class="hljs-comment">#if 常量表达式</span>
+<span class="hljs-comment">程序段1</span>
+<span class="hljs-comment">#else</span>
+<span class="hljs-comment">程序段2</span>
+<span class="hljs-comment">#endif</span>
+<br><span class="hljs-comment">在定义方式3中,如果常量表达式的值为真,那么程序段1将会被编译进程序</span>
+<span class="hljs-comment">否则:程序段2会被编译进程序。</span>
+<br><span class="hljs-comment">#define DEBUG 1</span>
+<span class="hljs-comment">int main(void)</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">int a=5;</span>
+<span class="hljs-comment">int b=10;</span>
+<span class="hljs-comment">int c=a+b;</span>
+<span class="hljs-comment">#if DEBUG</span>
+<span class="hljs-comment">/_1_/ printf(“c = %d\n”,c);</span>
+<span class="hljs-comment">#endif</span>
+<span class="hljs-comment">return 0;</span>
+<span class="hljs-comment">&#125;<br></span></span></code></pre></td></tr></table></figure>
+
+<h3 id="条件格式4"><a href="#条件格式4" class="headerlink" title="条件格式4"></a>条件格式4</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c"><span <br><span class="hljs-comment">#if 表达式1</span>
+<span class="hljs-comment">语句段1</span>
+<span class="hljs-comment">#elif 表达式2</span>
+<span class="hljs-comment">语句段2</span>
+<span class="hljs-comment">#else</span>
+<br><span class="hljs-comment">语句段3</span>
+<span class="hljs-comment">#endif</span>
+<br><span class="hljs-comment">#define X64</span>
+<span class="hljs-comment">int main(void)</span>
+<span class="hljs-comment">&#123;</span>
+<span class="hljs-comment">#if defined(X64)</span>
+<span class="hljs-comment">print(“x64 platform specific\n”);</span>
+<span class="hljs-comment">#efit defined(X86)</span>
+<span class="hljs-comment">printf(“x86 platform specific\n”);</span>
+<span class="hljs-comment">#else</span>
+<span class="hljs-comment">printf(“common\n”);</span>
+<span class="hljs-comment">#endif</span>
+<span class="hljs-comment">return 0;</span>
+<span class="hljs-comment">&#125;<br></span></span></code></pre></td></tr></table></figure>
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/10/16/C%E8%AF%AD%E8%A8%80%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F%E6%B1%87%E6%80%BB/">← Next C语言输入格式汇总</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/10/12/linux/">linux Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#P7"><span class="toc-number">1.</span> <span class="toc-text">P7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P8"><span class="toc-number">2.</span> <span class="toc-text">P8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P9"><span class="toc-number">3.</span> <span class="toc-text">P9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P12"><span class="toc-number">4.</span> <span class="toc-text">P12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P13"><span class="toc-number">5.</span> <span class="toc-text">P13</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P15"><span class="toc-number">6.</span> <span class="toc-text">P15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P16"><span class="toc-number">7.</span> <span class="toc-text">P16</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P17"><span class="toc-number">8.</span> <span class="toc-text">P17</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P18"><span class="toc-number">9.</span> <span class="toc-text">P18</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P19"><span class="toc-number">10.</span> <span class="toc-text">P19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P20"><span class="toc-number">11.</span> <span class="toc-text">P20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-number">12.</span> <span class="toc-text">循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">13.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84-1"><span class="toc-number">14.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84"><span class="toc-number">15.</span> <span class="toc-text">字符数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">16.</span> <span class="toc-text">二维数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E7%BB%84"><span class="toc-number">17.</span> <span class="toc-text">字符串数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AE%BD%E5%AD%97%E8%8A%82%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">18.</span> <span class="toc-text">多字节字符串和宽字节字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%81%8D%E5%8E%86%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">19.</span> <span class="toc-text">字符串遍历的三种方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BA%93%E5%87%BD%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%9A"><span class="toc-number">20.</span> <span class="toc-text">字符串库函数的应用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#printf-printf-%E2%80%9C-ws%E2%80%9D-tprintf-T-%E2%80%9C-s%E2%80%9D-xx"><span class="toc-number">21.</span> <span class="toc-text">printf &#x2F; printf(“%ws”) &#x2F; _tprintf(_T(“%s”),xx)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strcpy-stecpy-s-tcslen"><span class="toc-number">22.</span> <span class="toc-text">strcpy &#x2F; stecpy_s &#x2F; _tcslen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wcscpy-wcscpy-s-wcsncpy"><span class="toc-number">23.</span> <span class="toc-text">wcscpy &#x2F; wcscpy_s &#x2F; wcsncpy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tcscpy-tcscpy-s-tcsncpy"><span class="toc-number">24.</span> <span class="toc-text">_tcscpy &#x2F; _tcscpy_s &#x2F; _tcsncpy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strcmp-strncmp-stricmp-strnicmp"><span class="toc-number">25.</span> <span class="toc-text">strcmp &#x2F; strncmp &#x2F; stricmp &#x2F; strnicmp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strcat-strcat-s-hello-world%EF%BC%8C%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="toc-number">26.</span> <span class="toc-text">strcat &#x2F; strcat_s   &#x2F;&#x2F;hello+world，文件路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strchr-strrchr-%E8%BF%94%E5%9B%9E%E4%BD%8D%E7%BD%AE%E5%9C%B0%E5%9D%80%EF%BC%8Cstr%EF%BC%8C%E6%B1%82%E6%96%87%E4%BB%B6%E5%90%8D%EF%BC%8C%E6%89%A9%E5%B1%95%E5%90%8D%E3%80%82"><span class="toc-number">27.</span> <span class="toc-text">strchr &#x2F; strrchr &#x2F;&#x2F;返回位置地址，str，求文件名，扩展名。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strstr"><span class="toc-number">28.</span> <span class="toc-text">strstr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strtok-strtok-s-ip%E5%9C%B0%E5%9D%80"><span class="toc-number">29.</span> <span class="toc-text">strtok &#x2F; strtok_s  &#x2F;&#x2F;ip地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-number">30.</span> <span class="toc-text">指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E6%98%AF%E4%B8%AA%E5%8F%98%E9%87%8F%E9%87%8C%E9%9D%A2%E5%AD%98%E6%94%BE%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80%E3%80%82"><span class="toc-number">31.</span> <span class="toc-text">指针是个变量里面存放内存地址。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%EF%BC%9A%E6%9C%89%E6%95%88%E5%9C%B0%E5%9D%80%EF%BC%8CNULL%E5%9C%B0%E5%9D%80%EF%BC%8C%E9%87%8E%E5%9C%B0%E5%9D%80%EF%BC%8C%E4%BF%A1%E5%B0%81%E5%9C%B0%E5%9D%80%E3%80%82"><span class="toc-number">32.</span> <span class="toc-text">地址：有效地址，NULL地址，野地址，信封地址。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="toc-number">33.</span> <span class="toc-text">指针类型和相互转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#void-p"><span class="toc-number">34.</span> <span class="toc-text">void *p</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E6%8C%87%E9%92%88"><span class="toc-number">35.</span> <span class="toc-text">字符指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88"><span class="toc-number">36.</span> <span class="toc-text">二级指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88-%E5%AD%98%E6%94%BE%E4%B8%80%E7%BA%A7%E6%8C%87%E9%92%88%E7%9A%84%E5%9C%B0%E5%9D%80"><span class="toc-number">37.</span> <span class="toc-text">二级指针:存放一级指针的地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">38.</span> <span class="toc-text">二级指针的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E5%8F%82"><span class="toc-number">39.</span> <span class="toc-text">传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-number">40.</span> <span class="toc-text">结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93-1"><span class="toc-number">41.</span> <span class="toc-text">结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%AE%9A%E4%B9%89-%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%8E%E6%88%90%E5%91%98%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="toc-number">42.</span> <span class="toc-text">结构体的定义,初始化与成员的访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE"><span class="toc-number">43.</span> <span class="toc-text">结构体指针访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">44.</span> <span class="toc-text">*与-&gt;,.运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-number">45.</span> <span class="toc-text">结构体中的结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88-1"><span class="toc-number">46.</span> <span class="toc-text">结构体中的指针-1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88-2-%E9%93%BE%E8%A1%A8%E5%92%8C%E6%A0%91"><span class="toc-number">47.</span> <span class="toc-text">结构体中的指针-2:链表和树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84"><span class="toc-number">48.</span> <span class="toc-text">结构体中的指针和数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E8%B5%8B%E5%80%BC%E6%97%B6%E7%9A%84%E6%8B%B7%E8%B4%9D"><span class="toc-number">49.</span> <span class="toc-text">结构体赋值时的拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">50.</span> <span class="toc-text">浅拷贝和深拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84"><span class="toc-number">51.</span> <span class="toc-text">结构体数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E5%81%9A%E5%8F%82%E6%95%B0"><span class="toc-number">52.</span> <span class="toc-text">结构体做参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8sizeof%E8%AE%A1%E7%AE%97%E7%BB%93%E6%9E%84%E4%BD%93%E9%95%BF%E5%BA%A6"><span class="toc-number">53.</span> <span class="toc-text">使用sizeof计算结构体长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E8%87%AA%E7%84%B6%E5%AF%B9%E9%BD%90"><span class="toc-number">54.</span> <span class="toc-text">结构体的自然对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%A6%82"><span class="toc-number">55.</span> <span class="toc-text">例如:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%88%E7%A9%BA%E9%97%B4%E7%9A%84%E5%AF%B9%E9%BD%90"><span class="toc-number">56.</span> <span class="toc-text">栈空间的对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E5%90%88%E4%BD%93"><span class="toc-number">57.</span> <span class="toc-text">联合体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E5%90%88%E4%BD%93-UNION"><span class="toc-number">58.</span> <span class="toc-text">联合体(UNION)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8E%E8%81%94%E5%90%88%E4%BD%93%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">59.</span> <span class="toc-text">结构体与联合体的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE"><span class="toc-number">60.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#define"><span class="toc-number">61.</span> <span class="toc-text">define</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91"><span class="toc-number">62.</span> <span class="toc-text">条件编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%A0%BC%E5%BC%8F3"><span class="toc-number">63.</span> <span class="toc-text">条件格式3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%A0%BC%E5%BC%8F4"><span class="toc-number">64.</span> <span class="toc-text">条件格式4</span></a></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
