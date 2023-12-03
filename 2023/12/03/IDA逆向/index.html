@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>IDA逆向 | Redclay's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: false});</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: Bender;
+ src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+ font-family: BenderLight;
+ src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+  --theme-encrypt-confirm: 'confirm'
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>IDA逆向</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-12-03T03:12:14.524Z" id="date"> 2023-12-03</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-12-03T03:22:38.236Z" id="updated"> 2023-12-03</time></div></span></div></div><hr><div id="post-content"><h2 id="哈希-SHA-1-信息摘要不可逆"><a href="#哈希-SHA-1-信息摘要不可逆" class="headerlink" title="哈希{SHA-1(信息摘要不可逆)}"></a>哈希{SHA-1(信息摘要<strong>不可逆</strong>)}</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hashlib 
+<span class="token keyword">def</span> <span class="token function">sha1_bruteforce</span><span class="token punctuation">(</span>target_hash<span class="token punctuation">,</span> password_length<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">,</span> charset<span class="token operator">=</span><span class="token string">"abcdefghijklmnopqrstuvwxyz0123456789"</span><span class="token punctuation">)</span><span class="token punctuation">:</span> 
+<span class="token keyword">import</span> itertools <span class="token comment"># 生成所有可能的密码组合 </span>
+passwords <span class="token operator">=</span> itertools<span class="token punctuation">.</span>product<span class="token punctuation">(</span>charset<span class="token punctuation">,</span> repeat<span class="token operator">=</span>password_length<span class="token punctuation">)</span> 
+<span class="token keyword">for</span> password <span class="token keyword">in</span> passwords<span class="token punctuation">:</span> <span class="token comment"># 将密码组合连接成字符串 </span>
+password_str <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>password<span class="token punctuation">)</span> <span class="token comment"># 计算密码的SHA-1哈希值 </span>
+hashed_password <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>sha1<span class="token punctuation">(</span>password_str<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 检查是否匹配目标哈希值 </span>
+<span class="token keyword">if</span> hashed_password <span class="token operator">==</span> target_hash<span class="token punctuation">:</span> <span class="token keyword">return</span> password_str <span class="token comment"># 返回找到的密码 </span>
+<span class="token keyword">return</span> <span class="token boolean">None</span> <span class="token comment"># 如果未找到匹配的密码 # 示例用法 </span>
+target_hash <span class="token operator">=</span> <span class="token string">"a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"</span> <span class="token comment"># 替换为目标SHA-1哈希值 </span>
+result <span class="token operator">=</span> sha1_bruteforce<span class="token punctuation">(</span>target_hash<span class="token punctuation">)</span> 
+<span class="token keyword">if</span> result<span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"成功找到密码: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>result<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span> 
+<span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"未找到匹配的密码"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>SHA-1的算法输出数据固定长度为20个字节.<br>MD5算法是一种广泛使用的Hash加密算法。它的输出为128位二进制数，通常用32位十六进制数表示。</p>
+<h2 id="base64的变表解密"><a href="#base64的变表解密" class="headerlink" title="base64的变表解密"></a>base64的变表解密</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> base64
+
+STANDARD_ALPHABET <span class="token operator">=</span> <span class="token string">b'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'</span>
+CUSTOM_ALPHABET <span class="token operator">=</span> <span class="token string">b'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'</span>
+<span class="token comment">#变换后的索引表</span>
+
+DECODE_TRANS <span class="token operator">=</span> <span class="token builtin">bytes</span><span class="token punctuation">.</span>maketrans<span class="token punctuation">(</span>CUSTOM_ALPHABET<span class="token punctuation">,</span> STANDARD_ALPHABET<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">decode</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">.</span>translate<span class="token punctuation">(</span>DECODE_TRANS<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+enstr <span class="token operator">=</span> <span class="token string">"MkJ5c0J2c3Z"</span>  <span class="token comment">#输入待解码的值</span>
+destr <span class="token operator">=</span> decode<span class="token punctuation">(</span>enstr<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>destr<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/11/26/%E9%80%86%E5%90%91/">逆向 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%B8%8C-SHA-1-%E4%BF%A1%E6%81%AF%E6%91%98%E8%A6%81%E4%B8%8D%E5%8F%AF%E9%80%86"><span class="toc-number">1.</span> <span class="toc-text">哈希{SHA-1(信息摘要不可逆)}</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#base64%E7%9A%84%E5%8F%98%E8%A1%A8%E8%A7%A3%E5%AF%86"><span class="toc-number">2.</span> <span class="toc-text">base64的变表解密</span></a></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
