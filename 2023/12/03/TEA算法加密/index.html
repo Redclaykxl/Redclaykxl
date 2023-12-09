@@ -16,8 +16,73 @@ if (window.localStorage.getItem('theme-mode') === 'dark')
   --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
   --light-background: url('/img/bk.jpg');
   --theme-encrypt-confirm: 'confirm'
-}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>TEA算法加密</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-12-03T11:11:40.834Z" id="date"> 2023-12-03</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-12-03T13:39:03.556Z" id="updated"> 2023-12-03</time></div></span></div></div><hr><div id="post-content"><p>TEA” 的全称为”Tiny Encryption Algorithm” 是1994年由英国剑桥大学的David j.wheeler发明的。<br>TEA算法也算是一种微型加密算法的。<br>在安全学领域，TEA（Tiny Encryption Algorithm）是一种分组加密算法.<br>TEA算法使用64位的明文分组和128位的密钥，它使用Feistel分组加密框架，需要进行64轮迭代，但是作者认为32轮已经足够了，所以32轮迭代加密后最后得到的密文就是64位。<br>简单的说就是,TEA加密解密是以原文以8字节（64位bit）为一组，密钥16字节（128位bit）为一组，（char为1字节，int为4字节，double为8字节），该算法加密轮次可变，作者建议为32轮，因为被加密的明文为64位，所以最终加密的结果也是64位.<br>TEA算法的特征是delta值和16字节的密钥（128位）以及32轮迭代</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/12/03/IDA%E9%80%86%E5%90%91/">IDA逆向 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>TEA算法加密</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-12-03T11:11:40.834Z" id="date"> 2023-12-03</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-12-08T13:52:10.427Z" id="updated"> 2023-12-08</time></div></span></div></div><hr><div id="post-content"><p>TEA” 的全称为”Tiny Encryption Algorithm” 是1994年由英国剑桥大学的David j.wheeler发明的。<br>TEA算法也算是一种微型加密算法的。<br>在安全学领域，TEA（Tiny Encryption Algorithm）是一种分组加密算法.<br>TEA算法使用64位的明文分组和128位的密钥，它使用Feistel分组加密框架，需要进行64轮迭代，但是作者认为32轮已经足够了，所以32轮迭代加密后最后得到的密文就是64位。<br>简单的说就是,TEA加密解密是以原文以8字节（64位bit）为一组，密钥16字节（128位bit）为一组，（char为1字节，int为4字节，double为8字节），该算法加密轮次可变，作者建议为32轮，因为被加密的明文为64位，所以最终加密的结果也是64位.<br>TEA算法的特征是delta值和16字节的密钥（128位）以及32轮迭代<br>以下为tea算法的实现</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;Windows.h&gt;
+ 
+void Encrypt(long* EntryData, long* Key)
+&#123;
+    &#x2F;&#x2F;分别加密数组中的前四个字节与后4个字节,4个字节为一组每次加密两组
+    unsigned long x &#x3D; EntryData[0];
+    unsigned long y &#x3D; EntryData[1];
+ 
+    unsigned long sum &#x3D; 0;
+    unsigned long delta &#x3D; 0x9E3779B9;
+    &#x2F;&#x2F;总共加密32轮
+    for (int i &#x3D; 0; i &lt; 32; i++)
+    &#123;
+        sum +&#x3D; delta;
+        x +&#x3D; ((y &lt;&lt; 4) + Key[0]) ^ (y + sum) ^ ((y &gt;&gt; 5) + Key[1]);
+        y +&#x3D; ((x &lt;&lt; 4) + Key[2]) ^ (x + sum) ^ ((x &gt;&gt; 5) + Key[3]);
+    &#125;
+    &#x2F;&#x2F;最后加密的结果重新写入到数组中
+    EntryData[0] &#x3D; x;
+    EntryData[1] &#x3D; y;
+&#125;
+ 
+void Decrypt(long* EntryData, long* Key)
+&#123;
+    &#x2F;&#x2F;分别加密数组中的前四个字节与后4个字节,4个字节为一组每次加密两组
+    unsigned long x &#x3D; EntryData[0];
+    unsigned long y &#x3D; EntryData[1];
+ 
+    unsigned long sum &#x3D; 0;
+    unsigned long delta &#x3D; 0x9E3779B9;
+    sum &#x3D; delta &lt;&lt; 5;   &#x2F;&#x2F;注意这里,sum &#x3D; 32轮之后的黄金分割值. 因为我们要反序解密.
+    &#x2F;&#x2F;总共加密32轮 那么反序也解密32轮
+    for (int i &#x3D; 0; i &lt; 32; i++)
+    &#123;
+ 
+        &#x2F;&#x2F; 先将y解开 然后参与运算在解x
+        y -&#x3D; ((x &lt;&lt; 4) + Key[2]) ^ (x + sum) ^ ((x &gt;&gt; 5) + Key[3]);
+        x -&#x3D; ((y &lt;&lt; 4) + Key[0]) ^ (y + sum) ^ ((y &gt;&gt; 5) + Key[1]);
+        sum -&#x3D; delta;
+    &#125;
+    &#x2F;&#x2F;最后加密的结果重新写入到数组中
+    EntryData[0] &#x3D; x;
+    EntryData[1] &#x3D; y;
+&#125;
+ 
+int main()
+&#123;
+ 
+ 
+ 
+    long Data[3] &#x3D; &#123; 0x44434241,0x48474645,0x0 &#125;;
+    printf(&quot;待加密的数值 &#x3D; %s\r\n&quot;, (char*)Data);
+ 
+    long key[4] &#x3D; &#123; 0x11223344,0x55667788,0x99AABBCC,0xDDEEFF11 &#125;;
+ 
+    &#x2F;&#x2F;Encrypt每次只是加密4字节数组中的两组(也就是每次加密8个字节) 如果你数据多.可以来个for循环来循环加密,但是Entrypt内部还有32次循环,所以速度上还是会有点影响.
+    Encrypt(Data, key);
+    printf(&quot;加密后的数值 &#x3D; %s\r\n&quot;, (char*)Data);
+    Decrypt(Data, key);
+    printf(&quot;解密后的数值 &#x3D; %s\r\n&quot;, (char*)Data);
+    system(&quot;pause&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/12/09/AES%E7%AE%97%E6%B3%95/">← Next AES算法</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/12/03/IDA%E9%80%86%E5%90%91/">IDA逆向 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
 lightGallery(document.getElementById('post-bg'), {
   plugins: [lgZoom,lgThumbnail],
   selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
