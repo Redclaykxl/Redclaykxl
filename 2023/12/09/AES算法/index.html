@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AES算法 | Redclay's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: false});</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+<!DOCTYPE html><html lang="en" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AES算法 | Redclay's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - $1 行","copy":"复制"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: false});</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
  document.documentElement.setAttribute('theme-mode', 'light')
 if (window.localStorage.getItem('theme-mode') === 'dark')
  document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
@@ -15,8 +15,8 @@ if (window.localStorage.getItem('theme-mode') === 'dark')
 }</style><style>:root {
   --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
   --light-background: url('/img/bk.jpg');
-  --theme-encrypt-confirm: 'confirm'
-}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>AES算法</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-12-09T06:29:49.745Z" id="date"> 2023-12-09</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-12-11T13:11:14.754Z" id="updated"> 2023-12-11</time></div></span></div></div><hr><div id="post-content"><p><strong>高级加密标准</strong>（英语：<strong>A</strong>dvanced <strong>E</strong>ncryption <strong>S</strong>tandard，[缩写]：AES），在[密码学]中又称<strong>Rijndael加密法</strong>，是[美国联邦政府]采用的一种[区块加密]标准。这个标准用来替代原先的[DES]，已经被多方分析且广为全世界所使用。经过五年的甄选流程，高级加密标准由[美国国家标准与技术研究院]（NIST）于2001年11月26日发布于FIPS PUB 197，并在2002年5月26日成为有效的标准。2006年，高级加密标准已然成为[对称密钥加密]中最流行的[算法]之一。</p>
+  --theme-encrypt-confirm: '确认'
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>AES算法</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2023-12-09T06:29:49.745Z" id="date"> 2023-12-09</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2023-12-12T11:32:56.157Z" id="updated"> 2023-12-12</time></div></span></div></div><hr><div id="post-content"><p><strong>高级加密标准</strong>（英语：<strong>A</strong>dvanced <strong>E</strong>ncryption <strong>S</strong>tandard，[缩写]：AES），在[密码学]中又称<strong>Rijndael加密法</strong>，是[美国联邦政府]采用的一种[区块加密]标准。这个标准用来替代原先的[DES]，已经被多方分析且广为全世界所使用。经过五年的甄选流程，高级加密标准由[美国国家标准与技术研究院]（NIST）于2001年11月26日发布于FIPS PUB 197，并在2002年5月26日成为有效的标准。2006年，高级加密标准已然成为[对称密钥加密]中最流行的[算法]之一。</p>
 <p>摘自<strong>Wikipedia</strong><br>以下是AES所用到的列表:</p>
 <p>AES-S-box</p>
 <table>
@@ -349,7 +349,1090 @@ if (window.localStorage.getItem('theme-mode') === 'dark')
 <p>逆S盒<br>unsigned char inv_S[256] &#x3D; { 0x52, 0x09, 0x6A, 0xD5, 0x30, 0x36, 0xA5, 0x38, 0xBF, 0x40, 0xA3, 0x9E, 0x81, 0xF3, 0xD7, 0xFB, 0x7C, 0xE3, 0x39, 0x82, 0x9B, 0x2F, 0xFF, 0x87, 0x34, 0x8E, 0x43, 0x44, 0xC4, 0xDE, 0xE9, 0xCB, 0x54, 0x7B, 0x94, 0x32, 0xA6, 0xC2, 0x23, 0x3D, 0xEE, 0x4C, 0x95, 0x0B, 0x42, 0xFA, 0xC3, 0x4E, 0x08, 0x2E, 0xA1, 0x66, 0x28, 0xD9, 0x24, 0xB2, 0x76, 0x5B, 0xA2, 0x49, 0x6D, 0x8B, 0xD1, 0x25, 0x72, 0xF8, 0xF6, 0x64, 0x86, 0x68, 0x98, 0x16, 0xD4, 0xA4, 0x5C, 0xCC, 0x5D, 0x65, 0xB6, 0x92, 0x6C, 0x70, 0x48, 0x50, 0xFD, 0xED, 0xB9, 0xDA, 0x5E, 0x15, 0x46, 0x57, 0xA7, 0x8D, 0x9D, 0x84, 0x90, 0xD8, 0xAB, 0x00, 0x8C, 0xBC, 0xD3, 0x0A, 0xF7, 0xE4, 0x58, 0x05, 0xB8, 0xB3, 0x45, 0x06, 0xD0, 0x2C, 0x1E, 0x8F, 0xCA, 0x3F, 0x0F, 0x02, 0xC1, 0xAF, 0xBD, 0x03, 0x01, 0x13, 0x8A, 0x6B, 0x3A, 0x91, 0x11, 0x41, 0x4F, 0x67, 0xDC, 0xEA, 0x97, 0xF2, 0xCF, 0xCE, 0xF0, 0xB4, 0xE6, 0x73, 0x96, 0xAC, 0x74, 0x22, 0xE7, 0xAD, 0x35, 0x85, 0xE2, 0xF9, 0x37, 0xE8, 0x1C, 0x75, 0xDF, 0x6E, 0x47, 0xF1, 0x1A, 0x71, 0x1D, 0x29, 0xC5, 0x89, 0x6F, 0xB7, 0x62, 0x0E, 0xAA, 0x18, 0xBE, 0x1B, 0xFC, 0x56, 0x3E, 0x4B, 0xC6, 0xD2, 0x79, 0x20, 0x9A, 0xDB, 0xC0, 0xFE, 0x78, 0xCD, 0x5A, 0xF4, 0x1F, 0xDD, 0xA8, 0x33, 0x88, 0x07, 0xC7, 0x31, 0xB1, 0x12, 0x10, 0x59, 0x27, 0x80, 0xEC, 0x5F, 0x60, 0x51, 0x7F, 0xA9, 0x19, 0xB5, 0x4A, 0x0D, 0x2D, 0xE5, 0x7A, 0x9F, 0x93, 0xC9, 0x9C, 0xEF, 0xA0, 0xE0, 0x3B, 0x4D, 0xAE, 0x2A, 0xF5, 0xB0, 0xC8, 0xEB, 0xBB, 0x3C, 0x83, 0x53, 0x99, 0x61, 0x17, 0x2B, 0x04, 0x7E, 0xBA, 0x77, 0xD6, 0x26, 0xE1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0C, 0x7D };</p>
 <p>分组密码有五种工作体制：<br>1.电码本模式（Electronic Codebook Book (ECB)）；<br>2.密码分组链接模式（Cipher Block Chaining (CBC)）；<br>3.计算器模式（Counter (CTR)）；<br>4.密码反馈模式（Cipher FeedBack (CFB)）；<br>5.输出反馈模式（Output FeedBack (OFB)）。</p>
 <p>AES算法的流程<br>字节替换,根据字节替换表对初始的数值进行替换,<br>行移位,对每一行的替换后的数据进行位移,</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/12/03/TEA%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/">TEA算法加密 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;
+
+#include &lt;stdint.h&gt;
+
+#include &lt;memory.h&gt;
+
+typedef enum &#123;
+
+AES_CYPHER_128,
+
+AES_CYPHER_192,
+
+AES_CYPHER_256,
+
+&#125; AES_CYPHER_T;
+
+&#x2F;*
+
+* Encryption Rounds
+
+*&#x2F;
+
+int g_aes_key_bits[] &#x3D; &#123;
+
+&#x2F;* AES_CYPHER_128 *&#x2F; 128,
+
+&#x2F;* AES_CYPHER_192 *&#x2F; 192,
+
+&#x2F;* AES_CYPHER_256 *&#x2F; 256,
+
+&#125;;
+
+int g_aes_rounds[] &#x3D; &#123;
+
+&#x2F;* AES_CYPHER_128 *&#x2F; 10,
+
+&#x2F;* AES_CYPHER_192 *&#x2F; 12,
+
+&#x2F;* AES_CYPHER_256 *&#x2F; 14,
+
+&#125;;
+
+int g_aes_nk[] &#x3D; &#123;
+
+&#x2F;* AES_CYPHER_128 *&#x2F; 4,
+
+&#x2F;* AES_CYPHER_192 *&#x2F; 6,
+
+&#x2F;* AES_CYPHER_256 *&#x2F; 8,
+
+&#125;;
+
+int g_aes_nb[] &#x3D; &#123;
+
+&#x2F;* AES_CYPHER_128 *&#x2F; 4,
+
+&#x2F;* AES_CYPHER_192 *&#x2F; 4,
+
+&#x2F;* AES_CYPHER_256 *&#x2F; 4,
+
+&#125;;
+
+&#x2F;*
+
+* aes Rcon:
+
+*
+
+* WARNING: Rcon is designed starting from 1 to 15, not 0 to 14.
+
+* FIPS-197 Page 9: &quot;note that i starts at 1, not 0&quot;
+
+*
+
+* i | 0 1 2 3 4 5 6 7 8 9 10 11
+
+12 13 14
+
+* -----+---------------------------------------------------------------------
+
+---------------------
+
+* | [01] [02] [04] [08] [10] [20] [40] [80] [1b] [36] [6c] [d8] [ab]
+
+[4d] [9a]
+
+* RCON | [00] [00] [00] [00] [00] [00] [00] [00] [00] [00] [00] [00] [00]
+
+[00] [00]
+
+* | [00] [00] [00] [00] [00] [00] [00] [00] [00] [00] [00] [00] [00]
+
+[00] [00]
+
+* | [00] [00] [00] [00] [00] [00] [00] [00] [00] [00] [00] [00] [00]
+
+[00] [00]
+
+*&#x2F;
+
+static const uint32_t g_aes_rcon[] &#x3D; &#123;
+
+0x01000000, 0x02000000, 0x04000000, 0x08000000, 0x10000000, 0x20000000,
+
+0x40000000, 0x80000000,
+
+0x1b000000, 0x36000000, 0x6c000000, 0xd8000000, 0xab000000, 0xed000000,
+
+0x9a000000
+
+&#125;;
+
+&#x2F;*
+
+* aes sbox and invert-sbox
+
+*&#x2F;
+
+static const uint8_t g_aes_sbox[256] &#x3D; &#123;
+
+&#x2F;* 0 1 2 3 4 5 6 7 8 9 A B
+
+C D E F *&#x2F;
+
+0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab,
+
+0x76,
+
+0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72,
+
+0xc0,
+
+0xb7, 0xfd, 0x93, 0x26, 0x36, 0x3f, 0xf7, 0xcc, 0x34, 0xa5, 0xe5, 0xf1, 0x71, 0xd8, 0x31,
+
+0x15,
+
+0x04, 0xc7, 0x23, 0xc3, 0x18, 0x96, 0x05, 0x9a, 0x07, 0x12, 0x80, 0xe2, 0xeb, 0x27, 0xb2,
+
+0x75,
+
+0x09, 0x83, 0x2c, 0x1a, 0x1b, 0x6e, 0x5a, 0xa0, 0x52, 0x3b, 0xd6, 0xb3, 0x29, 0xe3, 0x2f,
+
+0x84,
+
+0x53, 0xd1, 0x00, 0xed, 0x20, 0xfc, 0xb1, 0x5b, 0x6a, 0xcb, 0xbe, 0x39, 0x4a, 0x4c, 0x58,
+
+0xcf,
+
+0xd0, 0xef, 0xaa, 0xfb, 0x43, 0x4d, 0x33, 0x85, 0x45, 0xf9, 0x02, 0x7f, 0x50, 0x3c, 0x9f,
+
+0xa8,
+
+0x51, 0xa3, 0x40, 0x8f, 0x92, 0x9d, 0x38, 0xf5, 0xbc, 0xb6, 0xda, 0x21, 0x10, 0xff, 0xf3,
+
+0xd2,
+
+0xcd, 0x0c, 0x13, 0xec, 0x5f, 0x97, 0x44, 0x17, 0xc4, 0xa7, 0x7e, 0x3d, 0x64, 0x5d, 0x19,
+
+0x73,
+
+0x60, 0x81, 0x4f, 0xdc, 0x22, 0x2a, 0x90, 0x88, 0x46, 0xee, 0xb8, 0x14, 0xde, 0x5e, 0x0b,
+
+0xdb,
+
+0xe0, 0x32, 0x3a, 0x0a, 0x49, 0x06, 0x24, 0x5c, 0xc2, 0xd3, 0xac, 0x62, 0x91, 0x95, 0xe4,
+
+0x79,
+
+0xe7, 0xc8, 0x37, 0x6d, 0x8d, 0xd5, 0x4e, 0xa9, 0x6c, 0x56, 0xf4, 0xea, 0x65, 0x7a, 0xae,
+
+0x08,
+
+0xba, 0x78, 0x25, 0x2e, 0x1c, 0xa6, 0xb4, 0xc6, 0xe8, 0xdd, 0x74, 0x1f, 0x4b, 0xbd, 0x8b,
+
+0x8a,
+
+0x70, 0x3e, 0xb5, 0x66, 0x48, 0x03, 0xf6, 0x0e, 0x61, 0x35, 0x57, 0xb9, 0x86, 0xc1, 0x1d,
+
+0x9e,
+
+0xe1, 0xf8, 0x98, 0x11, 0x69, 0xd9, 0x8e, 0x94, 0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28,
+
+0xdf,
+
+0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb,
+
+0x16
+
+&#125;;
+
+static const uint8_t g_inv_sbox[256] &#x3D; &#123;
+
+&#x2F;* 0 1 2 3 4 5 6 7 8 9 A B
+
+C D E F *&#x2F;
+
+0x52, 0x09, 0x6a, 0xd5, 0x30, 0x36, 0xa5, 0x38, 0xbf, 0x40, 0xa3, 0x9e, 0x81, 0xf3, 0xd7,
+
+0xfb,
+
+0x7c, 0xe3, 0x39, 0x82, 0x9b, 0x2f, 0xff, 0x87, 0x34, 0x8e, 0x43, 0x44, 0xc4, 0xde, 0xe9,
+
+0xcb,
+
+0x54, 0x7b, 0x94, 0x32, 0xa6, 0xc2, 0x23, 0x3d, 0xee, 0x4c, 0x95, 0x0b, 0x42, 0xfa, 0xc3,
+
+0x4e,
+
+0x08, 0x2e, 0xa1, 0x66, 0x28, 0xd9, 0x24, 0xb2, 0x76, 0x5b, 0xa2, 0x49, 0x6d, 0x8b,
+
+0xd1, 0x25,
+
+0x72, 0xf8, 0xf6, 0x64, 0x86, 0x68, 0x98, 0x16, 0xd4, 0xa4, 0x5c, 0xcc, 0x5d, 0x65, 0xb6,
+
+0x92,
+
+0x6c, 0x70, 0x48, 0x50, 0xfd, 0xed, 0xb9, 0xda, 0x5e, 0x15, 0x46, 0x57, 0xa7, 0x8d, 0x9d,
+
+0x84,
+
+0x90, 0xd8, 0xab, 0x00, 0x8c, 0xbc, 0xd3, 0x0a, 0xf7, 0xe4, 0x58, 0x05, 0xb8, 0xb3, 0x45,
+
+0x06,
+
+0xd0, 0x2c, 0x1e, 0x8f, 0xca, 0x3f, 0x0f, 0x02, 0xc1, 0xaf, 0xbd, 0x03, 0x01, 0x13, 0x8a,
+
+0x6b,
+
+0x3a, 0x91, 0x11, 0x41, 0x4f, 0x67, 0xdc, 0xea, 0x97, 0xf2, 0xcf, 0xce, 0xf0, 0xb4, 0xe6,
+
+0x73,
+
+0x96, 0xac, 0x74, 0x22, 0xe7, 0xad, 0x35, 0x85, 0xe2, 0xf9, 0x37, 0xe8, 0x1c, 0x75, 0xdf,
+
+0x6e,
+
+0x47, 0xf1, 0x1a, 0x71, 0x1d, 0x29, 0xc5, 0x89, 0x6f, 0xb7, 0x62, 0x0e, 0xaa, 0x18, 0xbe,
+
+0x1b,
+
+0xfc, 0x56, 0x3e, 0x4b, 0xc6, 0xd2, 0x79, 0x20, 0x9a, 0xdb, 0xc0, 0xfe, 0x78, 0xcd, 0x5a,
+
+0xf4,
+
+0x1f, 0xdd, 0xa8, 0x33, 0x88, 0x07, 0xc7, 0x31, 0xb1, 0x12, 0x10, 0x59, 0x27, 0x80, 0xec,
+
+0x5f,
+
+0x60, 0x51, 0x7f, 0xa9, 0x19, 0xb5, 0x4a, 0x0d, 0x2d, 0xe5, 0x7a, 0x9f, 0x93, 0xc9, 0x9c,
+
+0xef,
+
+0xa0, 0xe0, 0x3b, 0x4d, 0xae, 0x2a, 0xf5, 0xb0, 0xc8, 0xeb, 0xbb, 0x3c, 0x83, 0x53, 0x99,
+
+0x61,
+
+0x17, 0x2b, 0x04, 0x7e, 0xba, 0x77, 0xd6, 0x26, 0xe1, 0x69, 0x14, 0x63, 0x55, 0x21,
+
+0x0c, 0x7d
+
+&#125;;
+
+uint8_t aes_sub_sbox(uint8_t val)
+
+&#123;
+
+return g_aes_sbox[val];
+
+&#125;
+
+uint32_t aes_sub_dword(uint32_t val)
+
+&#123;
+
+uint32_t tmp &#x3D; 0;
+
+tmp |&#x3D; ((uint32_t)aes_sub_sbox((uint8_t)((val &gt;&gt; 0) &amp; 0xFF))) &lt;&lt; 0;
+
+tmp |&#x3D; ((uint32_t)aes_sub_sbox((uint8_t)((val &gt;&gt; 8) &amp; 0xFF))) &lt;&lt; 8;
+
+tmp |&#x3D; ((uint32_t)aes_sub_sbox((uint8_t)((val &gt;&gt; 16) &amp; 0xFF))) &lt;&lt; 16;
+
+tmp |&#x3D; ((uint32_t)aes_sub_sbox((uint8_t)((val &gt;&gt; 24) &amp; 0xFF))) &lt;&lt; 24;
+
+return tmp;
+
+&#125;
+
+uint32_t aes_rot_dword(uint32_t val)
+
+&#123;
+
+uint32_t tmp &#x3D; val;
+
+return (val &gt;&gt; 8) | ((tmp &amp; 0xFF) &lt;&lt; 24);
+
+&#125;
+
+uint32_t aes_swap_dword(uint32_t val)
+
+&#123;
+
+return (((val &amp; 0x000000FF) &lt;&lt; 24) |
+
+((val &amp; 0x0000FF00) &lt;&lt; 8) |
+
+((val &amp; 0x00FF0000) &gt;&gt; 8) |
+
+((val &amp; 0xFF000000) &gt;&gt; 24));
+
+&#125;
+
+&#x2F;*
+
+* nr: number of rounds
+
+* nb: number of columns comprising the state, nb &#x3D; 4 dwords (16 bytes)
+
+* nk: number of 32-bit words comprising cipher key, nk &#x3D; 4, 6, 8 (KeyLength&#x2F;(4*8))
+
+*&#x2F;
+
+void aes_key_expansion(AES_CYPHER_T mode, uint8_t *key, uint8_t *round)
+
+&#123;
+
+uint32_t *w &#x3D; (uint32_t *)round;
+
+uint32_t t;
+
+int i &#x3D; 0;
+
+do &#123;
+
+w[i] &#x3D; *((uint32_t *)&amp;key[i * 4 + 0]);
+
+&#125; while (++i &lt; g_aes_nk[mode]);
+
+do &#123;
+
+if ((i % g_aes_nk[mode]) &#x3D;&#x3D; 0) &#123;
+
+t &#x3D; aes_rot_dword(w[i - 1]);
+
+t &#x3D; aes_sub_dword(t);
+
+t &#x3D; t ^ aes_swap_dword(g_aes_rcon[i &#x2F; g_aes_nk[mode] - 1]);
+
+&#125;
+
+else if (g_aes_nk[mode] &gt; 6 &amp;&amp; (i % g_aes_nk[mode]) &#x3D;&#x3D; 4) &#123;
+
+t &#x3D; aes_sub_dword(w[i - 1]);
+
+&#125;
+
+else &#123;
+
+t &#x3D; w[i - 1];
+
+&#125;
+
+w[i] &#x3D; w[i - g_aes_nk[mode]] ^ t;
+
+&#125; while (++i &lt; g_aes_nb[mode] * (g_aes_rounds[mode] + 1));
+
+&#125;
+
+void aes_add_round_key(AES_CYPHER_T mode, uint8_t *state,uint8_t *round, int nr)
+
+&#123;
+
+uint32_t *w &#x3D; (uint32_t *)round;
+
+uint32_t *s &#x3D; (uint32_t *)state;
+
+int i;
+
+for (i &#x3D; 0; i &lt; g_aes_nb[mode]; i++) &#123;
+
+s[i] ^&#x3D; w[nr * g_aes_nb[mode] + i];
+
+&#125; &#125;
+
+void aes_sub_bytes(AES_CYPHER_T mode, uint8_t *state)
+
+&#123;
+
+int i, j;
+
+for (i &#x3D; 0; i &lt; g_aes_nb[mode]; i++) &#123;
+
+for (j &#x3D; 0; j &lt; 4; j++) &#123;
+
+state[i * 4 + j] &#x3D; aes_sub_sbox(state[i * 4 + j]);
+
+&#125; &#125; &#125;
+
+void aes_shift_rows(AES_CYPHER_T mode, uint8_t *state)
+
+&#123;
+
+uint8_t *s &#x3D; (uint8_t *)state;
+
+int i, j, r;
+
+for (i &#x3D; 1; i &lt; g_aes_nb[mode]; i++) &#123;
+
+for (j &#x3D; 0; j &lt; i; j++) &#123;
+
+uint8_t tmp &#x3D; s[i];
+
+for (r &#x3D; 0; r &lt; g_aes_nb[mode]; r++) &#123;
+
+s[i + r * 4] &#x3D; s[i + (r + 1) * 4];
+
+&#125;
+
+s[i + (g_aes_nb[mode] - 1) * 4] &#x3D; tmp;
+
+&#125; &#125; &#125;
+
+uint8_t aes_xtime(uint8_t x)
+
+&#123;
+
+return ((x &lt;&lt; 1) ^ (((x &gt;&gt; 7) &amp; 1) * 0x1b));
+
+&#125;
+
+uint8_t aes_xtimes(uint8_t x, int ts)
+
+&#123;
+
+while (ts-- &gt; 0) &#123;
+
+x &#x3D; aes_xtime(x);
+
+&#125;
+
+return x;
+
+&#125;
+
+uint8_t aes_mul(uint8_t x, uint8_t y)
+
+&#123;
+
+&#x2F;*
+
+* encrypt: y has only 2 bits: can be 1, 2 or 3
+
+* decrypt: y could be any value of 9, b, d, or e
+
+*&#x2F;
+
+return ((((y &gt;&gt; 0) &amp; 1) * aes_xtimes(x, 0)) ^
+
+(((y &gt;&gt; 1) &amp; 1) * aes_xtimes(x, 1)) ^
+
+(((y &gt;&gt; 2) &amp; 1) * aes_xtimes(x, 2)) ^
+
+(((y &gt;&gt; 3) &amp; 1) * aes_xtimes(x, 3)) ^
+
+(((y &gt;&gt; 4) &amp; 1) * aes_xtimes(x, 4)) ^
+
+(((y &gt;&gt; 5) &amp; 1) * aes_xtimes(x, 5)) ^
+
+(((y &gt;&gt; 6) &amp; 1) * aes_xtimes(x, 6)) ^
+
+(((y &gt;&gt; 7) &amp; 1) * aes_xtimes(x, 7)));
+
+&#125;
+
+void aes_mix_columns(AES_CYPHER_T mode, uint8_t *state)
+
+&#123;
+
+uint8_t y[16] &#x3D; &#123; 2, 3, 1, 1, 1, 2, 3, 1, 1, 1, 2, 3, 3, 1, 1, 2 &#125;;
+
+uint8_t s[4];
+
+int i, j, r;
+
+for (i &#x3D; 0; i &lt; g_aes_nb[mode]; i++) &#123;
+
+for (r &#x3D; 0; r &lt; 4; r++) &#123;
+
+s[r] &#x3D; 0;
+
+for (j &#x3D; 0; j &lt; 4; j++) &#123;
+
+s[r] &#x3D; s[r] ^ aes_mul(state[i * 4 + j], y[r * 4 + j]);
+
+&#125; &#125;
+
+for (r &#x3D; 0; r &lt; 4; r++) &#123;
+
+state[i * 4 + r] &#x3D; s[r];
+
+&#125; &#125; &#125;
+
+int aes_encrypt(AES_CYPHER_T mode, uint8_t *data, int len, uint8_t *key)
+
+&#123;
+
+uint8_t w[4 * 4 * 15] &#x3D; &#123; 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39,
+
+ 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x72, 0x7C, 0x01, 0xC8,
+
+ 0x46, 0x49, 0x37, 0xFF, 0x7E, 0x70, 0x56, 0x9D, 0x1D, 0x14,
+
+ 0x33, 0xFB, 0x8A, 0xBF, 0x0E, 0x6C, 0xCC, 0xF6, 0x39, 0x93,
+
+ 0xB2, 0x86, 0x6F, 0x0E, 0xAF, 0x92, 0x5C, 0xF5, 0xC1, 0xF5,
+
+ 0xE8, 0x15, 0x0D, 0x03, 0xD1, 0x86, 0xBF, 0x85, 0xBE, 0x88,
+
+ 0x10, 0x17, 0xE2, 0x7D, 0x39, 0x6D, 0x17, 0xDF, 0x34, 0x6E,
+
+ 0xC6, 0x59, 0x8B, 0xEB, 0x78, 0xD1, 0x9B, 0xFC, 0x9A, 0xAC,
+
+ 0x99, 0xD5, 0x86, 0xCB, 0xAD, 0xBB, 0x40, 0x92, 0x26, 0x50,
+
+ 0x38, 0x43, 0xBD, 0xAC, 0xA2, 0xEF, 0x28, 0xEF, 0x59, 0xB1,
+
+ 0x85, 0x54, 0x19, 0x23, 0xA3, 0x04, 0x21, 0x60, 0x1E, 0xA8,
+
+ 0x83, 0x8F, 0xAA, 0x03, 0x2A, 0xC3, 0x2F, 0x57, 0x33, 0xE0,
+
+ 0x8C, 0x53, 0x12, 0x80, 0x92, 0xFB, 0x91, 0x0F, 0x25, 0x82,
+
+ 0x5C, 0x8C, 0x0A, 0xD5, 0x6F, 0x6C, 0x86, 0x86, 0x7D, 0xEC,
+
+ 0x14, 0x7D, 0xEC, 0xE3, 0xEC, 0x4C, 0x4D, 0x76, 0xE6, 0x99,
+
+ 0x22, 0x1A, 0x60, 0x1F, 0x5F, 0xF6, 0x74, 0x62, 0xB3, 0x15,
+
+ 0x5D, 0x21, 0x14, 0xE4, 0xBB, 0xB8, 0x36, 0xFE, 0xDB, 0xA7,
+
+ 0x69, 0x08, 0xAF, 0xC5, 0xDA, 0x1D &#125;; &#x2F;* round key *&#x2F;
+
+uint8_t s[4 * 4] &#x3D; &#123; 0 &#125;; &#x2F;* state *&#x2F;
+
+int nr, i, j;
+
+&#x2F;* key expansion *&#x2F;
+
+&#x2F;&#x2F; aes_key_expansion(mode, key, w);
+
+&#x2F;* start data cypher loop over input buffer *&#x2F;
+
+for (i &#x3D; 0; i &lt; len; i +&#x3D; 4 * g_aes_nb[mode]) &#123;
+
+&#x2F;* init state from user buffer (plaintext) *&#x2F;
+
+for (j &#x3D; 0; j &lt; 4 * g_aes_nb[mode]; j++)
+
+s[j] &#x3D; data[i + j];
+
+&#x2F;* start AES cypher loop over all AES rounds *&#x2F;
+
+for (nr &#x3D; 0; nr &lt;&#x3D; g_aes_rounds[mode]; nr++) &#123;
+
+if (nr &gt; 0) &#123;
+
+&#x2F;* do SubBytes *&#x2F;
+
+aes_sub_bytes(mode, s);
+
+&#x2F;* do ShiftRows *&#x2F;
+
+aes_shift_rows(mode, s);
+
+if (nr &lt; g_aes_rounds[mode]) &#123;
+
+&#x2F;* do MixColumns *&#x2F;
+
+aes_mix_columns(mode, s);
+
+&#125; &#125;
+
+&#x2F;* do AddRoundKey *&#x2F;
+
+aes_add_round_key(mode, s, w, nr);
+
+&#125;
+
+&#x2F;* save state (cypher) to user buffer *&#x2F;
+
+for (j &#x3D; 0; j &lt; 4 * g_aes_nb[mode]; j++)
+
+data[i + j] &#x3D; s[j];
+
+&#125;
+
+return 0;
+
+&#125;
+
+int aes_encrypt_ecb(AES_CYPHER_T mode, uint8_t *data, int len, uint8_t *key)
+
+&#123;
+
+return aes_encrypt(mode, data, len, key);
+
+&#125;
+
+int aes_encrypt_cbc(AES_CYPHER_T mode, uint8_t *data, int len, uint8_t *key, uint8_t *iv)
+
+&#123;
+
+uint8_t w[4 * 4 * 15] &#x3D; &#123; 0 &#125;; &#x2F;* round key *&#x2F;
+
+uint8_t s[4 * 4] &#x3D; &#123; 0 &#125;; &#x2F;* state *&#x2F;
+
+uint8_t v[4 * 4] &#x3D; &#123; 0 &#125;; &#x2F;* iv *&#x2F;
+
+int nr, i, j;
+
+&#x2F;* key expansion *&#x2F;
+
+aes_key_expansion(mode, key, w);
+
+memcpy(v, iv, sizeof(v));
+
+&#x2F;* start data cypher loop over input buffer *&#x2F;
+
+for (i &#x3D; 0; i &lt; len; i +&#x3D; 4 * g_aes_nb[mode]) &#123;
+
+&#x2F;* init state from user buffer (plaintext) *&#x2F;
+
+for (j &#x3D; 0; j &lt; 4 * g_aes_nb[mode]; j++)
+
+s[j] &#x3D; data[i + j] ^ v[j];
+
+&#x2F;* start AES cypher loop over all AES rounds *&#x2F;
+
+for (nr &#x3D; 0; nr &lt;&#x3D; g_aes_rounds[mode]; nr++) &#123;
+
+if (nr &gt; 0) &#123;
+
+&#x2F;* do SubBytes *&#x2F;
+
+aes_sub_bytes(mode, s);
+
+&#x2F;* do ShiftRows *&#x2F;
+
+aes_shift_rows(mode, s);
+
+if (nr &lt; g_aes_rounds[mode]) &#123;
+
+&#x2F;* do MixColumns *&#x2F;
+
+aes_mix_columns(mode, s);
+
+&#125; &#125;
+
+&#x2F;* do AddRoundKey *&#x2F;
+
+aes_add_round_key(mode, s, w, nr);
+
+&#125;
+
+&#x2F;* save state (cypher) to user buffer *&#x2F;
+
+for (j &#x3D; 0; j &lt; 4 * g_aes_nb[mode]; j++)
+
+data[i + j] &#x3D; v[j] &#x3D; s[j];
+
+&#125;
+
+return 0;
+
+&#125;
+
+void inv_shift_rows(AES_CYPHER_T mode, uint8_t *state)
+
+&#123;
+
+uint8_t *s &#x3D; (uint8_t *)state;
+
+int i, j, r;
+
+for (i &#x3D; 1; i &lt; g_aes_nb[mode]; i++) &#123;
+
+for (j &#x3D; 0; j &lt; g_aes_nb[mode] - i; j++) &#123;
+
+uint8_t tmp &#x3D; s[i];
+
+for (r &#x3D; 0; r &lt; g_aes_nb[mode]; r++) &#123;
+
+s[i + r * 4] &#x3D; s[i + (r + 1) * 4];
+
+&#125;
+
+s[i + (g_aes_nb[mode] - 1) * 4] &#x3D; tmp;
+
+&#125; &#125; &#125;
+
+uint8_t inv_sub_sbox(uint8_t val)
+
+&#123;
+
+return g_inv_sbox[val];
+
+&#125;
+
+void inv_sub_bytes(AES_CYPHER_T mode, uint8_t *state)
+
+&#123;
+
+int i, j;
+
+for (i &#x3D; 0; i &lt; g_aes_nb[mode]; i++) &#123;
+
+for (j &#x3D; 0; j &lt; 4; j++) &#123;
+
+state[i * 4 + j] &#x3D; inv_sub_sbox(state[i * 4 + j]);
+
+&#125; &#125; &#125;
+
+void inv_mix_columns(AES_CYPHER_T mode, uint8_t *state)
+
+&#123;
+
+uint8_t y[16] &#x3D; &#123; 0x0e, 0x0b, 0x0d, 0x09, 0x09, 0x0e, 0x0b, 0x0d,
+
+0x0d, 0x09, 0x0e, 0x0b, 0x0b, 0x0d, 0x09, 0x0e &#125;;
+
+uint8_t s[4];
+
+int i, j, r;
+
+for (i &#x3D; 0; i &lt; g_aes_nb[mode]; i++) &#123;
+
+for (r &#x3D; 0; r &lt; 4; r++) &#123;
+
+s[r] &#x3D; 0;
+
+for (j &#x3D; 0; j &lt; 4; j++) &#123;
+
+s[r] &#x3D; s[r] ^ aes_mul(state[i * 4 + j], y[r * 4 + j]);
+
+&#125; &#125;
+
+for (r &#x3D; 0; r &lt; 4; r++) &#123;
+
+state[i * 4 + r] &#x3D; s[r];
+
+&#125; &#125; &#125;
+
+int aes_decrypt(AES_CYPHER_T mode, uint8_t *data, int len, uint8_t *key)
+
+&#123;
+
+uint8_t w[4 * 4 * 15] &#x3D; &#123; 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39,
+
+ 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x72, 0x7C, 0x01, 0xC8,
+
+ 0x46, 0x49, 0x37, 0xFF, 0x7E, 0x70, 0x56, 0x9D, 0x1D, 0x14,
+
+ 0x33, 0xFB, 0x8A, 0xBF, 0x0E, 0x6C, 0xCC, 0xF6, 0x39, 0x93,
+
+ 0xB2, 0x86, 0x6F, 0x0E, 0xAF, 0x92, 0x5C, 0xF5, 0xC1, 0xF5,
+
+ 0xE8, 0x15, 0x0D, 0x03, 0xD1, 0x86, 0xBF, 0x85, 0xBE, 0x88,
+
+ 0x10, 0x17, 0xE2, 0x7D, 0x39, 0x6D, 0x17, 0xDF, 0x34, 0x6E,
+
+ 0xC6, 0x59, 0x8B, 0xEB, 0x78, 0xD1, 0x9B, 0xFC, 0x9A, 0xAC,
+
+ 0x99, 0xD5, 0x86, 0xCB, 0xAD, 0xBB, 0x40, 0x92, 0x26, 0x50,
+
+ 0x38, 0x43, 0xBD, 0xAC, 0xA2, 0xEF, 0x28, 0xEF, 0x59, 0xB1,
+
+ 0x85, 0x54, 0x19, 0x23, 0xA3, 0x04, 0x21, 0x60, 0x1E, 0xA8,
+
+ 0x83, 0x8F, 0xAA, 0x03, 0x2A, 0xC3, 0x2F, 0x57, 0x33, 0xE0,
+
+ 0x8C, 0x53, 0x12, 0x80, 0x92, 0xFB, 0x91, 0x0F, 0x25, 0x82,
+
+ 0x5C, 0x8C, 0x0A, 0xD5, 0x6F, 0x6C, 0x86, 0x86, 0x7D, 0xEC,
+
+ 0x14, 0x7D, 0xEC, 0xE3, 0xEC, 0x4C, 0x4D, 0x76, 0xE6, 0x99,
+
+ 0x22, 0x1A, 0x60, 0x1F, 0x5F, 0xF6, 0x74, 0x62, 0xB3, 0x15,
+
+ 0x5D, 0x21, 0x14, 0xE4, 0xBB, 0xB8, 0x36, 0xFE, 0xDB, 0xA7,
+
+ 0x69, 0x08, 0xAF, 0xC5, 0xDA, 0x1D &#125;; &#x2F;* round key *&#x2F;
+
+uint8_t s[4 * 4] &#x3D; &#123; 0 &#125;; &#x2F;* state *&#x2F;
+
+int nr, i, j;
+
+&#x2F;* key expansion *&#x2F;
+
+&#x2F;&#x2F; aes_key_expansion(mode, key, w);
+
+&#x2F;* start data cypher loop over input buffer *&#x2F;
+
+for (i &#x3D; 0; i &lt; len; i +&#x3D; 4 * g_aes_nb[mode]) &#123;
+
+&#x2F;* init state from user buffer (cyphertext) *&#x2F;
+
+for (j &#x3D; 0; j &lt; 4 * g_aes_nb[mode]; j++)
+
+s[j] &#x3D; data[i + j];
+
+&#x2F;* start AES cypher loop over all AES rounds *&#x2F;
+
+for (nr &#x3D; g_aes_rounds[mode]; nr &gt;&#x3D; 0; nr--) &#123;
+
+&#x2F;* do AddRoundKey *&#x2F;
+
+aes_add_round_key(mode, s, w, nr);
+
+if (nr &gt; 0) &#123;
+
+if (nr &lt; g_aes_rounds[mode]) &#123;
+
+&#x2F;* do MixColumns *&#x2F;
+
+inv_mix_columns(mode, s);
+
+&#125;
+
+&#x2F;* do ShiftRows *&#x2F;
+
+inv_shift_rows(mode, s);
+
+&#x2F;* do SubBytes *&#x2F;
+
+inv_sub_bytes(mode, s);
+
+&#125; &#125;
+
+&#x2F;* save state (cypher) to user buffer *&#x2F;
+
+for (j &#x3D; 0; j &lt; 4 * g_aes_nb[mode]; j++)
+
+data[i + j] &#x3D; s[j];
+
+&#125;
+
+return 0;
+
+&#125;
+
+int aes_decrypt_ecb(AES_CYPHER_T mode, uint8_t *data, int len, uint8_t *key)
+
+&#123;
+
+return aes_decrypt(mode, data, len, key);
+
+&#125;
+
+int aes_decrypt_cbc(AES_CYPHER_T mode, uint8_t *data, int len, uint8_t *key, uint8_t *iv)
+
+&#123;
+
+uint8_t w[4 * 4 * 15] &#x3D; &#123; 0 &#125;; &#x2F;* round key *&#x2F;
+
+uint8_t s[4 * 4] &#x3D; &#123; 0 &#125;; &#x2F;* state *&#x2F;
+
+uint8_t v[4 * 4] &#x3D; &#123; 0 &#125;; &#x2F;* iv *&#x2F;
+
+int nr, i, j;
+
+&#x2F;* key expansion *&#x2F;
+
+aes_key_expansion(mode, key, w);
+
+memcpy(v, iv, sizeof(v));
+
+&#x2F;* start data cypher loop over input buffer *&#x2F;
+
+for (i &#x3D; 0; i &lt; len; i +&#x3D; 4 * g_aes_nb[mode]) &#123;
+
+&#x2F;* init state from user buffer (cyphertext) *&#x2F;
+
+for (j &#x3D; 0; j &lt; 4 * g_aes_nb[mode]; j++)
+
+s[j] &#x3D; data[i + j];
+
+&#x2F;* start AES cypher loop over all AES rounds *&#x2F;
+
+for (nr &#x3D; g_aes_rounds[mode]; nr &gt;&#x3D; 0; nr--) &#123;
+
+&#x2F;* do AddRoundKey *&#x2F;
+
+aes_add_round_key(mode, s, w, nr);
+
+if (nr &gt; 0) &#123;
+
+if (nr &lt; g_aes_rounds[mode]) &#123;
+
+&#x2F;* do MixColumns *&#x2F;
+
+inv_mix_columns(mode, s);
+
+&#125;
+
+&#x2F;* do ShiftRows *&#x2F;
+
+inv_shift_rows(mode, s);
+
+&#x2F;* do SubBytes *&#x2F;
+
+inv_sub_bytes(mode, s);
+
+&#125; &#125;
+
+&#x2F;* save state (cypher) to user buffer *&#x2F;
+
+for (j &#x3D; 0; j &lt; 4 * g_aes_nb[mode]; j++) &#123;
+
+uint8_t p &#x3D; s[j] ^ v[j];
+
+v[j] &#x3D; data[i + j];
+
+data[i + j] &#x3D; p;
+
+&#125; &#125;
+
+return 0;
+
+&#125;
+
+int main()
+
+&#123;
+
+&#x2F;&#x2F;数据
+
+uint8_t buf[] &#x3D; &#123; 0xD1, 0xF7, 0xB4, 0x67, 0x72, 0x1E, 0x25, 0xBA, 0x44, 0x79,
+
+ 0x2D, 0xC5, 0xFC, 0x9A, 0xCF, 0x00, 0xA9, 0xA8, 0xF9, 0xED,
+
+ 0x4D, 0x0E, 0x74, 0x61, 0xB8, 0x17, 0x8D, 0x8F, 0xFD, 0x6D,
+
+ 0x1E, 0x65 &#125;;
+
+&#x2F;&#x2F;密钥
+
+uint8_t key[] &#x3D;
+
+&#123; 0x30,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x61,0x62,0x63,0x64,0x65,0x66 &#125;;
+
+&#x2F;&#x2F;向量
+
+uint8_t iv[] &#x3D;
+
+&#123; 0x01,0x23,0x45,0x67,0x89,0xab,0xcd,0xef,0xfe,0xdc,0xba,0x98,0x76,0x54,0x32,0x10 &#125;;
+
+&#x2F;&#x2F;模式 1-ECB 0-CBC
+
+bool ecb_or_cbc &#x3D; 1;
+
+&#x2F;&#x2F;加解密 1-加密 0-解密
+
+bool en_or_de &#x3D; 0;
+
+&#x2F;&#x2F;ECB 模式加密
+
+if(ecb_or_cbc&amp;&amp;en_or_de)
+
+&#123;
+
+switch (sizeof(key))
+
+&#123;
+
+case 16:aes_encrypt(AES_CYPHER_128, buf, sizeof(buf), key); break;
+
+case 24:aes_encrypt(AES_CYPHER_192, buf, sizeof(buf), key); break;
+
+case 32:aes_encrypt(AES_CYPHER_256, buf, sizeof(buf), key); break;
+
+&#125;
+
+&#x2F;&#x2F;打印数据
+
+for (int i &#x3D; 0; i &lt; sizeof(buf); i++)
+
+&#123;
+
+printf(&quot;0x%02x,&quot;, buf[i] &amp; 0xFF);
+
+&#125; &#125;
+
+&#x2F;&#x2F;ECB 模式解密
+
+else if(ecb_or_cbc&amp;&amp;(!en_or_de))
+
+&#123;
+
+switch (sizeof(key))
+
+&#123;
+
+case 16:aes_decrypt(AES_CYPHER_128, buf, sizeof(buf), key); break;
+
+case 24:aes_decrypt(AES_CYPHER_192, buf, sizeof(buf), key); break;
+
+case 32:aes_decrypt(AES_CYPHER_256, buf, sizeof(buf), key); break;
+
+&#125;
+
+&#x2F;&#x2F;打印数据
+
+for (int i &#x3D; 0; i &lt; sizeof(buf); i++)
+
+&#123;
+
+printf(&quot;%c&quot;, (buf[i] &amp; 0xFF)^0x66);
+
+&#125; &#125;
+
+&#x2F;&#x2F;CBC 模式加密
+
+else if((!ecb_or_cbc)&amp;&amp;en_or_de)
+
+&#123;
+
+switch (sizeof(key))
+
+&#123;
+
+case 16:aes_encrypt_cbc(AES_CYPHER_128, buf, sizeof(buf), key, iv); break;
+
+case 24:aes_encrypt_cbc(AES_CYPHER_192, buf, sizeof(buf), key, iv); break;
+
+case 32:aes_encrypt_cbc(AES_CYPHER_256, buf, sizeof(buf), key, iv); break;
+
+&#125;
+
+&#x2F;&#x2F;打印数据
+
+for (int i &#x3D; 0; i &lt; sizeof(buf); i++)
+
+&#123;
+
+printf(&quot;0x%02x,&quot;, buf[i] &amp; 0xFF);
+
+&#125; &#125;
+
+&#x2F;&#x2F;CBC 模式解密
+
+else
+
+&#123;
+
+switch (sizeof(key))
+
+&#123;
+
+case 16:aes_decrypt_cbc(AES_CYPHER_128, buf, sizeof(buf), key, iv); break;
+
+case 24:aes_decrypt_cbc(AES_CYPHER_192, buf, sizeof(buf), key, iv); break;
+
+case 32:aes_decrypt_cbc(AES_CYPHER_256, buf, sizeof(buf), key, iv); break;
+
+&#125;
+
+&#x2F;&#x2F;打印数据
+
+for (int i &#x3D; 0; i &lt; sizeof(buf); i++)
+
+&#123;
+
+printf(&quot;%c&quot;, buf[i] &amp; 0xFF);
+
+&#125; &#125;
+
+printf(&quot;\n&quot;);
+
+return 0;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以上为ECB和CBC模式的解法.</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/12/03/TEA%E7%AE%97%E6%B3%95%E5%8A%A0%E5%AF%86/">TEA算法加密 上一篇 →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
 lightGallery(document.getElementById('post-bg'), {
   plugins: [lgZoom,lgThumbnail],
   selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
