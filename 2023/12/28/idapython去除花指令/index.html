@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>idapython去除花指令 | Redclay's blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script>mermaid.initialize({startOnLoad: false});</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: Bender;
+ src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+ font-family: BenderLight;
+ src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/img/bk.jpg');
+  --theme-encrypt-confirm: 'confirm'
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>idapython去除花指令</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-12-27T16:00:00.000Z" id="date"> 2023-12-28</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-12-28T14:02:18.971Z" id="updated"> 2023-12-28</time></div></span></div></div><hr><div id="post-content"><pre class="line-numbers language-python" data-language="python"><code class="language-python">startadr <span class="token operator">=</span> <span class="token number">0x1144</span>
+endaddr <span class="token operator">=</span> <span class="token number">0x3100</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>startaddr<span class="token punctuation">,</span>endaddr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> get_wide_byte<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0xEB</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> get_wide_byte<span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0xFF</span><span class="token punctuation">;</span>
+			patch_byte<span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">0x90</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先判断的EB(jmp的机械码),在判断jmp之后的是否为FF,如果是就把EB改为nop即0x90.</p>
+<p>jnx与jx<br>jnz和jz<br>这两种汇编指令连用的时候就是花指令的主要特征之一,但是还不能完全确定,需要进一步的确认他的跳转结果,比如跳到一个nop上了,那就是一个花指令.</p>
+<table>
+<thead>
+<tr>
+<th>机械码</th>
+<th>汇编语言</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>9A</td>
+<td>CALL immed32</td>
+</tr>
+<tr>
+<td>E8</td>
+<td>CALL immed16</td>
+</tr>
+<tr>
+<td>E9</td>
+<td>JMP immed16</td>
+</tr>
+<tr>
+<td>EB</td>
+<td>JMP immed8</td>
+</tr>
+</tbody></table>
+<p>push ebp —-把基址指针寄存器压入堆栈<br>pop ebp —-把基址指针寄存器弹出堆栈<br>push eax —-把数据寄存器压入堆栈<br>pop eax —-把数据寄存器弹出堆栈<br>nop —–不执行<br>add esp,1—–指针寄存器加1<br>sub esp,-1—–指针寄存器加1<br>add esp,-1——–指针寄存器减1<br>sub esp,1—–指针寄存器减1<br>inc ecx —–计数器加1<br>dec ecx —–计数器减1<br>sub esp,1 —-指针寄存器-1<br>sub esp,-1—-指针寄存器加1<br>jmp 入口地址—-跳到程序入口地址<br>push 入口地址—把入口地址压入堆栈<br>retn —— 反回到入口地址,效果与jmp 入口地址一样<br>mov eax,入口地址 ——把入口地址转送到数据寄存器中.<br>jmp eax —– 跳到程序入口地址<br>jb 入口地址<br>jnb 入口地址 ——效果和jmp 入口地址一样,直接跳到程序入口地址<br>xor eax,eax 寄存器EAX清0<br>CALL 空白命令的地址 无效call</p>
+<p>使用精确标志寄存器进行永恒跳转<br>利用函数返回值进行永恒跳转,<br>    例如使用不存在的模块就会返回NULL这个值,借此来构造永恒跳转<br>有时候花指令的垃圾数据换成一些特征的特征码.可以对应的“定位功能”“定位功能”，尤其在<strong>SMC自解码</strong>这个反调试技术中可以运用。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">ea <span class="token operator">=</span> idc<span class="token punctuation">.</span>get_screen_ea<span class="token punctuation">(</span><span class="token punctuation">)</span>
+value <span class="token operator">=</span> idc<span class="token punctuation">.</span>get_wide_byte<span class="token punctuation">(</span>ea<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"我是没被修改的当前=  &#123;&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">hex</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ida_bytes<span class="token punctuation">.</span>patch_byte<span class="token punctuation">(</span>ea<span class="token punctuation">,</span><span class="token number">0x90</span><span class="token punctuation">)</span>
+ 
+value <span class="token operator">=</span> idc<span class="token punctuation">.</span>get_wide_byte<span class="token punctuation">(</span>ea<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"我被修改过了当前我的值为 &#123;&#125; "</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">hex</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="获取指令相关数据"><a href="#获取指令相关数据" class="headerlink" title="获取指令相关数据"></a>获取指令相关数据</h3><p>ScreenEA()或者here()获取光标所在地址<br>idc.GetOpType(ea,n) 获取操作数类型</p>
+<p>o_void- 0 不含有操作数的指令返回0，如：retn<br>o_reg- 1 寄存器，如：pop edi<br>o_mem- 2 内存引用，如：cmp ds:dword_A152B8, 0<br>o_phrase- 3 寄存器寻址，如：mov [edi+ecx], eax<br>o_displ- 4 偏移寻址，如：mov eax, [edi+18h]<br>o_imm- 5 直接数，如：add esp, 0Ch<br>o_far- 6 x86和x86_64很少用到<br>o_near- 7 x86和x86_64很少用到</p>
+<p>idc.GetOperandValue(ea, n) 获取操作数引用的地址(取值)<br>idc.GetOpnd(ea,n) 获取操作数 如rdx(取符号)<br>idc.GetMnem(ea) 获取操作符 如 mov<br>idc.GetDisasm(ea) 获取汇编 如mov rdx, rdi</p>
+<p>idautils.Functions() 将返回一个已知函数列表。这个列表将包含起始地址的每一个函数。<br>start &#x3D; idc.GetFunctionAttr(ea, FUNCATTR_START) 获取函数起始地址<br>end &#x3D; idc.GetFunctionAttr(ea, FUNCATTR_END) 获取函数结束地址（实际是结束地址的下一个地址）<br>idautils.FuncItems(ea)- 返回当前函数所有指令，需要list(FuncItems(ea))转化为list<br>idc.NextHead(ea)- 返回下一条指令<br>idc.PrevHead(ea)- 返回上一条指令<br>idc.NextAddr(ea)- 返回下一地址<br>idc.PrevAddr(ea)- 返回上一地址<br>遍历函数指令最好使用idc.GetFunctionAttr(),因为如果存在异常处理，上面四个会遍历很多不属于函数的指令</p>
+<p><strong>段</strong></p>
+<p>Segments()<br>    返回目标程序中的所有段的开始地址。<br>SegName( long Address )<br>    通过段内的某个地址，获得段名。<br>SegStart( long Address )<br>    通过段内的某个地址，获得段头的地址。<br>SegEnd( long Address )<br>    通过段内的某个地址，获得段尾的地址。<br>SegByName( string SegmentName )<br>    通过段名字返回段基址，举个例子，如果调用.text 作为参数，就会返回程序中代码段的开始 位置。<br>NextSeg()<br>    访问下一个段，如果没有就返回 BADADDR。<br>FirstSeg()<br>    访问程序中的第一个段。</p>
+<p><strong>Patch</strong></p>
+<p>idc.PatchByte(ea, value)<br>idc.PatchWord(ea, value)<br>idc.PatchDword(ea, value)</p>
+<h3 id="使用python去花"><a href="#使用python去花" class="headerlink" title="使用python去花"></a>使用python去花</h3><p>使用手动输入地址的方式要把需要更改的区域切换成数据的形式.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">startaddr <span class="token operator">=</span> 0x<span class="token punctuation">(</span><span class="token punctuation">.</span>text地址<span class="token punctuation">)</span>
+endaddr <span class="token operator">=</span> 0x<span class="token punctuation">(</span><span class="token punctuation">.</span>text地址<span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>startaddr<span class="token punctuation">,</span>endaddr<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+	<span class="token keyword">if</span> get_wide_byte<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0xEB</span><span class="token punctuation">:</span><span class="token comment">#需要去除掉花指令  </span>
+		<span class="token keyword">if</span> get_wide_byte<span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0xFF</span><span class="token punctuation">:</span>  
+			patch_byte<span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">0x90</span><span class="token punctuation">)</span><span class="token comment">#nop指令的16进制为90h</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/12/28/%E4%BD%BF%E7%94%A8%E8%8A%B1%E6%8C%87%E4%BB%A4%E6%97%B6,%E6%9C%BA%E6%A2%B0%E7%A0%81%E7%9A%84%E4%BD%BF%E7%94%A8/">使用花指令时,机械码的使用 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Redclay</a></h1><div id="description"><p>An easy blog</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E4%BB%A4%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE"><span class="toc-number">1.</span> <span class="toc-text">获取指令相关数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8python%E5%8E%BB%E8%8A%B1"><span class="toc-number">2.</span> <span class="toc-text">使用python去花</span></a></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/lib/encrypt/hbe.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
